@@ -1,0 +1,99 @@
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
+import * as DocumentsAPI from './documents';
+
+export class Documents extends APIResource {
+  /**
+   * Create a document for beneficial owner
+   */
+  create(id: string, body: DocumentCreateParams, options?: Core.RequestOptions): Core.APIPromise<void> {
+    return this._client.post(
+      `/beneficial-owners/${id}/documents`,
+      Core.multipartFormRequestOptions({ body, ...options, headers: { Accept: '*/*', ...options?.headers } }),
+    );
+  }
+
+  /**
+   * List document for beneficial owner
+   */
+  list(id: string, options?: Core.RequestOptions): Core.APIPromise<DocumentListResponse> {
+    return this._client.get(`/beneficial-owners/${id}/documents`, options);
+  }
+}
+
+export interface DocumentListResponse {
+  _embedded?: DocumentListResponse._Embedded;
+
+  _links?: Record<string, DocumentListResponse._Links>;
+
+  total?: number;
+}
+
+export namespace DocumentListResponse {
+  export interface _Embedded {
+    documents?: Array<_Embedded.Document>;
+  }
+
+  export namespace _Embedded {
+    export interface Document {
+      id?: string;
+
+      _links?: Document._Links;
+
+      allFailureReasons?: Array<Document.AllFailureReason>;
+
+      created?: string;
+
+      documentVerificationStatus?: string;
+
+      failureReason?: string;
+
+      status?: string;
+
+      type?: string;
+    }
+
+    export namespace Document {
+      export interface _Links {
+        self?: _Links.Self;
+      }
+
+      export namespace _Links {
+        export interface Self {
+          href?: string;
+
+          'resource-type'?: string;
+
+          type?: string;
+        }
+      }
+
+      export interface AllFailureReason {
+        description?: string;
+
+        reason?: string;
+      }
+    }
+  }
+
+  export interface _Links {
+    href?: string;
+
+    'resource-type'?: string;
+
+    type?: string;
+  }
+}
+
+export interface DocumentCreateParams {
+  documentType?: string;
+
+  file?: Core.Uploadable;
+}
+
+export namespace Documents {
+  export import DocumentListResponse = DocumentsAPI.DocumentListResponse;
+  export import DocumentCreateParams = DocumentsAPI.DocumentCreateParams;
+}
