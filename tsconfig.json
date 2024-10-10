@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "dwolla/_shims/auto/*": ["src/_shims/auto/*-node"],
-      "dwolla/*": ["src/*"],
-      "dwolla": ["src/index.ts"],
+      "dwolla-stainless-node/_shims/auto/*": ["src/_shims/auto/*-node"],
+      "dwolla-stainless-node/*": ["src/*"],
+      "dwolla-stainless-node": ["src/index.ts"],
     },
     "noEmit": true,
 

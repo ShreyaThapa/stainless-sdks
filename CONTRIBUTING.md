@@ -55,12 +55,12 @@ $ cd stainless-sdks
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link dwolla
+$ yarn link dwolla-stainless-node
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global dwolla
+$ pnpm link -—global dwolla-stainless-node
 ```
 
 ## Running tests
