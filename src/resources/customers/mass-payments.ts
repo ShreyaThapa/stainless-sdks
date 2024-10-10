@@ -4,6 +4,7 @@ import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as MassPaymentsAPI from './mass-payments';
+import * as Shared from '../shared';
 
 export class MassPayments extends APIResource {
   /**
@@ -30,7 +31,7 @@ export class MassPayments extends APIResource {
 export interface MassPaymentListResponse {
   _embedded?: MassPaymentListResponse._Embedded;
 
-  _links?: Record<string, MassPaymentListResponse._Links>;
+  _links?: Record<string, Shared.HalLink>;
 
   total?: number;
 }
@@ -44,7 +45,7 @@ export namespace MassPaymentListResponse {
     export interface MassPayment {
       id?: string;
 
-      _links?: Record<string, MassPayment._Links>;
+      _links?: Record<string, Shared.HalLink>;
 
       correlationId?: string;
 
@@ -54,40 +55,10 @@ export namespace MassPaymentListResponse {
 
       status?: string;
 
-      total?: MassPayment.Total;
+      total?: Shared.TransferAmount;
 
-      totalFees?: MassPayment.TotalFees;
+      totalFees?: Shared.TransferAmount;
     }
-
-    export namespace MassPayment {
-      export interface _Links {
-        href?: string;
-
-        'resource-type'?: string;
-
-        type?: string;
-      }
-
-      export interface Total {
-        currency: string;
-
-        value: string;
-      }
-
-      export interface TotalFees {
-        currency: string;
-
-        value: string;
-      }
-    }
-  }
-
-  export interface _Links {
-    href?: string;
-
-    'resource-type'?: string;
-
-    type?: string;
   }
 }
 

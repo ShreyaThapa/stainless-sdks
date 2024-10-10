@@ -3,6 +3,7 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as TransfersAPI from './transfers';
+import * as Shared from '../shared';
 import * as FailureAPI from './failure';
 import * as FeesAPI from './fees';
 
@@ -39,7 +40,7 @@ export class Transfers extends APIResource {
 export interface TransferRetrieveResponse {
   id?: string;
 
-  _links?: Record<string, TransferRetrieveResponse._Links>;
+  _links?: Record<string, Shared.HalLink>;
 
   achDetails?: TransferRetrieveResponse.ACHDetails;
 
@@ -61,14 +62,6 @@ export interface TransferRetrieveResponse {
 }
 
 export namespace TransferRetrieveResponse {
-  export interface _Links {
-    href?: string;
-
-    'resource-type'?: string;
-
-    type?: string;
-  }
-
   export interface ACHDetails {
     destination?: ACHDetails.Destination;
 
@@ -139,7 +132,7 @@ export interface TransferCancelParams {
 export interface TransferInitiateParams {
   _links: TransferInitiateParams._Links;
 
-  amount: TransferInitiateParams.Amount;
+  amount: Shared.TransferAmount;
 
   achDetails?: TransferInitiateParams.ACHDetails;
 
@@ -171,12 +164,6 @@ export namespace TransferInitiateParams {
     export interface Source {
       href?: string;
     }
-  }
-
-  export interface Amount {
-    currency: string;
-
-    value: string;
   }
 
   export interface ACHDetails {

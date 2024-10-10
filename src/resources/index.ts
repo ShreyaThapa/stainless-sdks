@@ -1,5 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+export * from './shared';
 export { AccountRetrieveResponse, Accounts } from './accounts/accounts';
 export {
   BeneficialOwnerRetrieveResponse,
@@ -14,6 +15,12 @@ export {
   BusinessClassifications,
 } from './business-classifications';
 export {
+  Controller,
+  UnverifiedBusinessCustomer,
+  UnverifiedCustomer,
+  VerifiedBusinessCustomer,
+  VerifiedPersonalCustomer,
+  VerifiedSolePropCustomer,
   CustomerRetrieveResponse,
   CustomerUpdateResponse,
   CustomerListResponse,
@@ -31,11 +38,7 @@ export {
   ExchangeCreateParams,
   Exchanges,
 } from './exchanges';
-export {
-  ExchangePartnerRetrieveResponse,
-  ExchangePartnerListResponse,
-  ExchangePartners,
-} from './exchange-partners';
+export { ExchangePartnerRetrieveResponse, ExchangePartners } from './exchange-partners';
 export {
   FundingSourceRetrieveResponse,
   FundingSourceUpdateResponse,
@@ -51,7 +54,6 @@ export {
 } from './label-reallocations';
 export { LabelRetrieveResponse, LabelRemoveResponse, Labels } from './labels/labels';
 export { LedgerEntryRetrieveResponse, LedgerEntries } from './ledger-entries';
-export { MassPaymentItemRetrieveResponse, MassPaymentItems } from './mass-payment-items';
 export {
   MassPaymentRetrieveResponse,
   MassPaymentUpdateResponse,

@@ -8,7 +8,7 @@ import * as API from './resources/index';
 
 const environments = {
   production: 'https://api.dwolla.com',
-  environment_1: 'https://api-sandbox.dwolla.com',
+  sandbox: 'https://api-sandbox.dwolla.com',
 };
 type Environment = keyof typeof environments;
 
@@ -33,7 +33,7 @@ export interface ClientOptions {
    *
    * Each environment maps to a different base URL:
    * - `production` corresponds to `https://api.dwolla.com`
-   * - `environment_1` corresponds to `https://api-sandbox.dwolla.com`
+   * - `sandbox` corresponds to `https://api-sandbox.dwolla.com`
    */
   environment?: Environment;
 
@@ -184,7 +184,6 @@ export class Dwolla extends Core.APIClient {
   transfers: API.Transfers = new API.Transfers(this);
   onDemandAuthorizations: API.OnDemandAuthorizations = new API.OnDemandAuthorizations(this);
   massPayments: API.MassPayments = new API.MassPayments(this);
-  massPaymentItems: API.MassPaymentItems = new API.MassPaymentItems(this);
   labels: API.Labels = new API.Labels(this);
   ledgerEntries: API.LedgerEntries = new API.LedgerEntries(this);
   labelReallocations: API.LabelReallocations = new API.LabelReallocations(this);
@@ -293,6 +292,12 @@ export namespace Dwolla {
   export import FundingSourceUpdateParams = API.FundingSourceUpdateParams;
 
   export import Customers = API.Customers;
+  export import Controller = API.Controller;
+  export import UnverifiedBusinessCustomer = API.UnverifiedBusinessCustomer;
+  export import UnverifiedCustomer = API.UnverifiedCustomer;
+  export import VerifiedBusinessCustomer = API.VerifiedBusinessCustomer;
+  export import VerifiedPersonalCustomer = API.VerifiedPersonalCustomer;
+  export import VerifiedSolePropCustomer = API.VerifiedSolePropCustomer;
   export import CustomerRetrieveResponse = API.CustomerRetrieveResponse;
   export import CustomerUpdateResponse = API.CustomerUpdateResponse;
   export import CustomerListResponse = API.CustomerListResponse;
@@ -333,9 +338,6 @@ export namespace Dwolla {
   export import MassPaymentCreateParams = API.MassPaymentCreateParams;
   export import MassPaymentUpdateParams = API.MassPaymentUpdateParams;
 
-  export import MassPaymentItems = API.MassPaymentItems;
-  export import MassPaymentItemRetrieveResponse = API.MassPaymentItemRetrieveResponse;
-
   export import Labels = API.Labels;
   export import LabelRetrieveResponse = API.LabelRetrieveResponse;
   export import LabelRemoveResponse = API.LabelRemoveResponse;
@@ -365,13 +367,18 @@ export namespace Dwolla {
 
   export import ExchangePartners = API.ExchangePartners;
   export import ExchangePartnerRetrieveResponse = API.ExchangePartnerRetrieveResponse;
-  export import ExchangePartnerListResponse = API.ExchangePartnerListResponse;
 
   export import Exchanges = API.Exchanges;
   export import ExchangeCreateResponse = API.ExchangeCreateResponse;
   export import ExchangeRetrieveResponse = API.ExchangeRetrieveResponse;
   export import ExchangeListResponse = API.ExchangeListResponse;
   export import ExchangeCreateParams = API.ExchangeCreateParams;
+
+  export import ExchangePartners = API.ExchangePartners;
+  export import HalLink = API.HalLink;
+  export import InternationalAddress = API.InternationalAddress;
+  export import Passport = API.Passport;
+  export import TransferAmount = API.TransferAmount;
 }
 
 export default Dwolla;

@@ -14,6 +14,16 @@ export class Webhooks extends APIResource {
   retrieve(id: string, options?: Core.RequestOptions): Core.APIPromise<WebhookRetrieveResponse> {
     return this._client.get(`/webhooks/${id}`, options);
   }
+
+  /**
+   * Retry a webhook
+   */
+  retry(id: string, options?: Core.RequestOptions): Core.APIPromise<void> {
+    return this._client.post(`/webhooks/${id}/retries`, {
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
+  }
 }
 
 export interface WebhookRetrieveResponse {

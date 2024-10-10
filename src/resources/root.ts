@@ -3,6 +3,7 @@
 import { APIResource } from '../resource';
 import * as Core from '../core';
 import * as RootAPI from './root';
+import * as Shared from './shared';
 
 export class Root extends APIResource {
   /**
@@ -14,17 +15,7 @@ export class Root extends APIResource {
 }
 
 export interface RootListResponse {
-  _links?: Record<string, RootListResponse._Links>;
-}
-
-export namespace RootListResponse {
-  export interface _Links {
-    href?: string;
-
-    'resource-type'?: string;
-
-    type?: string;
-  }
+  _links?: Record<string, Shared.HalLink>;
 }
 
 export namespace Root {

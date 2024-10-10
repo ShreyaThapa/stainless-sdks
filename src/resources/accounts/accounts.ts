@@ -3,6 +3,7 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as AccountsAPI from './accounts';
+import * as Shared from '../shared';
 import * as FundingSourcesAPI from './funding-sources';
 import * as MassPaymentsAPI from './mass-payments';
 import * as TransfersAPI from './transfers';
@@ -23,7 +24,7 @@ export class Accounts extends APIResource {
 export interface AccountRetrieveResponse {
   id?: string;
 
-  _links?: Record<string, AccountRetrieveResponse._Links>;
+  _links?: Record<string, Shared.HalLink>;
 
   address?: AccountRetrieveResponse.Address;
 
@@ -49,14 +50,6 @@ export interface AccountRetrieveResponse {
 }
 
 export namespace AccountRetrieveResponse {
-  export interface _Links {
-    href?: string;
-
-    'resource-type'?: string;
-
-    type?: string;
-  }
-
   export interface Address {
     address1: string;
 

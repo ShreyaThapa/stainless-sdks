@@ -4,6 +4,7 @@ import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as CustomersAPI from './customers';
+import * as Shared from '../shared';
 import * as BeneficialOwnersAPI from './beneficial-owners';
 import * as BeneficialOwnershipAPI from './beneficial-ownership';
 import * as DocumentsAPI from './documents';
@@ -91,410 +92,169 @@ export class Customers extends APIResource {
 }
 
 /**
- * Shared models between all Customer types
+ * Controller JSON Object for Customer responses
  */
-export type CustomerRetrieveResponse =
-  | CustomerRetrieveResponse.UnverifiedCustomer
-  | CustomerRetrieveResponse.UnverifiedBusinessCustomer
-  | CustomerRetrieveResponse.VerifiedPersonalCustomer
-  | CustomerRetrieveResponse.VerifiedSolePropCustomer
-  | CustomerRetrieveResponse.VerifiedBusinessCustomer;
+export interface Controller {
+  address?: Controller.Address;
 
-export namespace CustomerRetrieveResponse {
-  /**
-   * Shared models between all Customer types
-   */
-  export interface UnverifiedCustomer {
-    id?: string;
+  firstName?: string;
 
-    _links?: unknown;
+  lastName?: string;
 
-    correlationId?: string;
+  title?: string;
+}
 
-    created?: string;
-
-    email?: string;
-
-    firstName?: string;
-
-    lastName?: string;
-
-    status?: string;
-
-    type?: string;
-  }
-
-  export interface UnverifiedBusinessCustomer {
-    id?: string;
-
-    _links?: unknown;
-
-    businessName?: string;
-
-    correlationId?: string;
-
-    created?: string;
-
-    email?: string;
-
-    firstName?: string;
-
-    lastName?: string;
-
-    status?: string;
-
-    type?: string;
-  }
-
-  export interface VerifiedPersonalCustomer {
-    id?: string;
-
-    _links?: unknown;
-
+export namespace Controller {
+  export interface Address {
     address1?: string;
 
     address2?: string;
 
-    city?: string;
-
-    correlationId?: string;
-
-    created?: string;
-
-    email?: string;
-
-    firstName?: string;
-
-    lastName?: string;
-
-    postalCode?: string;
-
-    state?: string;
-
-    status?: string;
-
-    type?: string;
-  }
-
-  export interface VerifiedSolePropCustomer {
-    id?: string;
-
-    _links?: unknown;
-
-    address1?: string;
-
-    address2?: string;
-
-    businessClassification?: string;
-
-    businessName?: string;
-
-    businessType?: string;
+    address3?: string;
 
     city?: string;
 
-    correlationId?: string;
-
-    created?: string;
-
-    email?: string;
-
-    firstName?: string;
-
-    lastName?: string;
+    country?: string;
 
     postalCode?: string;
 
-    state?: string;
-
-    status?: string;
-
-    type?: string;
-  }
-
-  export interface VerifiedBusinessCustomer {
-    id?: string;
-
-    _links?: unknown;
-
-    address1?: string;
-
-    address2?: string;
-
-    businessClassification?: string;
-
-    businessName?: string;
-
-    businessType?: string;
-
-    city?: string;
-
-    /**
-     * Controller JSON Object for Customer responses
-     */
-    controller?: VerifiedBusinessCustomer.Controller;
-
-    correlationId?: string;
-
-    created?: string;
-
-    doingBusinessAs?: string;
-
-    email?: string;
-
-    firstName?: string;
-
-    lastName?: string;
-
-    phone?: string;
-
-    postalCode?: string;
-
-    state?: string;
-
-    status?: string;
-
-    type?: string;
-
-    website?: string;
-  }
-
-  export namespace VerifiedBusinessCustomer {
-    /**
-     * Controller JSON Object for Customer responses
-     */
-    export interface Controller {
-      address?: Controller.Address;
-
-      firstName?: string;
-
-      lastName?: string;
-
-      title?: string;
-    }
-
-    export namespace Controller {
-      export interface Address {
-        address1?: string;
-
-        address2?: string;
-
-        address3?: string;
-
-        city?: string;
-
-        country?: string;
-
-        postalCode?: string;
-
-        stateProvinceRegion?: string;
-      }
-    }
+    stateProvinceRegion?: string;
   }
 }
 
 /**
  * Shared models between all Customer types
  */
-export type CustomerUpdateResponse =
-  | CustomerUpdateResponse.UnverifiedCustomer
-  | CustomerUpdateResponse.UnverifiedBusinessCustomer
-  | CustomerUpdateResponse.VerifiedPersonalCustomer
-  | CustomerUpdateResponse.VerifiedSolePropCustomer
-  | CustomerUpdateResponse.VerifiedBusinessCustomer;
+export interface UnverifiedBusinessCustomer extends UnverifiedCustomer {
+  businessName?: string;
 
-export namespace CustomerUpdateResponse {
-  /**
-   * Shared models between all Customer types
-   */
-  export interface UnverifiedCustomer {
-    id?: string;
+  status?: string;
 
-    _links?: unknown;
-
-    correlationId?: string;
-
-    created?: string;
-
-    email?: string;
-
-    firstName?: string;
-
-    lastName?: string;
-
-    status?: string;
-
-    type?: string;
-  }
-
-  export interface UnverifiedBusinessCustomer {
-    id?: string;
-
-    _links?: unknown;
-
-    businessName?: string;
-
-    correlationId?: string;
-
-    created?: string;
-
-    email?: string;
-
-    firstName?: string;
-
-    lastName?: string;
-
-    status?: string;
-
-    type?: string;
-  }
-
-  export interface VerifiedPersonalCustomer {
-    id?: string;
-
-    _links?: unknown;
-
-    address1?: string;
-
-    address2?: string;
-
-    city?: string;
-
-    correlationId?: string;
-
-    created?: string;
-
-    email?: string;
-
-    firstName?: string;
-
-    lastName?: string;
-
-    postalCode?: string;
-
-    state?: string;
-
-    status?: string;
-
-    type?: string;
-  }
-
-  export interface VerifiedSolePropCustomer {
-    id?: string;
-
-    _links?: unknown;
-
-    address1?: string;
-
-    address2?: string;
-
-    businessClassification?: string;
-
-    businessName?: string;
-
-    businessType?: string;
-
-    city?: string;
-
-    correlationId?: string;
-
-    created?: string;
-
-    email?: string;
-
-    firstName?: string;
-
-    lastName?: string;
-
-    postalCode?: string;
-
-    state?: string;
-
-    status?: string;
-
-    type?: string;
-  }
-
-  export interface VerifiedBusinessCustomer {
-    id?: string;
-
-    _links?: unknown;
-
-    address1?: string;
-
-    address2?: string;
-
-    businessClassification?: string;
-
-    businessName?: string;
-
-    businessType?: string;
-
-    city?: string;
-
-    /**
-     * Controller JSON Object for Customer responses
-     */
-    controller?: VerifiedBusinessCustomer.Controller;
-
-    correlationId?: string;
-
-    created?: string;
-
-    doingBusinessAs?: string;
-
-    email?: string;
-
-    firstName?: string;
-
-    lastName?: string;
-
-    phone?: string;
-
-    postalCode?: string;
-
-    state?: string;
-
-    status?: string;
-
-    type?: string;
-
-    website?: string;
-  }
-
-  export namespace VerifiedBusinessCustomer {
-    /**
-     * Controller JSON Object for Customer responses
-     */
-    export interface Controller {
-      address?: Controller.Address;
-
-      firstName?: string;
-
-      lastName?: string;
-
-      title?: string;
-    }
-
-    export namespace Controller {
-      export interface Address {
-        address1?: string;
-
-        address2?: string;
-
-        address3?: string;
-
-        city?: string;
-
-        country?: string;
-
-        postalCode?: string;
-
-        stateProvinceRegion?: string;
-      }
-    }
-  }
+  type?: string;
 }
+
+/**
+ * Shared models between all Customer types
+ */
+export interface UnverifiedCustomer {
+  id?: string;
+
+  _links?: unknown;
+
+  correlationId?: string;
+
+  created?: string;
+
+  email?: string;
+
+  firstName?: string;
+
+  lastName?: string;
+
+  status?: string;
+
+  type?: string;
+}
+
+/**
+ * Shared models between all Customer types
+ */
+export interface VerifiedBusinessCustomer extends UnverifiedCustomer {
+  address1?: string;
+
+  address2?: string;
+
+  businessClassification?: string;
+
+  businessName?: string;
+
+  businessType?: string;
+
+  city?: string;
+
+  /**
+   * Controller JSON Object for Customer responses
+   */
+  controller?: Controller;
+
+  doingBusinessAs?: string;
+
+  phone?: string;
+
+  postalCode?: string;
+
+  state?: string;
+
+  status?: string;
+
+  type?: string;
+
+  website?: string;
+}
+
+/**
+ * Shared models between all Customer types
+ */
+export interface VerifiedPersonalCustomer extends UnverifiedCustomer {
+  address1?: string;
+
+  address2?: string;
+
+  city?: string;
+
+  postalCode?: string;
+
+  state?: string;
+
+  status?: string;
+
+  type?: string;
+}
+
+/**
+ * Shared models between all Customer types
+ */
+export interface VerifiedSolePropCustomer extends UnverifiedCustomer {
+  address1?: string;
+
+  address2?: string;
+
+  businessClassification?: string;
+
+  businessName?: string;
+
+  businessType?: string;
+
+  city?: string;
+
+  postalCode?: string;
+
+  state?: string;
+
+  status?: string;
+
+  type?: string;
+}
+
+/**
+ * Shared models between all Customer types
+ */
+export type CustomerRetrieveResponse =
+  | UnverifiedCustomer
+  | UnverifiedBusinessCustomer
+  | VerifiedPersonalCustomer
+  | VerifiedSolePropCustomer
+  | VerifiedBusinessCustomer;
+
+/**
+ * Shared models between all Customer types
+ */
+export type CustomerUpdateResponse =
+  | UnverifiedCustomer
+  | UnverifiedBusinessCustomer
+  | VerifiedPersonalCustomer
+  | VerifiedSolePropCustomer
+  | VerifiedBusinessCustomer;
 
 export interface CustomerListResponse {
   _embedded?: CustomerListResponse._Embedded;
@@ -505,205 +265,12 @@ export interface CustomerListResponse {
 export namespace CustomerListResponse {
   export interface _Embedded {
     customers?: Array<
-      | _Embedded.UnverifiedCustomer
-      | _Embedded.UnverifiedBusinessCustomer
-      | _Embedded.VerifiedPersonalCustomer
-      | _Embedded.VerifiedSolePropCustomer
-      | _Embedded.VerifiedBusinessCustomer
+      | CustomersAPI.UnverifiedCustomer
+      | CustomersAPI.UnverifiedBusinessCustomer
+      | CustomersAPI.VerifiedPersonalCustomer
+      | CustomersAPI.VerifiedSolePropCustomer
+      | CustomersAPI.VerifiedBusinessCustomer
     >;
-  }
-
-  export namespace _Embedded {
-    /**
-     * Shared models between all Customer types
-     */
-    export interface UnverifiedCustomer {
-      id?: string;
-
-      _links?: unknown;
-
-      correlationId?: string;
-
-      created?: string;
-
-      email?: string;
-
-      firstName?: string;
-
-      lastName?: string;
-
-      status?: string;
-
-      type?: string;
-    }
-
-    export interface UnverifiedBusinessCustomer {
-      id?: string;
-
-      _links?: unknown;
-
-      businessName?: string;
-
-      correlationId?: string;
-
-      created?: string;
-
-      email?: string;
-
-      firstName?: string;
-
-      lastName?: string;
-
-      status?: string;
-
-      type?: string;
-    }
-
-    export interface VerifiedPersonalCustomer {
-      id?: string;
-
-      _links?: unknown;
-
-      address1?: string;
-
-      address2?: string;
-
-      city?: string;
-
-      correlationId?: string;
-
-      created?: string;
-
-      email?: string;
-
-      firstName?: string;
-
-      lastName?: string;
-
-      postalCode?: string;
-
-      state?: string;
-
-      status?: string;
-
-      type?: string;
-    }
-
-    export interface VerifiedSolePropCustomer {
-      id?: string;
-
-      _links?: unknown;
-
-      address1?: string;
-
-      address2?: string;
-
-      businessClassification?: string;
-
-      businessName?: string;
-
-      businessType?: string;
-
-      city?: string;
-
-      correlationId?: string;
-
-      created?: string;
-
-      email?: string;
-
-      firstName?: string;
-
-      lastName?: string;
-
-      postalCode?: string;
-
-      state?: string;
-
-      status?: string;
-
-      type?: string;
-    }
-
-    export interface VerifiedBusinessCustomer {
-      id?: string;
-
-      _links?: unknown;
-
-      address1?: string;
-
-      address2?: string;
-
-      businessClassification?: string;
-
-      businessName?: string;
-
-      businessType?: string;
-
-      city?: string;
-
-      /**
-       * Controller JSON Object for Customer responses
-       */
-      controller?: VerifiedBusinessCustomer.Controller;
-
-      correlationId?: string;
-
-      created?: string;
-
-      doingBusinessAs?: string;
-
-      email?: string;
-
-      firstName?: string;
-
-      lastName?: string;
-
-      phone?: string;
-
-      postalCode?: string;
-
-      state?: string;
-
-      status?: string;
-
-      type?: string;
-
-      website?: string;
-    }
-
-    export namespace VerifiedBusinessCustomer {
-      /**
-       * Controller JSON Object for Customer responses
-       */
-      export interface Controller {
-        address?: Controller.Address;
-
-        firstName?: string;
-
-        lastName?: string;
-
-        title?: string;
-      }
-
-      export namespace Controller {
-        export interface Address {
-          address1?: string;
-
-          address2?: string;
-
-          address3?: string;
-
-          city?: string;
-
-          country?: string;
-
-          postalCode?: string;
-
-          stateProvinceRegion?: string;
-        }
-      }
-    }
   }
 }
 
@@ -877,7 +444,7 @@ export namespace CustomerCreateParams {
      * Controller object with SSN
      */
     export interface ControllerWithSsn {
-      address: ControllerWithSsn.Address;
+      address: Shared.InternationalAddress;
 
       dateOfBirth: string;
 
@@ -890,29 +457,11 @@ export namespace CustomerCreateParams {
       title: string;
     }
 
-    export namespace ControllerWithSsn {
-      export interface Address {
-        address1: string;
-
-        city: string;
-
-        country: string;
-
-        stateProvinceRegion: string;
-
-        address2?: string;
-
-        address3?: string;
-
-        postalCode?: string;
-      }
-    }
-
     /**
      * Controller object with Passport
      */
     export interface ControllerWithPassport {
-      address: ControllerWithPassport.Address;
+      address: Shared.InternationalAddress;
 
       dateOfBirth: string;
 
@@ -920,33 +469,9 @@ export namespace CustomerCreateParams {
 
       lastName: string;
 
-      passport: ControllerWithPassport.Passport;
+      passport: Shared.Passport;
 
       title: string;
-    }
-
-    export namespace ControllerWithPassport {
-      export interface Address {
-        address1: string;
-
-        city: string;
-
-        country: string;
-
-        stateProvinceRegion: string;
-
-        address2?: string;
-
-        address3?: string;
-
-        postalCode?: string;
-      }
-
-      export interface Passport {
-        country: string;
-
-        number: string;
-      }
     }
   }
 }
@@ -1098,7 +623,7 @@ export namespace CustomerUpdateParams {
      * Controller object with SSN
      */
     export interface ControllerWithSsn {
-      address: ControllerWithSsn.Address;
+      address: Shared.InternationalAddress;
 
       dateOfBirth: string;
 
@@ -1111,29 +636,11 @@ export namespace CustomerUpdateParams {
       title: string;
     }
 
-    export namespace ControllerWithSsn {
-      export interface Address {
-        address1: string;
-
-        city: string;
-
-        country: string;
-
-        stateProvinceRegion: string;
-
-        address2?: string;
-
-        address3?: string;
-
-        postalCode?: string;
-      }
-    }
-
     /**
      * Controller object with Passport
      */
     export interface ControllerWithPassport {
-      address: ControllerWithPassport.Address;
+      address: Shared.InternationalAddress;
 
       dateOfBirth: string;
 
@@ -1141,33 +648,9 @@ export namespace CustomerUpdateParams {
 
       lastName: string;
 
-      passport: ControllerWithPassport.Passport;
+      passport: Shared.Passport;
 
       title: string;
-    }
-
-    export namespace ControllerWithPassport {
-      export interface Address {
-        address1: string;
-
-        city: string;
-
-        country: string;
-
-        stateProvinceRegion: string;
-
-        address2?: string;
-
-        address3?: string;
-
-        postalCode?: string;
-      }
-
-      export interface Passport {
-        country: string;
-
-        number: string;
-      }
     }
   }
 
@@ -1299,7 +782,7 @@ export namespace CustomerUpdateParams {
      * Controller object with SSN
      */
     export interface ControllerWithSsn {
-      address: ControllerWithSsn.Address;
+      address: Shared.InternationalAddress;
 
       dateOfBirth: string;
 
@@ -1312,29 +795,11 @@ export namespace CustomerUpdateParams {
       title: string;
     }
 
-    export namespace ControllerWithSsn {
-      export interface Address {
-        address1: string;
-
-        city: string;
-
-        country: string;
-
-        stateProvinceRegion: string;
-
-        address2?: string;
-
-        address3?: string;
-
-        postalCode?: string;
-      }
-    }
-
     /**
      * Controller object with Passport
      */
     export interface ControllerWithPassport {
-      address: ControllerWithPassport.Address;
+      address: Shared.InternationalAddress;
 
       dateOfBirth: string;
 
@@ -1342,33 +807,9 @@ export namespace CustomerUpdateParams {
 
       lastName: string;
 
-      passport: ControllerWithPassport.Passport;
+      passport: Shared.Passport;
 
       title: string;
-    }
-
-    export namespace ControllerWithPassport {
-      export interface Address {
-        address1: string;
-
-        city: string;
-
-        country: string;
-
-        stateProvinceRegion: string;
-
-        address2?: string;
-
-        address3?: string;
-
-        postalCode?: string;
-      }
-
-      export interface Passport {
-        country: string;
-
-        number: string;
-      }
     }
   }
 
@@ -1438,6 +879,12 @@ export interface CustomerListParams {
 }
 
 export namespace Customers {
+  export import Controller = CustomersAPI.Controller;
+  export import UnverifiedBusinessCustomer = CustomersAPI.UnverifiedBusinessCustomer;
+  export import UnverifiedCustomer = CustomersAPI.UnverifiedCustomer;
+  export import VerifiedBusinessCustomer = CustomersAPI.VerifiedBusinessCustomer;
+  export import VerifiedPersonalCustomer = CustomersAPI.VerifiedPersonalCustomer;
+  export import VerifiedSolePropCustomer = CustomersAPI.VerifiedSolePropCustomer;
   export import CustomerRetrieveResponse = CustomersAPI.CustomerRetrieveResponse;
   export import CustomerUpdateResponse = CustomersAPI.CustomerUpdateResponse;
   export import CustomerListResponse = CustomersAPI.CustomerListResponse;

@@ -3,6 +3,7 @@
 import { APIResource } from '../resource';
 import * as Core from '../core';
 import * as DocumentsAPI from './documents';
+import * as Shared from './shared';
 
 export class Documents extends APIResource {
   /**
@@ -33,17 +34,7 @@ export interface DocumentRetrieveResponse {
 
 export namespace DocumentRetrieveResponse {
   export interface _Links {
-    self?: _Links.Self;
-  }
-
-  export namespace _Links {
-    export interface Self {
-      href?: string;
-
-      'resource-type'?: string;
-
-      type?: string;
-    }
+    self?: Shared.HalLink;
   }
 
   export interface AllFailureReason {

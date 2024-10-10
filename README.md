@@ -27,7 +27,7 @@ import Dwolla from 'dwolla';
 
 const client = new Dwolla({
   bearerToken: process.env['BEARER_TOKEN'], // This is the default and can be omitted
-  environment: 'environment_1', // defaults to 'production'
+  environment: 'sandbox', // defaults to 'production'
 });
 
 async function main() {
@@ -49,7 +49,7 @@ import Dwolla from 'dwolla';
 
 const client = new Dwolla({
   bearerToken: process.env['BEARER_TOKEN'], // This is the default and can be omitted
-  environment: 'environment_1', // defaults to 'production'
+  environment: 'sandbox', // defaults to 'production'
 });
 
 async function main() {

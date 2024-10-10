@@ -3,6 +3,7 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as FailureAPI from './failure';
+import * as Shared from '../shared';
 
 export class Failure extends APIResource {
   /**
@@ -14,23 +15,13 @@ export class Failure extends APIResource {
 }
 
 export interface FailureRetrieveResponse {
-  _links?: Record<string, FailureRetrieveResponse._Links>;
+  _links?: Record<string, Shared.HalLink>;
 
   code?: string;
 
   description?: string;
 
   explanation?: string;
-}
-
-export namespace FailureRetrieveResponse {
-  export interface _Links {
-    href?: string;
-
-    'resource-type'?: string;
-
-    type?: string;
-  }
 }
 
 export namespace Failure {

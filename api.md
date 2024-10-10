@@ -1,3 +1,13 @@
+# Shared
+
+Types:
+
+- <code><a href="./src/resources/shared.ts">ExchangePartners</a></code>
+- <code><a href="./src/resources/shared.ts">HalLink</a></code>
+- <code><a href="./src/resources/shared.ts">InternationalAddress</a></code>
+- <code><a href="./src/resources/shared.ts">Passport</a></code>
+- <code><a href="./src/resources/shared.ts">TransferAmount</a></code>
+
 # Tokens
 
 Types:
@@ -106,6 +116,12 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/customers/customers.ts">Controller</a></code>
+- <code><a href="./src/resources/customers/customers.ts">UnverifiedBusinessCustomer</a></code>
+- <code><a href="./src/resources/customers/customers.ts">UnverifiedCustomer</a></code>
+- <code><a href="./src/resources/customers/customers.ts">VerifiedBusinessCustomer</a></code>
+- <code><a href="./src/resources/customers/customers.ts">VerifiedPersonalCustomer</a></code>
+- <code><a href="./src/resources/customers/customers.ts">VerifiedSolePropCustomer</a></code>
 - <code><a href="./src/resources/customers/customers.ts">CustomerRetrieveResponse</a></code>
 - <code><a href="./src/resources/customers/customers.ts">CustomerUpdateResponse</a></code>
 - <code><a href="./src/resources/customers/customers.ts">CustomerListResponse</a></code>
@@ -349,21 +365,13 @@ Methods:
 
 Types:
 
+- <code><a href="./src/resources/mass-payments/items.ts">ItemRetrieveResponse</a></code>
 - <code><a href="./src/resources/mass-payments/items.ts">ItemListResponse</a></code>
 
 Methods:
 
+- <code title="get /mass-payment-items/{id}">client.massPayments.items.<a href="./src/resources/mass-payments/items.ts">retrieve</a>(id) -> ItemRetrieveResponse</code>
 - <code title="get /mass-payments/{id}/items">client.massPayments.items.<a href="./src/resources/mass-payments/items.ts">list</a>(id, { ...params }) -> ItemListResponse</code>
-
-# MassPaymentItems
-
-Types:
-
-- <code><a href="./src/resources/mass-payment-items.ts">MassPaymentItemRetrieveResponse</a></code>
-
-Methods:
-
-- <code title="get /mass-payment-items/{id}">client.massPaymentItems.<a href="./src/resources/mass-payment-items.ts">retrieve</a>(id) -> MassPaymentItemRetrieveResponse</code>
 
 # Labels
 
@@ -457,6 +465,7 @@ Types:
 Methods:
 
 - <code title="get /webhooks/{id}">client.webhooks.<a href="./src/resources/webhooks/webhooks.ts">retrieve</a>(id) -> WebhookRetrieveResponse</code>
+- <code title="post /webhooks/{id}/retries">client.webhooks.<a href="./src/resources/webhooks/webhooks.ts">retry</a>(id) -> void</code>
 
 ## Retries
 
@@ -473,12 +482,11 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/exchange-partners.ts">ExchangePartnerRetrieveResponse</a></code>
-- <code><a href="./src/resources/exchange-partners.ts">ExchangePartnerListResponse</a></code>
 
 Methods:
 
 - <code title="get /exchange-partners/{id}">client.exchangePartners.<a href="./src/resources/exchange-partners.ts">retrieve</a>(id) -> ExchangePartnerRetrieveResponse</code>
-- <code title="get /exchange-partners">client.exchangePartners.<a href="./src/resources/exchange-partners.ts">list</a>() -> ExchangePartnerListResponse</code>
+- <code title="get /exchange-partners">client.exchangePartners.<a href="./src/resources/exchange-partners.ts">list</a>() -> ExchangePartners</code>
 
 # Exchanges
 
