@@ -4,6 +4,7 @@ import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as LabelsAPI from './labels';
+import { OffsetStringPagination, type OffsetStringPaginationParams } from '../../pagination';
 
 export class Labels extends APIResource {
   /**
@@ -24,19 +25,27 @@ export class Labels extends APIResource {
     id: string,
     query?: LabelListParams,
     options?: Core.RequestOptions,
-  ): Core.APIPromise<LabelListResponse>;
-  list(id: string, options?: Core.RequestOptions): Core.APIPromise<LabelListResponse>;
+  ): Core.PagePromise<LabelListResponsesOffsetStringPagination, LabelListResponse>;
+  list(
+    id: string,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<LabelListResponsesOffsetStringPagination, LabelListResponse>;
   list(
     id: string,
     query: LabelListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.APIPromise<LabelListResponse> {
+  ): Core.PagePromise<LabelListResponsesOffsetStringPagination, LabelListResponse> {
     if (isRequestOptions(query)) {
       return this.list(id, {}, query);
     }
-    return this._client.get(`/customers/${id}/labels`, { query, ...options });
+    return this._client.getAPIList(`/customers/${id}/labels`, LabelListResponsesOffsetStringPagination, {
+      query,
+      ...options,
+    });
   }
 }
+
+export class LabelListResponsesOffsetStringPagination extends OffsetStringPagination<LabelListResponse> {}
 
 export interface LabelListResponse {
   _embedded?: LabelListResponse._Embedded;
@@ -84,20 +93,11 @@ export namespace LabelCreateParams {
   }
 }
 
-export interface LabelListParams {
-  /**
-   * How many results to return
-   */
-  limit?: string;
-
-  /**
-   * How many results to skip
-   */
-  offset?: string;
-}
+export interface LabelListParams extends OffsetStringPaginationParams {}
 
 export namespace Labels {
   export import LabelListResponse = LabelsAPI.LabelListResponse;
+  export import LabelListResponsesOffsetStringPagination = LabelsAPI.LabelListResponsesOffsetStringPagination;
   export import LabelCreateParams = LabelsAPI.LabelCreateParams;
   export import LabelListParams = LabelsAPI.LabelListParams;
 }

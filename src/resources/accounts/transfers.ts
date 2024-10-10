@@ -5,6 +5,7 @@ import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as TransfersAPI from './transfers';
 import * as Shared from '../shared';
+import { OffsetStringPagination, type OffsetStringPaginationParams } from '../../pagination';
 
 export class Transfers extends APIResource {
   /**
@@ -14,19 +15,27 @@ export class Transfers extends APIResource {
     id: string,
     query?: TransferListParams,
     options?: Core.RequestOptions,
-  ): Core.APIPromise<TransferListResponse>;
-  list(id: string, options?: Core.RequestOptions): Core.APIPromise<TransferListResponse>;
+  ): Core.PagePromise<TransferListResponsesOffsetStringPagination, TransferListResponse>;
+  list(
+    id: string,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<TransferListResponsesOffsetStringPagination, TransferListResponse>;
   list(
     id: string,
     query: TransferListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.APIPromise<TransferListResponse> {
+  ): Core.PagePromise<TransferListResponsesOffsetStringPagination, TransferListResponse> {
     if (isRequestOptions(query)) {
       return this.list(id, {}, query);
     }
-    return this._client.get(`/accounts/${id}/transfers`, { query, ...options });
+    return this._client.getAPIList(`/accounts/${id}/transfers`, TransferListResponsesOffsetStringPagination, {
+      query,
+      ...options,
+    });
   }
 }
+
+export class TransferListResponsesOffsetStringPagination extends OffsetStringPagination<TransferListResponse> {}
 
 export interface TransferListResponse {
   _embedded?: TransferListResponse._Embedded;
@@ -130,7 +139,7 @@ export namespace TransferListResponse {
   }
 }
 
-export interface TransferListParams {
+export interface TransferListParams extends OffsetStringPaginationParams {
   /**
    * A string value to search on if `correlationId` was specified for a transaction
    */
@@ -145,16 +154,6 @@ export interface TransferListParams {
    * Only include transactions created before this date. ISO-8601 format `YYYY-MM-DD`
    */
   endDate?: string;
-
-  /**
-   * Number of search results to return. Defaults to 25
-   */
-  limit?: string;
-
-  /**
-   * Number of search results to skip. Use for pagination
-   */
-  offset?: string;
 
   /**
    * A string to search on fields `firstName`, `lastName`, `email`, `businessName`,
@@ -181,5 +180,6 @@ export interface TransferListParams {
 
 export namespace Transfers {
   export import TransferListResponse = TransfersAPI.TransferListResponse;
+  export import TransferListResponsesOffsetStringPagination = TransfersAPI.TransferListResponsesOffsetStringPagination;
   export import TransferListParams = TransfersAPI.TransferListParams;
 }

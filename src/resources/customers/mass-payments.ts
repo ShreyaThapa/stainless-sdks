@@ -5,6 +5,7 @@ import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as MassPaymentsAPI from './mass-payments';
 import * as Shared from '../shared';
+import { OffsetStringPagination, type OffsetStringPaginationParams } from '../../pagination';
 
 export class MassPayments extends APIResource {
   /**
@@ -14,19 +15,28 @@ export class MassPayments extends APIResource {
     id: string,
     query?: MassPaymentListParams,
     options?: Core.RequestOptions,
-  ): Core.APIPromise<MassPaymentListResponse>;
-  list(id: string, options?: Core.RequestOptions): Core.APIPromise<MassPaymentListResponse>;
+  ): Core.PagePromise<MassPaymentListResponsesOffsetStringPagination, MassPaymentListResponse>;
+  list(
+    id: string,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<MassPaymentListResponsesOffsetStringPagination, MassPaymentListResponse>;
   list(
     id: string,
     query: MassPaymentListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.APIPromise<MassPaymentListResponse> {
+  ): Core.PagePromise<MassPaymentListResponsesOffsetStringPagination, MassPaymentListResponse> {
     if (isRequestOptions(query)) {
       return this.list(id, {}, query);
     }
-    return this._client.get(`/customers/${id}/mass-payments`, { query, ...options });
+    return this._client.getAPIList(
+      `/customers/${id}/mass-payments`,
+      MassPaymentListResponsesOffsetStringPagination,
+      { query, ...options },
+    );
   }
 }
+
+export class MassPaymentListResponsesOffsetStringPagination extends OffsetStringPagination<MassPaymentListResponse> {}
 
 export interface MassPaymentListResponse {
   _embedded?: MassPaymentListResponse._Embedded;
@@ -62,24 +72,15 @@ export namespace MassPaymentListResponse {
   }
 }
 
-export interface MassPaymentListParams {
+export interface MassPaymentListParams extends OffsetStringPaginationParams {
   /**
    * A string value to search on if `correlationId` was specified for a transaction
    */
   correlationId?: string;
-
-  /**
-   * Number of search results to return. Defaults to 25
-   */
-  limit?: string;
-
-  /**
-   * Number of search results to skip. Use for pagination
-   */
-  offset?: string;
 }
 
 export namespace MassPayments {
   export import MassPaymentListResponse = MassPaymentsAPI.MassPaymentListResponse;
+  export import MassPaymentListResponsesOffsetStringPagination = MassPaymentsAPI.MassPaymentListResponsesOffsetStringPagination;
   export import MassPaymentListParams = MassPaymentsAPI.MassPaymentListParams;
 }

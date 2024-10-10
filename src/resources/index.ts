@@ -27,10 +27,17 @@ export {
   CustomerCreateParams,
   CustomerUpdateParams,
   CustomerListParams,
+  CustomerListResponsesOffsetStringPagination,
   Customers,
 } from './customers/customers';
 export { DocumentRetrieveResponse, Documents } from './documents';
-export { EventRetrieveResponse, EventListResponse, EventListParams, Events } from './events';
+export {
+  EventRetrieveResponse,
+  EventListResponse,
+  EventListParams,
+  EventListResponsesOffsetIntegerPagination,
+  Events,
+} from './events';
 export {
   ExchangeCreateResponse,
   ExchangeRetrieveResponse,

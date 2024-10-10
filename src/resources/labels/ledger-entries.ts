@@ -5,6 +5,7 @@ import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as LedgerEntriesAPI from './ledger-entries';
 import * as Shared from '../shared';
+import { OffsetStringPagination, type OffsetStringPaginationParams } from '../../pagination';
 
 export class LedgerEntries extends APIResource {
   /**
@@ -25,19 +26,28 @@ export class LedgerEntries extends APIResource {
     id: string,
     query?: LedgerEntryListParams,
     options?: Core.RequestOptions,
-  ): Core.APIPromise<LedgerEntryListResponse>;
-  list(id: string, options?: Core.RequestOptions): Core.APIPromise<LedgerEntryListResponse>;
+  ): Core.PagePromise<LedgerEntryListResponsesOffsetStringPagination, LedgerEntryListResponse>;
+  list(
+    id: string,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<LedgerEntryListResponsesOffsetStringPagination, LedgerEntryListResponse>;
   list(
     id: string,
     query: LedgerEntryListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.APIPromise<LedgerEntryListResponse> {
+  ): Core.PagePromise<LedgerEntryListResponsesOffsetStringPagination, LedgerEntryListResponse> {
     if (isRequestOptions(query)) {
       return this.list(id, {}, query);
     }
-    return this._client.get(`/labels/${id}/ledger-entries`, { query, ...options });
+    return this._client.getAPIList(
+      `/labels/${id}/ledger-entries`,
+      LedgerEntryListResponsesOffsetStringPagination,
+      { query, ...options },
+    );
   }
 }
+
+export class LedgerEntryListResponsesOffsetStringPagination extends OffsetStringPagination<LedgerEntryListResponse> {}
 
 export interface LedgerEntryListResponse {
   _embedded?: LedgerEntryListResponse._Embedded;
@@ -85,20 +95,11 @@ export namespace LedgerEntryCreateParams {
   }
 }
 
-export interface LedgerEntryListParams {
-  /**
-   * How many results to return
-   */
-  limit?: string;
-
-  /**
-   * How many results to skip
-   */
-  offset?: string;
-}
+export interface LedgerEntryListParams extends OffsetStringPaginationParams {}
 
 export namespace LedgerEntries {
   export import LedgerEntryListResponse = LedgerEntriesAPI.LedgerEntryListResponse;
+  export import LedgerEntryListResponsesOffsetStringPagination = LedgerEntriesAPI.LedgerEntryListResponsesOffsetStringPagination;
   export import LedgerEntryCreateParams = LedgerEntriesAPI.LedgerEntryCreateParams;
   export import LedgerEntryListParams = LedgerEntriesAPI.LedgerEntryListParams;
 }

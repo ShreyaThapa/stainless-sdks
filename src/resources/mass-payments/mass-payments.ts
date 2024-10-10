@@ -187,5 +187,6 @@ export namespace MassPayments {
   export import Items = ItemsAPI.Items;
   export import ItemRetrieveResponse = ItemsAPI.ItemRetrieveResponse;
   export import ItemListResponse = ItemsAPI.ItemListResponse;
+  export import ItemListResponsesOffsetStringPagination = ItemsAPI.ItemListResponsesOffsetStringPagination;
   export import ItemListParams = ItemsAPI.ItemListParams;
 }

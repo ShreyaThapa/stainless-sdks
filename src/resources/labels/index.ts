@@ -5,5 +5,6 @@ export {
   LedgerEntryListResponse,
   LedgerEntryCreateParams,
   LedgerEntryListParams,
+  LedgerEntryListResponsesOffsetStringPagination,
   LedgerEntries,
 } from './ledger-entries';
