@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Dwolla from 'dwolla';
-import { APIUserAbortError } from 'dwolla';
-import { Headers } from 'dwolla/core';
+import Dwolla from 'dwolla-stainless-node';
+import { APIUserAbortError } from 'dwolla-stainless-node';
+import { Headers } from 'dwolla-stainless-node/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
 
 describe('instantiate client', () => {

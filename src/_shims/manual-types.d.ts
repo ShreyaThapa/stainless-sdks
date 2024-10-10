@@ -4,8 +4,8 @@
 /**
  * Types will get added to this namespace when you import one of the following:
  *
- *   import 'dwolla/shims/node'
- *   import 'dwolla/shims/web'
+ *   import 'dwolla-stainless-node/shims/node'
+ *   import 'dwolla-stainless-node/shims/web'
  *
  * Importing more than one will cause type and runtime errors.
  */

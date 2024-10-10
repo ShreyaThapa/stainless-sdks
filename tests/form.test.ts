@@ -1,6 +1,6 @@
-import { multipartFormRequestOptions, createForm } from 'dwolla/core';
-import { Blob } from 'dwolla/_shims/index';
-import { toFile } from 'dwolla';
+import { multipartFormRequestOptions, createForm } from 'dwolla-stainless-node/core';
+import { Blob } from 'dwolla-stainless-node/_shims/index';
+import { toFile } from 'dwolla-stainless-node';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {
