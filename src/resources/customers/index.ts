@@ -24,6 +24,7 @@ export {
   CustomerCreateParams,
   CustomerUpdateParams,
   CustomerListParams,
+  CustomerListResponsesOffsetStringPagination,
   Customers,
 } from './customers';
 export { DocumentListResponse, DocumentCreateParams, Documents } from './documents';
@@ -32,6 +33,22 @@ export { FundingSourceListResponse, FundingSourceCreateParams, FundingSources } 
 export { FundingSourcesTokenCreateResponse, FundingSourcesToken } from './funding-sources-token';
 export { IavTokenCreateResponse, IavToken } from './iav-token';
 export { Kba } from './kba';
-export { LabelListResponse, LabelCreateParams, LabelListParams, Labels } from './labels';
-export { MassPaymentListResponse, MassPaymentListParams, MassPayments } from './mass-payments';
-export { TransferListResponse, TransferListParams, Transfers } from './transfers';
+export {
+  LabelListResponse,
+  LabelCreateParams,
+  LabelListParams,
+  LabelListResponsesOffsetStringPagination,
+  Labels,
+} from './labels';
+export {
+  MassPaymentListResponse,
+  MassPaymentListParams,
+  MassPaymentListResponsesOffsetStringPagination,
+  MassPayments,
+} from './mass-payments';
+export {
+  TransferListResponse,
+  TransferListParams,
+  TransferListResponsesOffsetStringPagination,
+  Transfers,
+} from './transfers';

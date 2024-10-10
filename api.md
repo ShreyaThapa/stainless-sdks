@@ -56,7 +56,7 @@ Types:
 
 Methods:
 
-- <code title="get /accounts/{id}/transfers">client.accounts.transfers.<a href="./src/resources/accounts/transfers.ts">list</a>(id, { ...params }) -> TransferListResponse</code>
+- <code title="get /accounts/{id}/transfers">client.accounts.transfers.<a href="./src/resources/accounts/transfers.ts">list</a>(id, { ...params }) -> TransferListResponsesOffsetStringPagination</code>
 
 ## MassPayments
 
@@ -66,7 +66,7 @@ Types:
 
 Methods:
 
-- <code title="get /accounts/{id}/mass-payments">client.accounts.massPayments.<a href="./src/resources/accounts/mass-payments.ts">list</a>(id, { ...params }) -> MassPaymentListResponse</code>
+- <code title="get /accounts/{id}/mass-payments">client.accounts.massPayments.<a href="./src/resources/accounts/mass-payments.ts">list</a>(id, { ...params }) -> MassPaymentListResponsesOffsetIntegerPagination</code>
 
 # FundingSources
 
@@ -131,7 +131,7 @@ Methods:
 - <code title="post /customers">client.customers.<a href="./src/resources/customers/customers.ts">create</a>({ ...params }) -> void</code>
 - <code title="get /customers/{id}">client.customers.<a href="./src/resources/customers/customers.ts">retrieve</a>(id) -> CustomerRetrieveResponse</code>
 - <code title="post /customers/{id}">client.customers.<a href="./src/resources/customers/customers.ts">update</a>(id, { ...params }) -> CustomerUpdateResponse</code>
-- <code title="get /customers">client.customers.<a href="./src/resources/customers/customers.ts">list</a>({ ...params }) -> CustomerListResponse</code>
+- <code title="get /customers">client.customers.<a href="./src/resources/customers/customers.ts">list</a>({ ...params }) -> CustomerListResponsesOffsetStringPagination</code>
 
 ## BeneficialOwners
 
@@ -212,7 +212,7 @@ Types:
 
 Methods:
 
-- <code title="get /customers/{id}/transfers">client.customers.transfers.<a href="./src/resources/customers/transfers.ts">list</a>(id, { ...params }) -> TransferListResponse</code>
+- <code title="get /customers/{id}/transfers">client.customers.transfers.<a href="./src/resources/customers/transfers.ts">list</a>(id, { ...params }) -> TransferListResponsesOffsetStringPagination</code>
 
 ## MassPayments
 
@@ -222,7 +222,7 @@ Types:
 
 Methods:
 
-- <code title="get /customers/{id}/mass-payments">client.customers.massPayments.<a href="./src/resources/customers/mass-payments.ts">list</a>(id, { ...params }) -> MassPaymentListResponse</code>
+- <code title="get /customers/{id}/mass-payments">client.customers.massPayments.<a href="./src/resources/customers/mass-payments.ts">list</a>(id, { ...params }) -> MassPaymentListResponsesOffsetStringPagination</code>
 
 ## Labels
 
@@ -233,7 +233,7 @@ Types:
 Methods:
 
 - <code title="post /customers/{id}/labels">client.customers.labels.<a href="./src/resources/customers/labels.ts">create</a>(id, { ...params }) -> void</code>
-- <code title="get /customers/{id}/labels">client.customers.labels.<a href="./src/resources/customers/labels.ts">list</a>(id, { ...params }) -> LabelListResponse</code>
+- <code title="get /customers/{id}/labels">client.customers.labels.<a href="./src/resources/customers/labels.ts">list</a>(id, { ...params }) -> LabelListResponsesOffsetStringPagination</code>
 
 ## Exchanges
 
@@ -371,7 +371,7 @@ Types:
 Methods:
 
 - <code title="get /mass-payment-items/{id}">client.massPayments.items.<a href="./src/resources/mass-payments/items.ts">retrieve</a>(id) -> ItemRetrieveResponse</code>
-- <code title="get /mass-payments/{id}/items">client.massPayments.items.<a href="./src/resources/mass-payments/items.ts">list</a>(id, { ...params }) -> ItemListResponse</code>
+- <code title="get /mass-payments/{id}/items">client.massPayments.items.<a href="./src/resources/mass-payments/items.ts">list</a>(id, { ...params }) -> ItemListResponsesOffsetStringPagination</code>
 
 # Labels
 
@@ -394,7 +394,7 @@ Types:
 Methods:
 
 - <code title="post /labels/{id}/ledger-entries">client.labels.ledgerEntries.<a href="./src/resources/labels/ledger-entries.ts">create</a>(id, { ...params }) -> void</code>
-- <code title="get /labels/{id}/ledger-entries">client.labels.ledgerEntries.<a href="./src/resources/labels/ledger-entries.ts">list</a>(id, { ...params }) -> LedgerEntryListResponse</code>
+- <code title="get /labels/{id}/ledger-entries">client.labels.ledgerEntries.<a href="./src/resources/labels/ledger-entries.ts">list</a>(id, { ...params }) -> LedgerEntryListResponsesOffsetStringPagination</code>
 
 # LedgerEntries
 
@@ -427,7 +427,7 @@ Types:
 Methods:
 
 - <code title="get /events/{id}">client.events.<a href="./src/resources/events.ts">retrieve</a>(id) -> EventRetrieveResponse</code>
-- <code title="get /events">client.events.<a href="./src/resources/events.ts">list</a>() -> EventListResponse</code>
+- <code title="get /events">client.events.<a href="./src/resources/events.ts">list</a>() -> EventListResponsesOffsetIntegerPagination</code>
 
 # WebhookSubscriptions
 

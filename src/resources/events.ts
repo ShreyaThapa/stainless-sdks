@@ -4,6 +4,7 @@ import { APIResource } from '../resource';
 import * as Core from '../core';
 import * as EventsAPI from './events';
 import * as Shared from './shared';
+import { OffsetIntegerPagination, type OffsetIntegerPaginationParams } from '../pagination';
 
 export class Events extends APIResource {
   /**
@@ -19,10 +20,12 @@ export class Events extends APIResource {
   list(
     query?: EventListParams | null | undefined,
     options?: Core.RequestOptions,
-  ): Core.APIPromise<EventListResponse> {
-    return this._client.get('/events', options);
+  ): Core.PagePromise<EventListResponsesOffsetIntegerPagination, EventListResponse> {
+    return this._client.getAPIList('/events', EventListResponsesOffsetIntegerPagination, options);
   }
 }
+
+export class EventListResponsesOffsetIntegerPagination extends OffsetIntegerPagination<EventListResponse> {}
 
 export interface EventRetrieveResponse {
   id?: string;
@@ -66,10 +69,11 @@ export namespace EventListResponse {
   }
 }
 
-export interface EventListParams {}
+export interface EventListParams extends OffsetIntegerPaginationParams {}
 
 export namespace Events {
   export import EventRetrieveResponse = EventsAPI.EventRetrieveResponse;
   export import EventListResponse = EventsAPI.EventListResponse;
+  export import EventListResponsesOffsetIntegerPagination = EventsAPI.EventListResponsesOffsetIntegerPagination;
   export import EventListParams = EventsAPI.EventListParams;
 }

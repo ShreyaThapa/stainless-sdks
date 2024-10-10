@@ -70,8 +70,10 @@ export namespace Accounts {
   export import FundingSourceListParams = FundingSourcesAPI.FundingSourceListParams;
   export import Transfers = TransfersAPI.Transfers;
   export import TransferListResponse = TransfersAPI.TransferListResponse;
+  export import TransferListResponsesOffsetStringPagination = TransfersAPI.TransferListResponsesOffsetStringPagination;
   export import TransferListParams = TransfersAPI.TransferListParams;
   export import MassPayments = MassPaymentsAPI.MassPayments;
   export import MassPaymentListResponse = MassPaymentsAPI.MassPaymentListResponse;
+  export import MassPaymentListResponsesOffsetIntegerPagination = MassPaymentsAPI.MassPaymentListResponsesOffsetIntegerPagination;
   export import MassPaymentListParams = MassPaymentsAPI.MassPaymentListParams;
 }

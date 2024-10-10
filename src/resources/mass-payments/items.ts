@@ -4,6 +4,7 @@ import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as ItemsAPI from './items';
+import { OffsetStringPagination, type OffsetStringPaginationParams } from '../../pagination';
 
 export class Items extends APIResource {
   /**
@@ -16,19 +17,31 @@ export class Items extends APIResource {
   /**
    * List items for a mass payment
    */
-  list(id: string, query?: ItemListParams, options?: Core.RequestOptions): Core.APIPromise<ItemListResponse>;
-  list(id: string, options?: Core.RequestOptions): Core.APIPromise<ItemListResponse>;
+  list(
+    id: string,
+    query?: ItemListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<ItemListResponsesOffsetStringPagination, ItemListResponse>;
+  list(
+    id: string,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<ItemListResponsesOffsetStringPagination, ItemListResponse>;
   list(
     id: string,
     query: ItemListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.APIPromise<ItemListResponse> {
+  ): Core.PagePromise<ItemListResponsesOffsetStringPagination, ItemListResponse> {
     if (isRequestOptions(query)) {
       return this.list(id, {}, query);
     }
-    return this._client.get(`/mass-payments/${id}/items`, { query, ...options });
+    return this._client.getAPIList(`/mass-payments/${id}/items`, ItemListResponsesOffsetStringPagination, {
+      query,
+      ...options,
+    });
   }
 }
+
+export class ItemListResponsesOffsetStringPagination extends OffsetStringPagination<ItemListResponse> {}
 
 export interface ItemRetrieveResponse {
   id?: string;
@@ -184,17 +197,7 @@ export namespace ItemListResponse {
   }
 }
 
-export interface ItemListParams {
-  /**
-   * How many results to return
-   */
-  limit?: string;
-
-  /**
-   * How many results to skip
-   */
-  offset?: string;
-
+export interface ItemListParams extends OffsetStringPaginationParams {
   /**
    * Filter by item status
    */
@@ -204,5 +207,6 @@ export interface ItemListParams {
 export namespace Items {
   export import ItemRetrieveResponse = ItemsAPI.ItemRetrieveResponse;
   export import ItemListResponse = ItemsAPI.ItemListResponse;
+  export import ItemListResponsesOffsetStringPagination = ItemsAPI.ItemListResponsesOffsetStringPagination;
   export import ItemListParams = ItemsAPI.ItemListParams;
 }

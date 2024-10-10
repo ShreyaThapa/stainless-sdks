@@ -64,6 +64,7 @@ export namespace Labels {
   export import LabelRemoveResponse = LabelsAPI.LabelRemoveResponse;
   export import LedgerEntries = LedgerEntriesAPI.LedgerEntries;
   export import LedgerEntryListResponse = LedgerEntriesAPI.LedgerEntryListResponse;
+  export import LedgerEntryListResponsesOffsetStringPagination = LedgerEntriesAPI.LedgerEntryListResponsesOffsetStringPagination;
   export import LedgerEntryCreateParams = LedgerEntriesAPI.LedgerEntryCreateParams;
   export import LedgerEntryListParams = LedgerEntriesAPI.LedgerEntryListParams;
 }

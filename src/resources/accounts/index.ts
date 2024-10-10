@@ -2,5 +2,15 @@
 
 export { AccountRetrieveResponse, Accounts } from './accounts';
 export { FundingSourceListResponse, FundingSourceListParams, FundingSources } from './funding-sources';
-export { MassPaymentListResponse, MassPaymentListParams, MassPayments } from './mass-payments';
-export { TransferListResponse, TransferListParams, Transfers } from './transfers';
+export {
+  MassPaymentListResponse,
+  MassPaymentListParams,
+  MassPaymentListResponsesOffsetIntegerPagination,
+  MassPayments,
+} from './mass-payments';
+export {
+  TransferListResponse,
+  TransferListParams,
+  TransferListResponsesOffsetStringPagination,
+  Transfers,
+} from './transfers';

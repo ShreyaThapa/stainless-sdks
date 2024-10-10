@@ -16,6 +16,7 @@ import * as KbaAPI from './kba';
 import * as LabelsAPI from './labels';
 import * as MassPaymentsAPI from './mass-payments';
 import * as TransfersAPI from './transfers';
+import { OffsetStringPagination, type OffsetStringPaginationParams } from '../../pagination';
 
 export class Customers extends APIResource {
   beneficialOwners: BeneficialOwnersAPI.BeneficialOwners = new BeneficialOwnersAPI.BeneficialOwners(
@@ -78,18 +79,28 @@ export class Customers extends APIResource {
    * List and search customers allowing you to filter by email and status, as well as
    * search on key fields such as firstName, lastName, and businessName.
    */
-  list(query?: CustomerListParams, options?: Core.RequestOptions): Core.APIPromise<CustomerListResponse>;
-  list(options?: Core.RequestOptions): Core.APIPromise<CustomerListResponse>;
+  list(
+    query?: CustomerListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<CustomerListResponsesOffsetStringPagination, CustomerListResponse>;
+  list(
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<CustomerListResponsesOffsetStringPagination, CustomerListResponse>;
   list(
     query: CustomerListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.APIPromise<CustomerListResponse> {
+  ): Core.PagePromise<CustomerListResponsesOffsetStringPagination, CustomerListResponse> {
     if (isRequestOptions(query)) {
       return this.list({}, query);
     }
-    return this._client.get('/customers', { query, ...options });
+    return this._client.getAPIList('/customers', CustomerListResponsesOffsetStringPagination, {
+      query,
+      ...options,
+    });
   }
 }
+
+export class CustomerListResponsesOffsetStringPagination extends OffsetStringPagination<CustomerListResponse> {}
 
 /**
  * Controller JSON Object for Customer responses
@@ -856,17 +867,7 @@ export namespace CustomerUpdateParams {
   }
 }
 
-export interface CustomerListParams {
-  /**
-   * How many results to return
-   */
-  limit?: string;
-
-  /**
-   * How many results to skip
-   */
-  offset?: string;
-
+export interface CustomerListParams extends OffsetStringPaginationParams {
   /**
    * Searches on certain fields
    */
@@ -888,6 +889,7 @@ export namespace Customers {
   export import CustomerRetrieveResponse = CustomersAPI.CustomerRetrieveResponse;
   export import CustomerUpdateResponse = CustomersAPI.CustomerUpdateResponse;
   export import CustomerListResponse = CustomersAPI.CustomerListResponse;
+  export import CustomerListResponsesOffsetStringPagination = CustomersAPI.CustomerListResponsesOffsetStringPagination;
   export import CustomerCreateParams = CustomersAPI.CustomerCreateParams;
   export import CustomerUpdateParams = CustomersAPI.CustomerUpdateParams;
   export import CustomerListParams = CustomersAPI.CustomerListParams;
@@ -911,12 +913,15 @@ export namespace Customers {
   export import IavTokenCreateResponse = IavTokenAPI.IavTokenCreateResponse;
   export import Transfers = TransfersAPI.Transfers;
   export import TransferListResponse = TransfersAPI.TransferListResponse;
+  export import TransferListResponsesOffsetStringPagination = TransfersAPI.TransferListResponsesOffsetStringPagination;
   export import TransferListParams = TransfersAPI.TransferListParams;
   export import MassPayments = MassPaymentsAPI.MassPayments;
   export import MassPaymentListResponse = MassPaymentsAPI.MassPaymentListResponse;
+  export import MassPaymentListResponsesOffsetStringPagination = MassPaymentsAPI.MassPaymentListResponsesOffsetStringPagination;
   export import MassPaymentListParams = MassPaymentsAPI.MassPaymentListParams;
   export import Labels = LabelsAPI.Labels;
   export import LabelListResponse = LabelsAPI.LabelListResponse;
+  export import LabelListResponsesOffsetStringPagination = LabelsAPI.LabelListResponsesOffsetStringPagination;
   export import LabelCreateParams = LabelsAPI.LabelCreateParams;
   export import LabelListParams = LabelsAPI.LabelListParams;
   export import Exchanges = ExchangesAPI.Exchanges;

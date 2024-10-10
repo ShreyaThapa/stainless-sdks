@@ -5,6 +5,7 @@ import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as MassPaymentsAPI from './mass-payments';
 import * as Shared from '../shared';
+import { OffsetIntegerPagination, type OffsetIntegerPaginationParams } from '../../pagination';
 
 export class MassPayments extends APIResource {
   /**
@@ -14,19 +15,28 @@ export class MassPayments extends APIResource {
     id: string,
     query?: MassPaymentListParams,
     options?: Core.RequestOptions,
-  ): Core.APIPromise<MassPaymentListResponse>;
-  list(id: string, options?: Core.RequestOptions): Core.APIPromise<MassPaymentListResponse>;
+  ): Core.PagePromise<MassPaymentListResponsesOffsetIntegerPagination, MassPaymentListResponse>;
+  list(
+    id: string,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<MassPaymentListResponsesOffsetIntegerPagination, MassPaymentListResponse>;
   list(
     id: string,
     query: MassPaymentListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.APIPromise<MassPaymentListResponse> {
+  ): Core.PagePromise<MassPaymentListResponsesOffsetIntegerPagination, MassPaymentListResponse> {
     if (isRequestOptions(query)) {
       return this.list(id, {}, query);
     }
-    return this._client.get(`/accounts/${id}/mass-payments`, { query, ...options });
+    return this._client.getAPIList(
+      `/accounts/${id}/mass-payments`,
+      MassPaymentListResponsesOffsetIntegerPagination,
+      { query, ...options },
+    );
   }
 }
+
+export class MassPaymentListResponsesOffsetIntegerPagination extends OffsetIntegerPagination<MassPaymentListResponse> {}
 
 export interface MassPaymentListResponse {
   _embedded?: MassPaymentListResponse._Embedded;
@@ -62,24 +72,15 @@ export namespace MassPaymentListResponse {
   }
 }
 
-export interface MassPaymentListParams {
+export interface MassPaymentListParams extends OffsetIntegerPaginationParams {
   /**
    * Correlation ID to search by.
    */
   correlationId?: string;
-
-  /**
-   * How many results to return.
-   */
-  limit?: number;
-
-  /**
-   * How many results to skip.
-   */
-  offset?: number;
 }
 
 export namespace MassPayments {
   export import MassPaymentListResponse = MassPaymentsAPI.MassPaymentListResponse;
+  export import MassPaymentListResponsesOffsetIntegerPagination = MassPaymentsAPI.MassPaymentListResponsesOffsetIntegerPagination;
   export import MassPaymentListParams = MassPaymentsAPI.MassPaymentListParams;
 }

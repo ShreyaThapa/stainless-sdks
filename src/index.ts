@@ -4,6 +4,7 @@ import * as Errors from './error';
 import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Pagination from './pagination';
 import * as API from './resources/index';
 
 const environments = {
@@ -275,6 +276,14 @@ export import fileFromPath = Uploads.fileFromPath;
 export namespace Dwolla {
   export import RequestOptions = Core.RequestOptions;
 
+  export import OffsetStringPagination = Pagination.OffsetStringPagination;
+  export import OffsetStringPaginationParams = Pagination.OffsetStringPaginationParams;
+  export import OffsetStringPaginationResponse = Pagination.OffsetStringPaginationResponse;
+
+  export import OffsetIntegerPagination = Pagination.OffsetIntegerPagination;
+  export import OffsetIntegerPaginationParams = Pagination.OffsetIntegerPaginationParams;
+  export import OffsetIntegerPaginationResponse = Pagination.OffsetIntegerPaginationResponse;
+
   export import Tokens = API.Tokens;
   export import TokenGenerateResponse = API.TokenGenerateResponse;
   export import TokenGenerateParams = API.TokenGenerateParams;
@@ -301,6 +310,7 @@ export namespace Dwolla {
   export import CustomerRetrieveResponse = API.CustomerRetrieveResponse;
   export import CustomerUpdateResponse = API.CustomerUpdateResponse;
   export import CustomerListResponse = API.CustomerListResponse;
+  export import CustomerListResponsesOffsetStringPagination = API.CustomerListResponsesOffsetStringPagination;
   export import CustomerCreateParams = API.CustomerCreateParams;
   export import CustomerUpdateParams = API.CustomerUpdateParams;
   export import CustomerListParams = API.CustomerListParams;
@@ -352,6 +362,7 @@ export namespace Dwolla {
   export import Events = API.Events;
   export import EventRetrieveResponse = API.EventRetrieveResponse;
   export import EventListResponse = API.EventListResponse;
+  export import EventListResponsesOffsetIntegerPagination = API.EventListResponsesOffsetIntegerPagination;
   export import EventListParams = API.EventListParams;
 
   export import WebhookSubscriptions = API.WebhookSubscriptions;
