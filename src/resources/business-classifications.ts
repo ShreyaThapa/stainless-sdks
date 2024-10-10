@@ -3,6 +3,7 @@
 import { APIResource } from '../resource';
 import * as Core from '../core';
 import * as BusinessClassificationsAPI from './business-classifications';
+import * as Shared from './shared';
 
 export class BusinessClassifications extends APIResource {
   /**
@@ -48,17 +49,7 @@ export namespace BusinessClassificationRetrieveResponse {
   }
 
   export interface _Links {
-    self?: _Links.Self;
-  }
-
-  export namespace _Links {
-    export interface Self {
-      href?: string;
-
-      'resource-type'?: string;
-
-      type?: string;
-    }
+    self?: Shared.HalLink;
   }
 }
 
@@ -77,7 +68,7 @@ export namespace BusinessClassificationListResponse {
     export interface BusinessClassification {
       _embedded?: BusinessClassification._Embedded;
 
-      _links?: Record<string, BusinessClassification._Links>;
+      _links?: Record<string, Shared.HalLink>;
     }
 
     export namespace BusinessClassification {
@@ -110,27 +101,9 @@ export namespace BusinessClassificationListResponse {
           }
 
           export interface _Links {
-            self?: _Links.Self;
-          }
-
-          export namespace _Links {
-            export interface Self {
-              href?: string;
-
-              'resource-type'?: string;
-
-              type?: string;
-            }
+            self?: Shared.HalLink;
           }
         }
-      }
-
-      export interface _Links {
-        href?: string;
-
-        'resource-type'?: string;
-
-        type?: string;
       }
     }
   }

@@ -3,6 +3,7 @@
 import { APIResource } from '../resource';
 import * as Core from '../core';
 import * as EventsAPI from './events';
+import * as Shared from './shared';
 
 export class Events extends APIResource {
   /**
@@ -26,7 +27,7 @@ export class Events extends APIResource {
 export interface EventRetrieveResponse {
   id?: string;
 
-  _links?: Record<string, EventRetrieveResponse._Links>;
+  _links?: Record<string, Shared.HalLink>;
 
   created?: string;
 
@@ -35,22 +36,12 @@ export interface EventRetrieveResponse {
   topic?: string;
 }
 
-export namespace EventRetrieveResponse {
-  export interface _Links {
-    href?: string;
-
-    'resource-type'?: string;
-
-    type?: string;
-  }
-}
-
 export interface EventListResponse {
   _embedded?: EventListResponse._Embedded;
 
   _links?: unknown;
 
-  additionalProperties?: EventListResponse.AdditionalProperties;
+  additionalProperties?: Shared.HalLink;
 
   total?: number;
 }
@@ -64,7 +55,7 @@ export namespace EventListResponse {
     export interface Event {
       id?: string;
 
-      _links?: Record<string, Event._Links>;
+      _links?: Record<string, Shared.HalLink>;
 
       created?: string;
 
@@ -72,24 +63,6 @@ export namespace EventListResponse {
 
       topic?: string;
     }
-
-    export namespace Event {
-      export interface _Links {
-        href?: string;
-
-        'resource-type'?: string;
-
-        type?: string;
-      }
-    }
-  }
-
-  export interface AdditionalProperties {
-    href?: string;
-
-    'resource-type'?: string;
-
-    type?: string;
   }
 }
 

@@ -3,6 +3,7 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as MassPaymentsAPI from './mass-payments';
+import * as Shared from '../shared';
 import * as ItemsAPI from './items';
 
 export class MassPayments extends APIResource {
@@ -41,7 +42,7 @@ export class MassPayments extends APIResource {
 export interface MassPaymentRetrieveResponse {
   id?: string;
 
-  _links?: Record<string, MassPaymentRetrieveResponse._Links>;
+  _links?: Record<string, Shared.HalLink>;
 
   correlationId?: string;
 
@@ -51,37 +52,15 @@ export interface MassPaymentRetrieveResponse {
 
   status?: string;
 
-  total?: MassPaymentRetrieveResponse.Total;
+  total?: Shared.TransferAmount;
 
-  totalFees?: MassPaymentRetrieveResponse.TotalFees;
-}
-
-export namespace MassPaymentRetrieveResponse {
-  export interface _Links {
-    href?: string;
-
-    'resource-type'?: string;
-
-    type?: string;
-  }
-
-  export interface Total {
-    currency: string;
-
-    value: string;
-  }
-
-  export interface TotalFees {
-    currency: string;
-
-    value: string;
-  }
+  totalFees?: Shared.TransferAmount;
 }
 
 export interface MassPaymentUpdateResponse {
   id?: string;
 
-  _links?: Record<string, MassPaymentUpdateResponse._Links>;
+  _links?: Record<string, Shared.HalLink>;
 
   correlationId?: string;
 
@@ -91,31 +70,9 @@ export interface MassPaymentUpdateResponse {
 
   status?: string;
 
-  total?: MassPaymentUpdateResponse.Total;
+  total?: Shared.TransferAmount;
 
-  totalFees?: MassPaymentUpdateResponse.TotalFees;
-}
-
-export namespace MassPaymentUpdateResponse {
-  export interface _Links {
-    href?: string;
-
-    'resource-type'?: string;
-
-    type?: string;
-  }
-
-  export interface Total {
-    currency: string;
-
-    value: string;
-  }
-
-  export interface TotalFees {
-    currency: string;
-
-    value: string;
-  }
+  totalFees?: Shared.TransferAmount;
 }
 
 export interface MassPaymentCreateParams {
@@ -150,7 +107,7 @@ export namespace MassPaymentCreateParams {
 
     achDetails?: Item.ACHDetails;
 
-    amount?: Item.Amount;
+    amount?: Shared.TransferAmount;
 
     clearing?: Item.Clearing;
 
@@ -186,12 +143,6 @@ export namespace MassPaymentCreateParams {
           values?: Array<string>;
         }
       }
-    }
-
-    export interface Amount {
-      currency: string;
-
-      value: string;
     }
 
     export interface Clearing {
@@ -234,6 +185,7 @@ export namespace MassPayments {
   export import MassPaymentCreateParams = MassPaymentsAPI.MassPaymentCreateParams;
   export import MassPaymentUpdateParams = MassPaymentsAPI.MassPaymentUpdateParams;
   export import Items = ItemsAPI.Items;
+  export import ItemRetrieveResponse = ItemsAPI.ItemRetrieveResponse;
   export import ItemListResponse = ItemsAPI.ItemListResponse;
   export import ItemListParams = ItemsAPI.ItemListParams;
 }

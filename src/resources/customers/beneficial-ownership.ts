@@ -3,6 +3,7 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as BeneficialOwnershipAPI from './beneficial-ownership';
+import * as Shared from '../shared';
 
 export class BeneficialOwnership extends APIResource {
   /**
@@ -32,17 +33,7 @@ export interface BeneficialOwnershipRetrieveResponse {
 
 export namespace BeneficialOwnershipRetrieveResponse {
   export interface _Links {
-    self?: _Links.Self;
-  }
-
-  export namespace _Links {
-    export interface Self {
-      href?: string;
-
-      'resource-type'?: string;
-
-      type?: string;
-    }
+    self?: Shared.HalLink;
   }
 }
 
@@ -54,17 +45,7 @@ export interface BeneficialOwnershipCertifyResponse {
 
 export namespace BeneficialOwnershipCertifyResponse {
   export interface _Links {
-    self?: _Links.Self;
-  }
-
-  export namespace _Links {
-    export interface Self {
-      href?: string;
-
-      'resource-type'?: string;
-
-      type?: string;
-    }
+    self?: Shared.HalLink;
   }
 }
 

@@ -3,6 +3,7 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as ACHRoutingAPI from './ach-routing';
+import * as Shared from '../shared';
 
 export class ACHRouting extends APIResource {
   /**
@@ -14,21 +15,11 @@ export class ACHRouting extends APIResource {
 }
 
 export interface ACHRoutingRetrieveResponse {
-  _links?: Record<string, ACHRoutingRetrieveResponse._Links>;
+  _links?: Record<string, Shared.HalLink>;
 
   accountNumber?: string;
 
   routingNumber?: string;
-}
-
-export namespace ACHRoutingRetrieveResponse {
-  export interface _Links {
-    href?: string;
-
-    'resource-type'?: string;
-
-    type?: string;
-  }
 }
 
 export namespace ACHRouting {

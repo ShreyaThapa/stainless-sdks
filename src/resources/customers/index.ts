@@ -12,6 +12,12 @@ export {
   BeneficialOwnership,
 } from './beneficial-ownership';
 export {
+  Controller,
+  UnverifiedBusinessCustomer,
+  UnverifiedCustomer,
+  VerifiedBusinessCustomer,
+  VerifiedPersonalCustomer,
+  VerifiedSolePropCustomer,
   CustomerRetrieveResponse,
   CustomerUpdateResponse,
   CustomerListResponse,

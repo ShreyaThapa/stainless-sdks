@@ -3,6 +3,7 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as BalanceAPI from './balance';
+import * as Shared from '../shared';
 
 export class Balance extends APIResource {
   /**
@@ -14,7 +15,7 @@ export class Balance extends APIResource {
 }
 
 export interface BalanceRetrieveResponse {
-  _links?: Record<string, BalanceRetrieveResponse._Links>;
+  _links?: Record<string, Shared.HalLink>;
 
   balance?: BalanceRetrieveResponse.Balance;
 
@@ -24,14 +25,6 @@ export interface BalanceRetrieveResponse {
 }
 
 export namespace BalanceRetrieveResponse {
-  export interface _Links {
-    href?: string;
-
-    'resource-type'?: string;
-
-    type?: string;
-  }
-
   export interface Balance {
     currency?: string;
 

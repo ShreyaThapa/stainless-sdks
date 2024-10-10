@@ -7,6 +7,13 @@ import * as ItemsAPI from './items';
 
 export class Items extends APIResource {
   /**
+   * Retrieve mass payment item
+   */
+  retrieve(id: string, options?: Core.RequestOptions): Core.APIPromise<ItemRetrieveResponse> {
+    return this._client.get(`/mass-payment-items/${id}`, options);
+  }
+
+  /**
    * List items for a mass payment
    */
   list(id: string, query?: ItemListParams, options?: Core.RequestOptions): Core.APIPromise<ItemListResponse>;
@@ -20,6 +27,64 @@ export class Items extends APIResource {
       return this.list(id, {}, query);
     }
     return this._client.get(`/mass-payments/${id}/items`, { query, ...options });
+  }
+}
+
+export interface ItemRetrieveResponse {
+  id?: string;
+
+  _links?: ItemRetrieveResponse._Links;
+
+  amount?: ItemRetrieveResponse.Amount;
+
+  metadata?: ItemRetrieveResponse.Metadata;
+
+  processingChannel?: ItemRetrieveResponse.ProcessingChannel;
+
+  status?: string;
+}
+
+export namespace ItemRetrieveResponse {
+  export interface _Links {
+    destination?: _Links.Destination;
+
+    'mass-payment'?: _Links.MassPayment;
+
+    self?: _Links.Self;
+
+    transfer?: _Links.Transfer;
+  }
+
+  export namespace _Links {
+    export interface Destination {
+      href?: string;
+    }
+
+    export interface MassPayment {
+      href?: string;
+    }
+
+    export interface Self {
+      href?: string;
+    }
+
+    export interface Transfer {
+      href?: string;
+    }
+  }
+
+  export interface Amount {
+    currency?: string;
+
+    value?: string;
+  }
+
+  export interface Metadata {
+    item1?: string;
+  }
+
+  export interface ProcessingChannel {
+    destination?: string;
   }
 }
 
@@ -137,6 +202,7 @@ export interface ItemListParams {
 }
 
 export namespace Items {
+  export import ItemRetrieveResponse = ItemsAPI.ItemRetrieveResponse;
   export import ItemListResponse = ItemsAPI.ItemListResponse;
   export import ItemListParams = ItemsAPI.ItemListParams;
 }

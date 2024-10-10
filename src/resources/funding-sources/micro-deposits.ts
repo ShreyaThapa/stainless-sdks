@@ -3,6 +3,7 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as MicroDepositsAPI from './micro-deposits';
+import * as Shared from '../shared';
 
 export class MicroDeposits extends APIResource {
   /**
@@ -29,7 +30,7 @@ export class MicroDeposits extends APIResource {
 }
 
 export interface MicroDepositRetrieveResponse {
-  _links?: Record<string, MicroDepositRetrieveResponse._Links>;
+  _links?: Record<string, Shared.HalLink>;
 
   created?: string;
 
@@ -39,14 +40,6 @@ export interface MicroDepositRetrieveResponse {
 }
 
 export namespace MicroDepositRetrieveResponse {
-  export interface _Links {
-    href?: string;
-
-    'resource-type'?: string;
-
-    type?: string;
-  }
-
   export interface Failure {
     code?: string;
 

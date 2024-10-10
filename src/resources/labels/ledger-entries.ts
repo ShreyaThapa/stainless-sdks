@@ -4,6 +4,7 @@ import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as LedgerEntriesAPI from './ledger-entries';
+import * as Shared from '../shared';
 
 export class LedgerEntries extends APIResource {
   /**
@@ -41,7 +42,7 @@ export class LedgerEntries extends APIResource {
 export interface LedgerEntryListResponse {
   _embedded?: LedgerEntryListResponse._Embedded;
 
-  _links?: Record<string, LedgerEntryListResponse._Links>;
+  _links?: Record<string, Shared.HalLink>;
 
   total?: number;
 }
@@ -69,14 +70,6 @@ export namespace LedgerEntryListResponse {
         value?: string;
       }
     }
-  }
-
-  export interface _Links {
-    href?: string;
-
-    'resource-type'?: string;
-
-    type?: string;
   }
 }
 

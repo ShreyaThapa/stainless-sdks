@@ -3,6 +3,7 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as BeneficialOwnersAPI from './beneficial-owners';
+import * as Shared from '../shared';
 import * as DocumentsAPI from './documents';
 
 export class BeneficialOwners extends APIResource {
@@ -42,7 +43,7 @@ export interface BeneficialOwnerRetrieveResponse {
 
   _links?: unknown;
 
-  address?: BeneficialOwnerRetrieveResponse.Address;
+  address?: Shared.InternationalAddress;
 
   created?: string;
 
@@ -51,24 +52,6 @@ export interface BeneficialOwnerRetrieveResponse {
   lastName?: string;
 
   verificationStatus?: string;
-}
-
-export namespace BeneficialOwnerRetrieveResponse {
-  export interface Address {
-    address1: string;
-
-    city: string;
-
-    country: string;
-
-    stateProvinceRegion: string;
-
-    address2?: string;
-
-    address3?: string;
-
-    postalCode?: string;
-  }
 }
 
 /**
@@ -79,7 +62,7 @@ export interface BeneficialOwnerUpdateResponse {
 
   _links?: unknown;
 
-  address?: BeneficialOwnerUpdateResponse.Address;
+  address?: Shared.InternationalAddress;
 
   created?: string;
 
@@ -90,24 +73,6 @@ export interface BeneficialOwnerUpdateResponse {
   verificationStatus?: string;
 }
 
-export namespace BeneficialOwnerUpdateResponse {
-  export interface Address {
-    address1: string;
-
-    city: string;
-
-    country: string;
-
-    stateProvinceRegion: string;
-
-    address2?: string;
-
-    address3?: string;
-
-    postalCode?: string;
-  }
-}
-
 export type BeneficialOwnerDeleteResponse = unknown;
 
 export type BeneficialOwnerUpdateParams =
@@ -116,7 +81,7 @@ export type BeneficialOwnerUpdateParams =
 
 export namespace BeneficialOwnerUpdateParams {
   export interface BeneficialOwnerWithSsn {
-    address: BeneficialOwnerUpdateParams.BeneficialOwnerWithSsn.Address;
+    address: Shared.InternationalAddress;
 
     dateOfBirth: string;
 
@@ -127,26 +92,8 @@ export namespace BeneficialOwnerUpdateParams {
     ssn: string;
   }
 
-  export namespace BeneficialOwnerWithSsn {
-    export interface Address {
-      address1: string;
-
-      city: string;
-
-      country: string;
-
-      stateProvinceRegion: string;
-
-      address2?: string;
-
-      address3?: string;
-
-      postalCode?: string;
-    }
-  }
-
   export interface BeneficialOwnerWithPassport {
-    address: BeneficialOwnerUpdateParams.BeneficialOwnerWithPassport.Address;
+    address: Shared.InternationalAddress;
 
     dateOfBirth: string;
 
@@ -154,31 +101,7 @@ export namespace BeneficialOwnerUpdateParams {
 
     lastName: string;
 
-    passport: BeneficialOwnerUpdateParams.BeneficialOwnerWithPassport.Passport;
-  }
-
-  export namespace BeneficialOwnerWithPassport {
-    export interface Address {
-      address1: string;
-
-      city: string;
-
-      country: string;
-
-      stateProvinceRegion: string;
-
-      address2?: string;
-
-      address3?: string;
-
-      postalCode?: string;
-    }
-
-    export interface Passport {
-      country: string;
-
-      number: string;
-    }
+    passport: Shared.Passport;
   }
 }
 

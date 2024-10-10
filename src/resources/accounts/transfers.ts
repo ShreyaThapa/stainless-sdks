@@ -4,6 +4,7 @@ import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as TransfersAPI from './transfers';
+import * as Shared from '../shared';
 
 export class Transfers extends APIResource {
   /**
@@ -44,7 +45,7 @@ export namespace TransferListResponse {
     export interface Transfer {
       id?: string;
 
-      _links?: Record<string, Transfer._Links>;
+      _links?: Record<string, Shared.HalLink>;
 
       achDetails?: Transfer.ACHDetails;
 
@@ -66,14 +67,6 @@ export namespace TransferListResponse {
     }
 
     export namespace Transfer {
-      export interface _Links {
-        href?: string;
-
-        'resource-type'?: string;
-
-        type?: string;
-      }
-
       export interface ACHDetails {
         destination?: ACHDetails.Destination;
 

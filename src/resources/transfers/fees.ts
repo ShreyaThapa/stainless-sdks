@@ -3,6 +3,7 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as FeesAPI from './fees';
+import * as Shared from '../shared';
 
 export class Fees extends APIResource {
   /**
@@ -23,7 +24,7 @@ export namespace FeeListResponse {
   export interface Transaction {
     id?: string;
 
-    _links?: Record<string, Transaction._Links>;
+    _links?: Record<string, Shared.HalLink>;
 
     amount?: Transaction.Amount;
 
@@ -33,14 +34,6 @@ export namespace FeeListResponse {
   }
 
   export namespace Transaction {
-    export interface _Links {
-      href?: string;
-
-      'resource-type'?: string;
-
-      type?: string;
-    }
-
     export interface Amount {
       currency?: string;
 
