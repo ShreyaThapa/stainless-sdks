@@ -42,11 +42,13 @@ export let isFsReadStream: Shims['isFsReadStream'] | undefined = undefined;
 export function setShims(shims: Shims, options: { auto: boolean } = { auto: false }) {
   if (auto) {
     throw new Error(
-      `you must \`import 'dwolla/shims/${shims.kind}'\` before importing anything else from dwolla`,
+      `you must \`import 'dwolla-stainless-node/shims/${shims.kind}'\` before importing anything else from dwolla-stainless-node`,
     );
   }
   if (kind) {
-    throw new Error(`can't \`import 'dwolla/shims/${shims.kind}'\` after \`import 'dwolla/shims/${kind}'\``);
+    throw new Error(
+      `can't \`import 'dwolla-stainless-node/shims/${shims.kind}'\` after \`import 'dwolla-stainless-node/shims/${kind}'\``,
+    );
   }
   auto = options.auto;
   kind = shims.kind;

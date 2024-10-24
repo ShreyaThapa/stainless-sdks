@@ -6,9 +6,9 @@
     "rootDir": "./deno",
     "lib": ["es2020", "DOM"],
     "paths": {
-      "dwolla/_shims/auto/*": ["deno/_shims/auto/*-deno"],
-      "dwolla/*": ["deno/*"],
-      "dwolla": ["deno/index.ts"],
+      "dwolla-stainless-node/_shims/auto/*": ["deno/_shims/auto/*-deno"],
+      "dwolla-stainless-node/*": ["deno/*"],
+      "dwolla-stainless-node": ["deno/index.ts"],
     },
     "noEmit": true,
     "declaration": true,

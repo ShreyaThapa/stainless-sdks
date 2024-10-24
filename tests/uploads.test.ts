@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { toFile, type ResponseLike } from 'dwolla/uploads';
-import { File } from 'dwolla/_shims/index';
+import { toFile, type ResponseLike } from 'dwolla-stainless-node/uploads';
+import { File } from 'dwolla-stainless-node/_shims/index';
 
 class MyClass {
   name: string = 'foo';

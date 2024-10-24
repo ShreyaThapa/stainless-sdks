@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "dwolla/*": ["dist/src/*"],
-      "dwolla": ["dist/src/index.ts"],
+      "dwolla-stainless-node/*": ["dist/src/*"],
+      "dwolla-stainless-node": ["dist/src/index.ts"],
     },
     "noEmit": false,
     "declaration": true,

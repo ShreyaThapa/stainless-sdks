@@ -7,9 +7,9 @@ const config: JestConfigWithTsJest = {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { sourceMaps: 'inline' }],
   },
   moduleNameMapper: {
-    '^dwolla$': '<rootDir>/src/index.ts',
-    '^dwolla/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
-    '^dwolla/(.*)$': '<rootDir>/src/$1',
+    '^dwolla-stainless-node$': '<rootDir>/src/index.ts',
+    '^dwolla-stainless-node/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
+    '^dwolla-stainless-node/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',
