@@ -72,8 +72,8 @@ export namespace EventListResponse {
 export interface EventListParams extends OffsetIntegerPaginationParams {}
 
 export namespace Events {
-  export type EventRetrieveResponse = EventsAPI.EventRetrieveResponse;
-  export type EventListResponse = EventsAPI.EventListResponse;
+  export import EventRetrieveResponse = EventsAPI.EventRetrieveResponse;
+  export import EventListResponse = EventsAPI.EventListResponse;
   export import EventListResponsesOffsetIntegerPagination = EventsAPI.EventListResponsesOffsetIntegerPagination;
-  export type EventListParams = EventsAPI.EventListParams;
+  export import EventListParams = EventsAPI.EventListParams;
 }

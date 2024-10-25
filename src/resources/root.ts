@@ -19,5 +19,5 @@ export interface RootListResponse {
 }
 
 export namespace Root {
-  export type RootListResponse = RootAPI.RootListResponse;
+  export import RootListResponse = RootAPI.RootListResponse;
 }

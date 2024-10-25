@@ -102,7 +102,7 @@ export namespace KbaVerifyParams {
 }
 
 export namespace Kba {
-  export type KbaRetrieveQuestionsResponse = KbaAPI.KbaRetrieveQuestionsResponse;
-  export type KbaVerifyResponse = KbaAPI.KbaVerifyResponse;
-  export type KbaVerifyParams = KbaAPI.KbaVerifyParams;
+  export import KbaRetrieveQuestionsResponse = KbaAPI.KbaRetrieveQuestionsResponse;
+  export import KbaVerifyResponse = KbaAPI.KbaVerifyResponse;
+  export import KbaVerifyParams = KbaAPI.KbaVerifyParams;
 }

@@ -106,11 +106,11 @@ export namespace BeneficialOwnerUpdateParams {
 }
 
 export namespace BeneficialOwners {
-  export type BeneficialOwnerRetrieveResponse = BeneficialOwnersAPI.BeneficialOwnerRetrieveResponse;
-  export type BeneficialOwnerUpdateResponse = BeneficialOwnersAPI.BeneficialOwnerUpdateResponse;
-  export type BeneficialOwnerDeleteResponse = BeneficialOwnersAPI.BeneficialOwnerDeleteResponse;
-  export type BeneficialOwnerUpdateParams = BeneficialOwnersAPI.BeneficialOwnerUpdateParams;
+  export import BeneficialOwnerRetrieveResponse = BeneficialOwnersAPI.BeneficialOwnerRetrieveResponse;
+  export import BeneficialOwnerUpdateResponse = BeneficialOwnersAPI.BeneficialOwnerUpdateResponse;
+  export import BeneficialOwnerDeleteResponse = BeneficialOwnersAPI.BeneficialOwnerDeleteResponse;
+  export import BeneficialOwnerUpdateParams = BeneficialOwnersAPI.BeneficialOwnerUpdateParams;
   export import Documents = DocumentsAPI.Documents;
-  export type DocumentListResponse = DocumentsAPI.DocumentListResponse;
-  export type DocumentCreateParams = DocumentsAPI.DocumentCreateParams;
+  export import DocumentListResponse = DocumentsAPI.DocumentListResponse;
+  export import DocumentCreateParams = DocumentsAPI.DocumentCreateParams;
 }

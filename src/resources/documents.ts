@@ -45,5 +45,5 @@ export namespace DocumentRetrieveResponse {
 }
 
 export namespace Documents {
-  export type DocumentRetrieveResponse = DocumentsAPI.DocumentRetrieveResponse;
+  export import DocumentRetrieveResponse = DocumentsAPI.DocumentRetrieveResponse;
 }
