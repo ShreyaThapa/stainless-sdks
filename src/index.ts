@@ -274,122 +274,122 @@ export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
 export namespace Dwolla {
-  export import RequestOptions = Core.RequestOptions;
+  export type RequestOptions = Core.RequestOptions;
 
   export import OffsetStringPagination = Pagination.OffsetStringPagination;
-  export import OffsetStringPaginationParams = Pagination.OffsetStringPaginationParams;
-  export import OffsetStringPaginationResponse = Pagination.OffsetStringPaginationResponse;
+  export type OffsetStringPaginationParams = Pagination.OffsetStringPaginationParams;
+  export type OffsetStringPaginationResponse<T> = Pagination.OffsetStringPaginationResponse<T>;
 
   export import OffsetIntegerPagination = Pagination.OffsetIntegerPagination;
-  export import OffsetIntegerPaginationParams = Pagination.OffsetIntegerPaginationParams;
-  export import OffsetIntegerPaginationResponse = Pagination.OffsetIntegerPaginationResponse;
+  export type OffsetIntegerPaginationParams = Pagination.OffsetIntegerPaginationParams;
+  export type OffsetIntegerPaginationResponse<T> = Pagination.OffsetIntegerPaginationResponse<T>;
 
   export import Tokens = API.Tokens;
-  export import TokenGenerateResponse = API.TokenGenerateResponse;
-  export import TokenGenerateParams = API.TokenGenerateParams;
+  export type TokenGenerateResponse = API.TokenGenerateResponse;
+  export type TokenGenerateParams = API.TokenGenerateParams;
 
   export import Root = API.Root;
-  export import RootListResponse = API.RootListResponse;
+  export type RootListResponse = API.RootListResponse;
 
   export import Accounts = API.Accounts;
-  export import AccountRetrieveResponse = API.AccountRetrieveResponse;
+  export type AccountRetrieveResponse = API.AccountRetrieveResponse;
 
   export import FundingSources = API.FundingSources;
-  export import FundingSourceRetrieveResponse = API.FundingSourceRetrieveResponse;
-  export import FundingSourceUpdateResponse = API.FundingSourceUpdateResponse;
-  export import FundingSourceCreateParams = API.FundingSourceCreateParams;
-  export import FundingSourceUpdateParams = API.FundingSourceUpdateParams;
+  export type FundingSourceRetrieveResponse = API.FundingSourceRetrieveResponse;
+  export type FundingSourceUpdateResponse = API.FundingSourceUpdateResponse;
+  export type FundingSourceCreateParams = API.FundingSourceCreateParams;
+  export type FundingSourceUpdateParams = API.FundingSourceUpdateParams;
 
   export import Customers = API.Customers;
-  export import Controller = API.Controller;
-  export import UnverifiedBusinessCustomer = API.UnverifiedBusinessCustomer;
-  export import UnverifiedCustomer = API.UnverifiedCustomer;
-  export import VerifiedBusinessCustomer = API.VerifiedBusinessCustomer;
-  export import VerifiedPersonalCustomer = API.VerifiedPersonalCustomer;
-  export import VerifiedSolePropCustomer = API.VerifiedSolePropCustomer;
-  export import CustomerRetrieveResponse = API.CustomerRetrieveResponse;
-  export import CustomerUpdateResponse = API.CustomerUpdateResponse;
-  export import CustomerListResponse = API.CustomerListResponse;
+  export type Controller = API.Controller;
+  export type UnverifiedBusinessCustomer = API.UnverifiedBusinessCustomer;
+  export type UnverifiedCustomer = API.UnverifiedCustomer;
+  export type VerifiedBusinessCustomer = API.VerifiedBusinessCustomer;
+  export type VerifiedPersonalCustomer = API.VerifiedPersonalCustomer;
+  export type VerifiedSolePropCustomer = API.VerifiedSolePropCustomer;
+  export type CustomerRetrieveResponse = API.CustomerRetrieveResponse;
+  export type CustomerUpdateResponse = API.CustomerUpdateResponse;
+  export type CustomerListResponse = API.CustomerListResponse;
   export import CustomerListResponsesOffsetStringPagination = API.CustomerListResponsesOffsetStringPagination;
-  export import CustomerCreateParams = API.CustomerCreateParams;
-  export import CustomerUpdateParams = API.CustomerUpdateParams;
-  export import CustomerListParams = API.CustomerListParams;
+  export type CustomerCreateParams = API.CustomerCreateParams;
+  export type CustomerUpdateParams = API.CustomerUpdateParams;
+  export type CustomerListParams = API.CustomerListParams;
 
   export import BusinessClassifications = API.BusinessClassifications;
-  export import BusinessClassificationRetrieveResponse = API.BusinessClassificationRetrieveResponse;
-  export import BusinessClassificationListResponse = API.BusinessClassificationListResponse;
+  export type BusinessClassificationRetrieveResponse = API.BusinessClassificationRetrieveResponse;
+  export type BusinessClassificationListResponse = API.BusinessClassificationListResponse;
 
   export import BeneficialOwners = API.BeneficialOwners;
-  export import BeneficialOwnerRetrieveResponse = API.BeneficialOwnerRetrieveResponse;
-  export import BeneficialOwnerUpdateResponse = API.BeneficialOwnerUpdateResponse;
-  export import BeneficialOwnerDeleteResponse = API.BeneficialOwnerDeleteResponse;
-  export import BeneficialOwnerUpdateParams = API.BeneficialOwnerUpdateParams;
+  export type BeneficialOwnerRetrieveResponse = API.BeneficialOwnerRetrieveResponse;
+  export type BeneficialOwnerUpdateResponse = API.BeneficialOwnerUpdateResponse;
+  export type BeneficialOwnerDeleteResponse = API.BeneficialOwnerDeleteResponse;
+  export type BeneficialOwnerUpdateParams = API.BeneficialOwnerUpdateParams;
 
   export import Documents = API.Documents;
-  export import DocumentRetrieveResponse = API.DocumentRetrieveResponse;
+  export type DocumentRetrieveResponse = API.DocumentRetrieveResponse;
 
   export import Kba = API.Kba;
-  export import KbaRetrieveQuestionsResponse = API.KbaRetrieveQuestionsResponse;
-  export import KbaVerifyResponse = API.KbaVerifyResponse;
-  export import KbaVerifyParams = API.KbaVerifyParams;
+  export type KbaRetrieveQuestionsResponse = API.KbaRetrieveQuestionsResponse;
+  export type KbaVerifyResponse = API.KbaVerifyResponse;
+  export type KbaVerifyParams = API.KbaVerifyParams;
 
   export import Transfers = API.Transfers;
-  export import TransferRetrieveResponse = API.TransferRetrieveResponse;
-  export import TransferCancelResponse = API.TransferCancelResponse;
-  export import TransferCancelParams = API.TransferCancelParams;
-  export import TransferInitiateParams = API.TransferInitiateParams;
+  export type TransferRetrieveResponse = API.TransferRetrieveResponse;
+  export type TransferCancelResponse = API.TransferCancelResponse;
+  export type TransferCancelParams = API.TransferCancelParams;
+  export type TransferInitiateParams = API.TransferInitiateParams;
 
   export import OnDemandAuthorizations = API.OnDemandAuthorizations;
-  export import OnDemandAuthorizationCreateResponse = API.OnDemandAuthorizationCreateResponse;
+  export type OnDemandAuthorizationCreateResponse = API.OnDemandAuthorizationCreateResponse;
 
   export import MassPayments = API.MassPayments;
-  export import MassPaymentRetrieveResponse = API.MassPaymentRetrieveResponse;
-  export import MassPaymentUpdateResponse = API.MassPaymentUpdateResponse;
-  export import MassPaymentCreateParams = API.MassPaymentCreateParams;
-  export import MassPaymentUpdateParams = API.MassPaymentUpdateParams;
+  export type MassPaymentRetrieveResponse = API.MassPaymentRetrieveResponse;
+  export type MassPaymentUpdateResponse = API.MassPaymentUpdateResponse;
+  export type MassPaymentCreateParams = API.MassPaymentCreateParams;
+  export type MassPaymentUpdateParams = API.MassPaymentUpdateParams;
 
   export import Labels = API.Labels;
-  export import LabelRetrieveResponse = API.LabelRetrieveResponse;
-  export import LabelRemoveResponse = API.LabelRemoveResponse;
+  export type LabelRetrieveResponse = API.LabelRetrieveResponse;
+  export type LabelRemoveResponse = API.LabelRemoveResponse;
 
   export import LedgerEntries = API.LedgerEntries;
-  export import LedgerEntryRetrieveResponse = API.LedgerEntryRetrieveResponse;
+  export type LedgerEntryRetrieveResponse = API.LedgerEntryRetrieveResponse;
 
   export import LabelReallocations = API.LabelReallocations;
-  export import LabelReallocationRetrieveResponse = API.LabelReallocationRetrieveResponse;
-  export import LabelReallocationCreateParams = API.LabelReallocationCreateParams;
+  export type LabelReallocationRetrieveResponse = API.LabelReallocationRetrieveResponse;
+  export type LabelReallocationCreateParams = API.LabelReallocationCreateParams;
 
   export import Events = API.Events;
-  export import EventRetrieveResponse = API.EventRetrieveResponse;
-  export import EventListResponse = API.EventListResponse;
+  export type EventRetrieveResponse = API.EventRetrieveResponse;
+  export type EventListResponse = API.EventListResponse;
   export import EventListResponsesOffsetIntegerPagination = API.EventListResponsesOffsetIntegerPagination;
-  export import EventListParams = API.EventListParams;
+  export type EventListParams = API.EventListParams;
 
   export import WebhookSubscriptions = API.WebhookSubscriptions;
-  export import WebhookSubscriptionRetrieveResponse = API.WebhookSubscriptionRetrieveResponse;
-  export import WebhookSubscriptionUpdateResponse = API.WebhookSubscriptionUpdateResponse;
-  export import WebhookSubscriptionListResponse = API.WebhookSubscriptionListResponse;
-  export import WebhookSubscriptionDeleteResponse = API.WebhookSubscriptionDeleteResponse;
-  export import WebhookSubscriptionCreateParams = API.WebhookSubscriptionCreateParams;
-  export import WebhookSubscriptionUpdateParams = API.WebhookSubscriptionUpdateParams;
+  export type WebhookSubscriptionRetrieveResponse = API.WebhookSubscriptionRetrieveResponse;
+  export type WebhookSubscriptionUpdateResponse = API.WebhookSubscriptionUpdateResponse;
+  export type WebhookSubscriptionListResponse = API.WebhookSubscriptionListResponse;
+  export type WebhookSubscriptionDeleteResponse = API.WebhookSubscriptionDeleteResponse;
+  export type WebhookSubscriptionCreateParams = API.WebhookSubscriptionCreateParams;
+  export type WebhookSubscriptionUpdateParams = API.WebhookSubscriptionUpdateParams;
 
   export import Webhooks = API.Webhooks;
-  export import WebhookRetrieveResponse = API.WebhookRetrieveResponse;
+  export type WebhookRetrieveResponse = API.WebhookRetrieveResponse;
 
   export import ExchangePartners = API.ExchangePartners;
-  export import ExchangePartnerRetrieveResponse = API.ExchangePartnerRetrieveResponse;
+  export type ExchangePartnerRetrieveResponse = API.ExchangePartnerRetrieveResponse;
 
   export import Exchanges = API.Exchanges;
-  export import ExchangeCreateResponse = API.ExchangeCreateResponse;
-  export import ExchangeRetrieveResponse = API.ExchangeRetrieveResponse;
-  export import ExchangeListResponse = API.ExchangeListResponse;
-  export import ExchangeCreateParams = API.ExchangeCreateParams;
+  export type ExchangeCreateResponse = API.ExchangeCreateResponse;
+  export type ExchangeRetrieveResponse = API.ExchangeRetrieveResponse;
+  export type ExchangeListResponse = API.ExchangeListResponse;
+  export type ExchangeCreateParams = API.ExchangeCreateParams;
 
-  export import ExchangePartners = API.ExchangePartners;
-  export import HalLink = API.HalLink;
-  export import InternationalAddress = API.InternationalAddress;
-  export import Passport = API.Passport;
-  export import TransferAmount = API.TransferAmount;
+  export type ExchangePartners = API.ExchangePartners;
+  export type HalLink = API.HalLink;
+  export type InternationalAddress = API.InternationalAddress;
+  export type Passport = API.Passport;
+  export type TransferAmount = API.TransferAmount;
 }
 
 export default Dwolla;

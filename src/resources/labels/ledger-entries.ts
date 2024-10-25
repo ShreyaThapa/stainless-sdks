@@ -98,8 +98,8 @@ export namespace LedgerEntryCreateParams {
 export interface LedgerEntryListParams extends OffsetStringPaginationParams {}
 
 export namespace LedgerEntries {
-  export import LedgerEntryListResponse = LedgerEntriesAPI.LedgerEntryListResponse;
+  export type LedgerEntryListResponse = LedgerEntriesAPI.LedgerEntryListResponse;
   export import LedgerEntryListResponsesOffsetStringPagination = LedgerEntriesAPI.LedgerEntryListResponsesOffsetStringPagination;
-  export import LedgerEntryCreateParams = LedgerEntriesAPI.LedgerEntryCreateParams;
-  export import LedgerEntryListParams = LedgerEntriesAPI.LedgerEntryListParams;
+  export type LedgerEntryCreateParams = LedgerEntriesAPI.LedgerEntryCreateParams;
+  export type LedgerEntryListParams = LedgerEntriesAPI.LedgerEntryListParams;
 }

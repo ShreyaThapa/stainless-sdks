@@ -130,6 +130,6 @@ export namespace FundingSourceCreateParams {
 }
 
 export namespace FundingSources {
-  export import FundingSourceListResponse = FundingSourcesAPI.FundingSourceListResponse;
-  export import FundingSourceCreateParams = FundingSourcesAPI.FundingSourceCreateParams;
+  export type FundingSourceListResponse = FundingSourcesAPI.FundingSourceListResponse;
+  export type FundingSourceCreateParams = FundingSourcesAPI.FundingSourceCreateParams;
 }
