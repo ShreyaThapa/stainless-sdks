@@ -34,5 +34,6 @@ export namespace OnDemandAuthorizationCreateResponse {
 }
 
 export namespace OnDemandAuthorizations {
-  export import OnDemandAuthorizationCreateResponse = OnDemandAuthorizationsAPI.OnDemandAuthorizationCreateResponse;
+  export type OnDemandAuthorizationCreateResponse =
+    OnDemandAuthorizationsAPI.OnDemandAuthorizationCreateResponse;
 }

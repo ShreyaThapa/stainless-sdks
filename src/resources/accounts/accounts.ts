@@ -64,16 +64,16 @@ export namespace AccountRetrieveResponse {
 }
 
 export namespace Accounts {
-  export import AccountRetrieveResponse = AccountsAPI.AccountRetrieveResponse;
+  export type AccountRetrieveResponse = AccountsAPI.AccountRetrieveResponse;
   export import FundingSources = FundingSourcesAPI.FundingSources;
-  export import FundingSourceListResponse = FundingSourcesAPI.FundingSourceListResponse;
-  export import FundingSourceListParams = FundingSourcesAPI.FundingSourceListParams;
+  export type FundingSourceListResponse = FundingSourcesAPI.FundingSourceListResponse;
+  export type FundingSourceListParams = FundingSourcesAPI.FundingSourceListParams;
   export import Transfers = TransfersAPI.Transfers;
-  export import TransferListResponse = TransfersAPI.TransferListResponse;
+  export type TransferListResponse = TransfersAPI.TransferListResponse;
   export import TransferListResponsesOffsetStringPagination = TransfersAPI.TransferListResponsesOffsetStringPagination;
-  export import TransferListParams = TransfersAPI.TransferListParams;
+  export type TransferListParams = TransfersAPI.TransferListParams;
   export import MassPayments = MassPaymentsAPI.MassPayments;
-  export import MassPaymentListResponse = MassPaymentsAPI.MassPaymentListResponse;
+  export type MassPaymentListResponse = MassPaymentsAPI.MassPaymentListResponse;
   export import MassPaymentListResponsesOffsetIntegerPagination = MassPaymentsAPI.MassPaymentListResponsesOffsetIntegerPagination;
-  export import MassPaymentListParams = MassPaymentsAPI.MassPaymentListParams;
+  export type MassPaymentListParams = MassPaymentsAPI.MassPaymentListParams;
 }

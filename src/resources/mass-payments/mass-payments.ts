@@ -180,13 +180,13 @@ export interface MassPaymentUpdateParams {
 }
 
 export namespace MassPayments {
-  export import MassPaymentRetrieveResponse = MassPaymentsAPI.MassPaymentRetrieveResponse;
-  export import MassPaymentUpdateResponse = MassPaymentsAPI.MassPaymentUpdateResponse;
-  export import MassPaymentCreateParams = MassPaymentsAPI.MassPaymentCreateParams;
-  export import MassPaymentUpdateParams = MassPaymentsAPI.MassPaymentUpdateParams;
+  export type MassPaymentRetrieveResponse = MassPaymentsAPI.MassPaymentRetrieveResponse;
+  export type MassPaymentUpdateResponse = MassPaymentsAPI.MassPaymentUpdateResponse;
+  export type MassPaymentCreateParams = MassPaymentsAPI.MassPaymentCreateParams;
+  export type MassPaymentUpdateParams = MassPaymentsAPI.MassPaymentUpdateParams;
   export import Items = ItemsAPI.Items;
-  export import ItemRetrieveResponse = ItemsAPI.ItemRetrieveResponse;
-  export import ItemListResponse = ItemsAPI.ItemListResponse;
+  export type ItemRetrieveResponse = ItemsAPI.ItemRetrieveResponse;
+  export type ItemListResponse = ItemsAPI.ItemListResponse;
   export import ItemListResponsesOffsetStringPagination = ItemsAPI.ItemListResponsesOffsetStringPagination;
-  export import ItemListParams = ItemsAPI.ItemListParams;
+  export type ItemListParams = ItemsAPI.ItemListParams;
 }

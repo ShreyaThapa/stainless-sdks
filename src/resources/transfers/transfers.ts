@@ -240,12 +240,12 @@ export namespace TransferInitiateParams {
 }
 
 export namespace Transfers {
-  export import TransferRetrieveResponse = TransfersAPI.TransferRetrieveResponse;
-  export import TransferCancelResponse = TransfersAPI.TransferCancelResponse;
-  export import TransferCancelParams = TransfersAPI.TransferCancelParams;
-  export import TransferInitiateParams = TransfersAPI.TransferInitiateParams;
+  export type TransferRetrieveResponse = TransfersAPI.TransferRetrieveResponse;
+  export type TransferCancelResponse = TransfersAPI.TransferCancelResponse;
+  export type TransferCancelParams = TransfersAPI.TransferCancelParams;
+  export type TransferInitiateParams = TransfersAPI.TransferInitiateParams;
   export import Fees = FeesAPI.Fees;
-  export import FeeListResponse = FeesAPI.FeeListResponse;
+  export type FeeListResponse = FeesAPI.FeeListResponse;
   export import Failure = FailureAPI.Failure;
-  export import FailureRetrieveResponse = FailureAPI.FailureRetrieveResponse;
+  export type FailureRetrieveResponse = FailureAPI.FailureRetrieveResponse;
 }

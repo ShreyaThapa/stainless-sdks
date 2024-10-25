@@ -80,7 +80,7 @@ export interface MassPaymentListParams extends OffsetStringPaginationParams {
 }
 
 export namespace MassPayments {
-  export import MassPaymentListResponse = MassPaymentsAPI.MassPaymentListResponse;
+  export type MassPaymentListResponse = MassPaymentsAPI.MassPaymentListResponse;
   export import MassPaymentListResponsesOffsetStringPagination = MassPaymentsAPI.MassPaymentListResponsesOffsetStringPagination;
-  export import MassPaymentListParams = MassPaymentsAPI.MassPaymentListParams;
+  export type MassPaymentListParams = MassPaymentsAPI.MassPaymentListParams;
 }

@@ -32,5 +32,5 @@ export namespace LedgerEntryRetrieveResponse {
 }
 
 export namespace LedgerEntries {
-  export import LedgerEntryRetrieveResponse = LedgerEntriesAPI.LedgerEntryRetrieveResponse;
+  export type LedgerEntryRetrieveResponse = LedgerEntriesAPI.LedgerEntryRetrieveResponse;
 }

@@ -34,5 +34,5 @@ export interface ExchangePartnerRetrieveResponse {
 }
 
 export namespace ExchangePartners {
-  export import ExchangePartnerRetrieveResponse = ExchangePartnersAPI.ExchangePartnerRetrieveResponse;
+  export type ExchangePartnerRetrieveResponse = ExchangePartnersAPI.ExchangePartnerRetrieveResponse;
 }
