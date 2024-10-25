@@ -32,5 +32,5 @@ export namespace IavTokenCreateResponse {
 }
 
 export namespace IavToken {
-  export type IavTokenCreateResponse = IavTokenAPI.IavTokenCreateResponse;
+  export import IavTokenCreateResponse = IavTokenAPI.IavTokenCreateResponse;
 }

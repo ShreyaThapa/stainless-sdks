@@ -186,6 +186,6 @@ export interface WebhookListParams {
 }
 
 export namespace Webhooks {
-  export type WebhookListResponse = WebhooksAPI.WebhookListResponse;
-  export type WebhookListParams = WebhooksAPI.WebhookListParams;
+  export import WebhookListResponse = WebhooksAPI.WebhookListResponse;
+  export import WebhookListParams = WebhooksAPI.WebhookListParams;
 }

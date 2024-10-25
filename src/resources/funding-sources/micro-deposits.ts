@@ -76,6 +76,6 @@ export namespace MicroDepositInitiateParams {
 }
 
 export namespace MicroDeposits {
-  export type MicroDepositRetrieveResponse = MicroDepositsAPI.MicroDepositRetrieveResponse;
-  export type MicroDepositInitiateParams = MicroDepositsAPI.MicroDepositInitiateParams;
+  export import MicroDepositRetrieveResponse = MicroDepositsAPI.MicroDepositRetrieveResponse;
+  export import MicroDepositInitiateParams = MicroDepositsAPI.MicroDepositInitiateParams;
 }

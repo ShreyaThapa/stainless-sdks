@@ -75,6 +75,6 @@ export interface FundingSourceListParams {
 }
 
 export namespace FundingSources {
-  export type FundingSourceListResponse = FundingSourcesAPI.FundingSourceListResponse;
-  export type FundingSourceListParams = FundingSourcesAPI.FundingSourceListParams;
+  export import FundingSourceListResponse = FundingSourcesAPI.FundingSourceListResponse;
+  export import FundingSourceListParams = FundingSourcesAPI.FundingSourceListParams;
 }

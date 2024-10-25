@@ -120,15 +120,15 @@ export namespace FundingSourceUpdateParams {
 }
 
 export namespace FundingSources {
-  export type FundingSourceRetrieveResponse = FundingSourcesAPI.FundingSourceRetrieveResponse;
-  export type FundingSourceUpdateResponse = FundingSourcesAPI.FundingSourceUpdateResponse;
-  export type FundingSourceCreateParams = FundingSourcesAPI.FundingSourceCreateParams;
-  export type FundingSourceUpdateParams = FundingSourcesAPI.FundingSourceUpdateParams;
+  export import FundingSourceRetrieveResponse = FundingSourcesAPI.FundingSourceRetrieveResponse;
+  export import FundingSourceUpdateResponse = FundingSourcesAPI.FundingSourceUpdateResponse;
+  export import FundingSourceCreateParams = FundingSourcesAPI.FundingSourceCreateParams;
+  export import FundingSourceUpdateParams = FundingSourcesAPI.FundingSourceUpdateParams;
   export import MicroDeposits = MicroDepositsAPI.MicroDeposits;
-  export type MicroDepositRetrieveResponse = MicroDepositsAPI.MicroDepositRetrieveResponse;
-  export type MicroDepositInitiateParams = MicroDepositsAPI.MicroDepositInitiateParams;
+  export import MicroDepositRetrieveResponse = MicroDepositsAPI.MicroDepositRetrieveResponse;
+  export import MicroDepositInitiateParams = MicroDepositsAPI.MicroDepositInitiateParams;
   export import Balance = BalanceAPI.Balance;
-  export type BalanceRetrieveResponse = BalanceAPI.BalanceRetrieveResponse;
+  export import BalanceRetrieveResponse = BalanceAPI.BalanceRetrieveResponse;
   export import ACHRouting = ACHRoutingAPI.ACHRouting;
-  export type ACHRoutingRetrieveResponse = ACHRoutingAPI.ACHRoutingRetrieveResponse;
+  export import ACHRoutingRetrieveResponse = ACHRoutingAPI.ACHRoutingRetrieveResponse;
 }

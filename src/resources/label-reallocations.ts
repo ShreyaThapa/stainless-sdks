@@ -97,6 +97,6 @@ export namespace LabelReallocationCreateParams {
 }
 
 export namespace LabelReallocations {
-  export type LabelReallocationRetrieveResponse = LabelReallocationsAPI.LabelReallocationRetrieveResponse;
-  export type LabelReallocationCreateParams = LabelReallocationsAPI.LabelReallocationCreateParams;
+  export import LabelReallocationRetrieveResponse = LabelReallocationsAPI.LabelReallocationRetrieveResponse;
+  export import LabelReallocationCreateParams = LabelReallocationsAPI.LabelReallocationCreateParams;
 }
