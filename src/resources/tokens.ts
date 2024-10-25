@@ -31,6 +31,6 @@ export interface TokenGenerateParams {
 }
 
 export namespace Tokens {
-  export type TokenGenerateResponse = TokensAPI.TokenGenerateResponse;
-  export type TokenGenerateParams = TokensAPI.TokenGenerateParams;
+  export import TokenGenerateResponse = TokensAPI.TokenGenerateResponse;
+  export import TokenGenerateParams = TokensAPI.TokenGenerateParams;
 }

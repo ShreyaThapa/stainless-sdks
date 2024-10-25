@@ -77,6 +77,6 @@ export interface DocumentCreateParams {
 }
 
 export namespace Documents {
-  export type DocumentListResponse = DocumentsAPI.DocumentListResponse;
-  export type DocumentCreateParams = DocumentsAPI.DocumentCreateParams;
+  export import DocumentListResponse = DocumentsAPI.DocumentListResponse;
+  export import DocumentCreateParams = DocumentsAPI.DocumentCreateParams;
 }

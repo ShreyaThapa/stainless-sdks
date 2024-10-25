@@ -155,8 +155,8 @@ export namespace ExchangeCreateParams {
 }
 
 export namespace Exchanges {
-  export type ExchangeCreateResponse = ExchangesAPI.ExchangeCreateResponse;
-  export type ExchangeRetrieveResponse = ExchangesAPI.ExchangeRetrieveResponse;
-  export type ExchangeListResponse = ExchangesAPI.ExchangeListResponse;
-  export type ExchangeCreateParams = ExchangesAPI.ExchangeCreateParams;
+  export import ExchangeCreateResponse = ExchangesAPI.ExchangeCreateResponse;
+  export import ExchangeRetrieveResponse = ExchangesAPI.ExchangeRetrieveResponse;
+  export import ExchangeListResponse = ExchangesAPI.ExchangeListResponse;
+  export import ExchangeCreateParams = ExchangesAPI.ExchangeCreateParams;
 }

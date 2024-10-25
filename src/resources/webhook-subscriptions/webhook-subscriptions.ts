@@ -209,14 +209,13 @@ export interface WebhookSubscriptionUpdateParams {
 }
 
 export namespace WebhookSubscriptions {
-  export type WebhookSubscriptionRetrieveResponse =
-    WebhookSubscriptionsAPI.WebhookSubscriptionRetrieveResponse;
-  export type WebhookSubscriptionUpdateResponse = WebhookSubscriptionsAPI.WebhookSubscriptionUpdateResponse;
-  export type WebhookSubscriptionListResponse = WebhookSubscriptionsAPI.WebhookSubscriptionListResponse;
-  export type WebhookSubscriptionDeleteResponse = WebhookSubscriptionsAPI.WebhookSubscriptionDeleteResponse;
-  export type WebhookSubscriptionCreateParams = WebhookSubscriptionsAPI.WebhookSubscriptionCreateParams;
-  export type WebhookSubscriptionUpdateParams = WebhookSubscriptionsAPI.WebhookSubscriptionUpdateParams;
+  export import WebhookSubscriptionRetrieveResponse = WebhookSubscriptionsAPI.WebhookSubscriptionRetrieveResponse;
+  export import WebhookSubscriptionUpdateResponse = WebhookSubscriptionsAPI.WebhookSubscriptionUpdateResponse;
+  export import WebhookSubscriptionListResponse = WebhookSubscriptionsAPI.WebhookSubscriptionListResponse;
+  export import WebhookSubscriptionDeleteResponse = WebhookSubscriptionsAPI.WebhookSubscriptionDeleteResponse;
+  export import WebhookSubscriptionCreateParams = WebhookSubscriptionsAPI.WebhookSubscriptionCreateParams;
+  export import WebhookSubscriptionUpdateParams = WebhookSubscriptionsAPI.WebhookSubscriptionUpdateParams;
   export import Webhooks = WebhooksAPI.Webhooks;
-  export type WebhookListResponse = WebhooksAPI.WebhookListResponse;
-  export type WebhookListParams = WebhooksAPI.WebhookListParams;
+  export import WebhookListResponse = WebhooksAPI.WebhookListResponse;
+  export import WebhookListParams = WebhooksAPI.WebhookListParams;
 }

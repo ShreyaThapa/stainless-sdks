@@ -110,8 +110,6 @@ export namespace BusinessClassificationListResponse {
 }
 
 export namespace BusinessClassifications {
-  export type BusinessClassificationRetrieveResponse =
-    BusinessClassificationsAPI.BusinessClassificationRetrieveResponse;
-  export type BusinessClassificationListResponse =
-    BusinessClassificationsAPI.BusinessClassificationListResponse;
+  export import BusinessClassificationRetrieveResponse = BusinessClassificationsAPI.BusinessClassificationRetrieveResponse;
+  export import BusinessClassificationListResponse = BusinessClassificationsAPI.BusinessClassificationListResponse;
 }

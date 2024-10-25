@@ -25,5 +25,5 @@ export interface FailureRetrieveResponse {
 }
 
 export namespace Failure {
-  export type FailureRetrieveResponse = FailureAPI.FailureRetrieveResponse;
+  export import FailureRetrieveResponse = FailureAPI.FailureRetrieveResponse;
 }
