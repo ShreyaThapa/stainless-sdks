@@ -60,11 +60,11 @@ export namespace LabelRemoveResponse {
 }
 
 export namespace Labels {
-  export import LabelRetrieveResponse = LabelsAPI.LabelRetrieveResponse;
-  export import LabelRemoveResponse = LabelsAPI.LabelRemoveResponse;
+  export type LabelRetrieveResponse = LabelsAPI.LabelRetrieveResponse;
+  export type LabelRemoveResponse = LabelsAPI.LabelRemoveResponse;
   export import LedgerEntries = LedgerEntriesAPI.LedgerEntries;
-  export import LedgerEntryListResponse = LedgerEntriesAPI.LedgerEntryListResponse;
+  export type LedgerEntryListResponse = LedgerEntriesAPI.LedgerEntryListResponse;
   export import LedgerEntryListResponsesOffsetStringPagination = LedgerEntriesAPI.LedgerEntryListResponsesOffsetStringPagination;
-  export import LedgerEntryCreateParams = LedgerEntriesAPI.LedgerEntryCreateParams;
-  export import LedgerEntryListParams = LedgerEntriesAPI.LedgerEntryListParams;
+  export type LedgerEntryCreateParams = LedgerEntriesAPI.LedgerEntryCreateParams;
+  export type LedgerEntryListParams = LedgerEntriesAPI.LedgerEntryListParams;
 }

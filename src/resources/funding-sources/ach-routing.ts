@@ -23,5 +23,5 @@ export interface ACHRoutingRetrieveResponse {
 }
 
 export namespace ACHRouting {
-  export import ACHRoutingRetrieveResponse = ACHRoutingAPI.ACHRoutingRetrieveResponse;
+  export type ACHRoutingRetrieveResponse = ACHRoutingAPI.ACHRoutingRetrieveResponse;
 }

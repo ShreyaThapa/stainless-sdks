@@ -32,5 +32,5 @@ export namespace FundingSourcesTokenCreateResponse {
 }
 
 export namespace FundingSourcesToken {
-  export import FundingSourcesTokenCreateResponse = FundingSourcesTokenAPI.FundingSourcesTokenCreateResponse;
+  export type FundingSourcesTokenCreateResponse = FundingSourcesTokenAPI.FundingSourcesTokenCreateResponse;
 }

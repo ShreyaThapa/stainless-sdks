@@ -205,8 +205,8 @@ export interface ItemListParams extends OffsetStringPaginationParams {
 }
 
 export namespace Items {
-  export import ItemRetrieveResponse = ItemsAPI.ItemRetrieveResponse;
-  export import ItemListResponse = ItemsAPI.ItemListResponse;
+  export type ItemRetrieveResponse = ItemsAPI.ItemRetrieveResponse;
+  export type ItemListResponse = ItemsAPI.ItemListResponse;
   export import ItemListResponsesOffsetStringPagination = ItemsAPI.ItemListResponsesOffsetStringPagination;
-  export import ItemListParams = ItemsAPI.ItemListParams;
+  export type ItemListParams = ItemsAPI.ItemListParams;
 }

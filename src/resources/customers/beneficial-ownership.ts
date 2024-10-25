@@ -54,7 +54,8 @@ export interface BeneficialOwnershipCertifyParams {
 }
 
 export namespace BeneficialOwnership {
-  export import BeneficialOwnershipRetrieveResponse = BeneficialOwnershipAPI.BeneficialOwnershipRetrieveResponse;
-  export import BeneficialOwnershipCertifyResponse = BeneficialOwnershipAPI.BeneficialOwnershipCertifyResponse;
-  export import BeneficialOwnershipCertifyParams = BeneficialOwnershipAPI.BeneficialOwnershipCertifyParams;
+  export type BeneficialOwnershipRetrieveResponse =
+    BeneficialOwnershipAPI.BeneficialOwnershipRetrieveResponse;
+  export type BeneficialOwnershipCertifyResponse = BeneficialOwnershipAPI.BeneficialOwnershipCertifyResponse;
+  export type BeneficialOwnershipCertifyParams = BeneficialOwnershipAPI.BeneficialOwnershipCertifyParams;
 }

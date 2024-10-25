@@ -119,7 +119,7 @@ export namespace WebhookRetrieveResponse {
 }
 
 export namespace Webhooks {
-  export import WebhookRetrieveResponse = WebhooksAPI.WebhookRetrieveResponse;
+  export type WebhookRetrieveResponse = WebhooksAPI.WebhookRetrieveResponse;
   export import Retries = RetriesAPI.Retries;
-  export import RetryListResponse = RetriesAPI.RetryListResponse;
+  export type RetryListResponse = RetriesAPI.RetryListResponse;
 }

@@ -66,5 +66,5 @@ export namespace RetryListResponse {
 }
 
 export namespace Retries {
-  export import RetryListResponse = RetriesAPI.RetryListResponse;
+  export type RetryListResponse = RetriesAPI.RetryListResponse;
 }

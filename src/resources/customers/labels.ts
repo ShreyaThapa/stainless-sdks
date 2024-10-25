@@ -96,8 +96,8 @@ export namespace LabelCreateParams {
 export interface LabelListParams extends OffsetStringPaginationParams {}
 
 export namespace Labels {
-  export import LabelListResponse = LabelsAPI.LabelListResponse;
+  export type LabelListResponse = LabelsAPI.LabelListResponse;
   export import LabelListResponsesOffsetStringPagination = LabelsAPI.LabelListResponsesOffsetStringPagination;
-  export import LabelCreateParams = LabelsAPI.LabelCreateParams;
-  export import LabelListParams = LabelsAPI.LabelListParams;
+  export type LabelCreateParams = LabelsAPI.LabelCreateParams;
+  export type LabelListParams = LabelsAPI.LabelListParams;
 }

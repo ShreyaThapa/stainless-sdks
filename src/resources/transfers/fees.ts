@@ -43,5 +43,5 @@ export namespace FeeListResponse {
 }
 
 export namespace Fees {
-  export import FeeListResponse = FeesAPI.FeeListResponse;
+  export type FeeListResponse = FeesAPI.FeeListResponse;
 }

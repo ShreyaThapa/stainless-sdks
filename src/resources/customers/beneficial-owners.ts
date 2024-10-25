@@ -97,6 +97,6 @@ export namespace BeneficialOwnerCreateParams {
 }
 
 export namespace BeneficialOwners {
-  export import BeneficialOwnerListResponse = BeneficialOwnersAPI.BeneficialOwnerListResponse;
-  export import BeneficialOwnerCreateParams = BeneficialOwnersAPI.BeneficialOwnerCreateParams;
+  export type BeneficialOwnerListResponse = BeneficialOwnersAPI.BeneficialOwnerListResponse;
+  export type BeneficialOwnerCreateParams = BeneficialOwnersAPI.BeneficialOwnerCreateParams;
 }

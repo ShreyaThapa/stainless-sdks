@@ -179,7 +179,7 @@ export interface TransferListParams extends OffsetStringPaginationParams {
 }
 
 export namespace Transfers {
-  export import TransferListResponse = TransfersAPI.TransferListResponse;
+  export type TransferListResponse = TransfersAPI.TransferListResponse;
   export import TransferListResponsesOffsetStringPagination = TransfersAPI.TransferListResponsesOffsetStringPagination;
-  export import TransferListParams = TransfersAPI.TransferListParams;
+  export type TransferListParams = TransfersAPI.TransferListParams;
 }
