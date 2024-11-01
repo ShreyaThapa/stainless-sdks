@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as FundingSourcesAPI from './funding-sources';
 
 export class FundingSources extends APIResource {
   /**
@@ -74,7 +73,9 @@ export interface FundingSourceListParams {
   removed?: string;
 }
 
-export namespace FundingSources {
-  export import FundingSourceListResponse = FundingSourcesAPI.FundingSourceListResponse;
-  export import FundingSourceListParams = FundingSourcesAPI.FundingSourceListParams;
+export declare namespace FundingSources {
+  export {
+    type FundingSourceListResponse as FundingSourceListResponse,
+    type FundingSourceListParams as FundingSourceListParams,
+  };
 }

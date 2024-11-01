@@ -2,8 +2,8 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as WebhookSubscriptionsAPI from './webhook-subscriptions';
 import * as WebhooksAPI from './webhooks';
+import { WebhookListParams, WebhookListResponse, Webhooks as WebhooksAPIWebhooks } from './webhooks';
 
 export class WebhookSubscriptions extends APIResource {
   webhooks: WebhooksAPI.Webhooks = new WebhooksAPI.Webhooks(this._client);
@@ -208,14 +208,21 @@ export interface WebhookSubscriptionUpdateParams {
   paused: boolean;
 }
 
-export namespace WebhookSubscriptions {
-  export import WebhookSubscriptionRetrieveResponse = WebhookSubscriptionsAPI.WebhookSubscriptionRetrieveResponse;
-  export import WebhookSubscriptionUpdateResponse = WebhookSubscriptionsAPI.WebhookSubscriptionUpdateResponse;
-  export import WebhookSubscriptionListResponse = WebhookSubscriptionsAPI.WebhookSubscriptionListResponse;
-  export import WebhookSubscriptionDeleteResponse = WebhookSubscriptionsAPI.WebhookSubscriptionDeleteResponse;
-  export import WebhookSubscriptionCreateParams = WebhookSubscriptionsAPI.WebhookSubscriptionCreateParams;
-  export import WebhookSubscriptionUpdateParams = WebhookSubscriptionsAPI.WebhookSubscriptionUpdateParams;
-  export import Webhooks = WebhooksAPI.Webhooks;
-  export import WebhookListResponse = WebhooksAPI.WebhookListResponse;
-  export import WebhookListParams = WebhooksAPI.WebhookListParams;
+WebhookSubscriptions.Webhooks = WebhooksAPIWebhooks;
+
+export declare namespace WebhookSubscriptions {
+  export {
+    type WebhookSubscriptionRetrieveResponse as WebhookSubscriptionRetrieveResponse,
+    type WebhookSubscriptionUpdateResponse as WebhookSubscriptionUpdateResponse,
+    type WebhookSubscriptionListResponse as WebhookSubscriptionListResponse,
+    type WebhookSubscriptionDeleteResponse as WebhookSubscriptionDeleteResponse,
+    type WebhookSubscriptionCreateParams as WebhookSubscriptionCreateParams,
+    type WebhookSubscriptionUpdateParams as WebhookSubscriptionUpdateParams,
+  };
+
+  export {
+    WebhooksAPIWebhooks as Webhooks,
+    type WebhookListResponse as WebhookListResponse,
+    type WebhookListParams as WebhookListParams,
+  };
 }

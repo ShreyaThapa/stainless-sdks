@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as WebhooksAPI from './webhooks';
 
 export class Webhooks extends APIResource {
   /**
@@ -185,7 +184,6 @@ export interface WebhookListParams {
   startDate?: string;
 }
 
-export namespace Webhooks {
-  export import WebhookListResponse = WebhooksAPI.WebhookListResponse;
-  export import WebhookListParams = WebhooksAPI.WebhookListParams;
+export declare namespace Webhooks {
+  export { type WebhookListResponse as WebhookListResponse, type WebhookListParams as WebhookListParams };
 }

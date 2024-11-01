@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as TransfersAPI from './transfers';
 import * as Shared from '../shared';
 import { OffsetStringPagination, type OffsetStringPaginationParams } from '../../pagination';
 
@@ -178,8 +177,12 @@ export interface TransferListParams extends OffsetStringPaginationParams {
   status?: string;
 }
 
-export namespace Transfers {
-  export import TransferListResponse = TransfersAPI.TransferListResponse;
-  export import TransferListResponsesOffsetStringPagination = TransfersAPI.TransferListResponsesOffsetStringPagination;
-  export import TransferListParams = TransfersAPI.TransferListParams;
+Transfers.TransferListResponsesOffsetStringPagination = TransferListResponsesOffsetStringPagination;
+
+export declare namespace Transfers {
+  export {
+    type TransferListResponse as TransferListResponse,
+    TransferListResponsesOffsetStringPagination as TransferListResponsesOffsetStringPagination,
+    type TransferListParams as TransferListParams,
+  };
 }

@@ -1,11 +1,107 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Errors from './error';
-import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Errors from './error';
 import * as Pagination from './pagination';
+import {
+  type OffsetIntegerPaginationParams,
+  OffsetIntegerPaginationResponse,
+  type OffsetStringPaginationParams,
+  OffsetStringPaginationResponse,
+} from './pagination';
+import * as Uploads from './uploads';
 import * as API from './resources/index';
+import {
+  BusinessClassificationListResponse,
+  BusinessClassificationRetrieveResponse,
+  BusinessClassifications,
+} from './resources/business-classifications';
+import { DocumentRetrieveResponse, Documents } from './resources/documents';
+import {
+  EventListParams,
+  EventListResponse,
+  EventListResponsesOffsetIntegerPagination,
+  EventRetrieveResponse,
+  Events,
+} from './resources/events';
+import { ExchangePartnerRetrieveResponse, ExchangePartners } from './resources/exchange-partners';
+import {
+  ExchangeCreateParams,
+  ExchangeCreateResponse,
+  ExchangeListResponse,
+  ExchangeRetrieveResponse,
+  Exchanges,
+} from './resources/exchanges';
+import { Kba, KbaRetrieveQuestionsResponse, KbaVerifyParams, KbaVerifyResponse } from './resources/kba';
+import {
+  LabelReallocationCreateParams,
+  LabelReallocationRetrieveResponse,
+  LabelReallocations,
+} from './resources/label-reallocations';
+import { LedgerEntries, LedgerEntryRetrieveResponse } from './resources/ledger-entries';
+import {
+  OnDemandAuthorizationCreateResponse,
+  OnDemandAuthorizations,
+} from './resources/on-demand-authorizations';
+import { Root, RootListResponse } from './resources/root';
+import { TokenGenerateParams, TokenGenerateResponse, Tokens } from './resources/tokens';
+import { AccountRetrieveResponse, Accounts } from './resources/accounts/accounts';
+import {
+  BeneficialOwnerDeleteResponse,
+  BeneficialOwnerRetrieveResponse,
+  BeneficialOwnerUpdateParams,
+  BeneficialOwnerUpdateResponse,
+  BeneficialOwners,
+} from './resources/beneficial-owners/beneficial-owners';
+import {
+  Controller,
+  CustomerCreateParams,
+  CustomerListParams,
+  CustomerListResponse,
+  CustomerListResponsesOffsetStringPagination,
+  CustomerRetrieveResponse,
+  CustomerUpdateParams,
+  CustomerUpdateResponse,
+  Customers,
+  UnverifiedBusinessCustomer,
+  UnverifiedCustomer,
+  VerifiedBusinessCustomer,
+  VerifiedPersonalCustomer,
+  VerifiedSolePropCustomer,
+} from './resources/customers/customers';
+import {
+  FundingSourceCreateParams,
+  FundingSourceRetrieveResponse,
+  FundingSourceUpdateParams,
+  FundingSourceUpdateResponse,
+  FundingSources,
+} from './resources/funding-sources/funding-sources';
+import { LabelRemoveResponse, LabelRetrieveResponse, Labels } from './resources/labels/labels';
+import {
+  MassPaymentCreateParams,
+  MassPaymentRetrieveResponse,
+  MassPaymentUpdateParams,
+  MassPaymentUpdateResponse,
+  MassPayments,
+} from './resources/mass-payments/mass-payments';
+import {
+  TransferCancelParams,
+  TransferCancelResponse,
+  TransferInitiateParams,
+  TransferRetrieveResponse,
+  Transfers,
+} from './resources/transfers/transfers';
+import {
+  WebhookSubscriptionCreateParams,
+  WebhookSubscriptionDeleteResponse,
+  WebhookSubscriptionListResponse,
+  WebhookSubscriptionRetrieveResponse,
+  WebhookSubscriptionUpdateParams,
+  WebhookSubscriptionUpdateResponse,
+  WebhookSubscriptions,
+} from './resources/webhook-subscriptions/webhook-subscriptions';
+import { WebhookRetrieveResponse, Webhooks } from './resources/webhooks/webhooks';
 
 const environments = {
   production: 'https://api.dwolla.com',
@@ -254,142 +350,192 @@ export class Dwolla extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
-  DwollaError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} = Errors;
+export const DwollaError = Errors.DwollaError;
+export const APIError = Errors.APIError;
+export const APIConnectionError = Errors.APIConnectionError;
+export const APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
+export const APIUserAbortError = Errors.APIUserAbortError;
+export const NotFoundError = Errors.NotFoundError;
+export const ConflictError = Errors.ConflictError;
+export const RateLimitError = Errors.RateLimitError;
+export const BadRequestError = Errors.BadRequestError;
+export const AuthenticationError = Errors.AuthenticationError;
+export const InternalServerError = Errors.InternalServerError;
+export const PermissionDeniedError = Errors.PermissionDeniedError;
+export const UnprocessableEntityError = Errors.UnprocessableEntityError;
 
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace Dwolla {
-  export import RequestOptions = Core.RequestOptions;
+Dwolla.Tokens = Tokens;
+Dwolla.Root = Root;
+Dwolla.Accounts = Accounts;
+Dwolla.FundingSources = FundingSources;
+Dwolla.Customers = Customers;
+Dwolla.CustomerListResponsesOffsetStringPagination = CustomerListResponsesOffsetStringPagination;
+Dwolla.BusinessClassifications = BusinessClassifications;
+Dwolla.BeneficialOwners = BeneficialOwners;
+Dwolla.Documents = Documents;
+Dwolla.Kba = Kba;
+Dwolla.Transfers = Transfers;
+Dwolla.OnDemandAuthorizations = OnDemandAuthorizations;
+Dwolla.MassPayments = MassPayments;
+Dwolla.Labels = Labels;
+Dwolla.LedgerEntries = LedgerEntries;
+Dwolla.LabelReallocations = LabelReallocations;
+Dwolla.Events = Events;
+Dwolla.EventListResponsesOffsetIntegerPagination = EventListResponsesOffsetIntegerPagination;
+Dwolla.WebhookSubscriptions = WebhookSubscriptions;
+Dwolla.Webhooks = Webhooks;
+Dwolla.ExchangePartners = ExchangePartners;
+Dwolla.Exchanges = Exchanges;
+
+export declare namespace Dwolla {
+  export type RequestOptions = Core.RequestOptions;
 
   export import OffsetStringPagination = Pagination.OffsetStringPagination;
-  export import OffsetStringPaginationParams = Pagination.OffsetStringPaginationParams;
-  export import OffsetStringPaginationResponse = Pagination.OffsetStringPaginationResponse;
+  export {
+    type OffsetStringPaginationParams as OffsetStringPaginationParams,
+    type OffsetStringPaginationResponse as OffsetStringPaginationResponse,
+  };
 
   export import OffsetIntegerPagination = Pagination.OffsetIntegerPagination;
-  export import OffsetIntegerPaginationParams = Pagination.OffsetIntegerPaginationParams;
-  export import OffsetIntegerPaginationResponse = Pagination.OffsetIntegerPaginationResponse;
+  export {
+    type OffsetIntegerPaginationParams as OffsetIntegerPaginationParams,
+    type OffsetIntegerPaginationResponse as OffsetIntegerPaginationResponse,
+  };
 
-  export import Tokens = API.Tokens;
-  export import TokenGenerateResponse = API.TokenGenerateResponse;
-  export import TokenGenerateParams = API.TokenGenerateParams;
+  export {
+    Tokens as Tokens,
+    type TokenGenerateResponse as TokenGenerateResponse,
+    type TokenGenerateParams as TokenGenerateParams,
+  };
 
-  export import Root = API.Root;
-  export import RootListResponse = API.RootListResponse;
+  export { Root as Root, type RootListResponse as RootListResponse };
 
-  export import Accounts = API.Accounts;
-  export import AccountRetrieveResponse = API.AccountRetrieveResponse;
+  export { Accounts as Accounts, type AccountRetrieveResponse as AccountRetrieveResponse };
 
-  export import FundingSources = API.FundingSources;
-  export import FundingSourceRetrieveResponse = API.FundingSourceRetrieveResponse;
-  export import FundingSourceUpdateResponse = API.FundingSourceUpdateResponse;
-  export import FundingSourceCreateParams = API.FundingSourceCreateParams;
-  export import FundingSourceUpdateParams = API.FundingSourceUpdateParams;
+  export {
+    FundingSources as FundingSources,
+    type FundingSourceRetrieveResponse as FundingSourceRetrieveResponse,
+    type FundingSourceUpdateResponse as FundingSourceUpdateResponse,
+    type FundingSourceCreateParams as FundingSourceCreateParams,
+    type FundingSourceUpdateParams as FundingSourceUpdateParams,
+  };
 
-  export import Customers = API.Customers;
-  export import Controller = API.Controller;
-  export import UnverifiedBusinessCustomer = API.UnverifiedBusinessCustomer;
-  export import UnverifiedCustomer = API.UnverifiedCustomer;
-  export import VerifiedBusinessCustomer = API.VerifiedBusinessCustomer;
-  export import VerifiedPersonalCustomer = API.VerifiedPersonalCustomer;
-  export import VerifiedSolePropCustomer = API.VerifiedSolePropCustomer;
-  export import CustomerRetrieveResponse = API.CustomerRetrieveResponse;
-  export import CustomerUpdateResponse = API.CustomerUpdateResponse;
-  export import CustomerListResponse = API.CustomerListResponse;
-  export import CustomerListResponsesOffsetStringPagination = API.CustomerListResponsesOffsetStringPagination;
-  export import CustomerCreateParams = API.CustomerCreateParams;
-  export import CustomerUpdateParams = API.CustomerUpdateParams;
-  export import CustomerListParams = API.CustomerListParams;
+  export {
+    Customers as Customers,
+    type Controller as Controller,
+    type UnverifiedBusinessCustomer as UnverifiedBusinessCustomer,
+    type UnverifiedCustomer as UnverifiedCustomer,
+    type VerifiedBusinessCustomer as VerifiedBusinessCustomer,
+    type VerifiedPersonalCustomer as VerifiedPersonalCustomer,
+    type VerifiedSolePropCustomer as VerifiedSolePropCustomer,
+    type CustomerRetrieveResponse as CustomerRetrieveResponse,
+    type CustomerUpdateResponse as CustomerUpdateResponse,
+    type CustomerListResponse as CustomerListResponse,
+    CustomerListResponsesOffsetStringPagination as CustomerListResponsesOffsetStringPagination,
+    type CustomerCreateParams as CustomerCreateParams,
+    type CustomerUpdateParams as CustomerUpdateParams,
+    type CustomerListParams as CustomerListParams,
+  };
 
-  export import BusinessClassifications = API.BusinessClassifications;
-  export import BusinessClassificationRetrieveResponse = API.BusinessClassificationRetrieveResponse;
-  export import BusinessClassificationListResponse = API.BusinessClassificationListResponse;
+  export {
+    BusinessClassifications as BusinessClassifications,
+    type BusinessClassificationRetrieveResponse as BusinessClassificationRetrieveResponse,
+    type BusinessClassificationListResponse as BusinessClassificationListResponse,
+  };
 
-  export import BeneficialOwners = API.BeneficialOwners;
-  export import BeneficialOwnerRetrieveResponse = API.BeneficialOwnerRetrieveResponse;
-  export import BeneficialOwnerUpdateResponse = API.BeneficialOwnerUpdateResponse;
-  export import BeneficialOwnerDeleteResponse = API.BeneficialOwnerDeleteResponse;
-  export import BeneficialOwnerUpdateParams = API.BeneficialOwnerUpdateParams;
+  export {
+    BeneficialOwners as BeneficialOwners,
+    type BeneficialOwnerRetrieveResponse as BeneficialOwnerRetrieveResponse,
+    type BeneficialOwnerUpdateResponse as BeneficialOwnerUpdateResponse,
+    type BeneficialOwnerDeleteResponse as BeneficialOwnerDeleteResponse,
+    type BeneficialOwnerUpdateParams as BeneficialOwnerUpdateParams,
+  };
 
-  export import Documents = API.Documents;
-  export import DocumentRetrieveResponse = API.DocumentRetrieveResponse;
+  export { Documents as Documents, type DocumentRetrieveResponse as DocumentRetrieveResponse };
 
-  export import Kba = API.Kba;
-  export import KbaRetrieveQuestionsResponse = API.KbaRetrieveQuestionsResponse;
-  export import KbaVerifyResponse = API.KbaVerifyResponse;
-  export import KbaVerifyParams = API.KbaVerifyParams;
+  export {
+    Kba as Kba,
+    type KbaRetrieveQuestionsResponse as KbaRetrieveQuestionsResponse,
+    type KbaVerifyResponse as KbaVerifyResponse,
+    type KbaVerifyParams as KbaVerifyParams,
+  };
 
-  export import Transfers = API.Transfers;
-  export import TransferRetrieveResponse = API.TransferRetrieveResponse;
-  export import TransferCancelResponse = API.TransferCancelResponse;
-  export import TransferCancelParams = API.TransferCancelParams;
-  export import TransferInitiateParams = API.TransferInitiateParams;
+  export {
+    Transfers as Transfers,
+    type TransferRetrieveResponse as TransferRetrieveResponse,
+    type TransferCancelResponse as TransferCancelResponse,
+    type TransferCancelParams as TransferCancelParams,
+    type TransferInitiateParams as TransferInitiateParams,
+  };
 
-  export import OnDemandAuthorizations = API.OnDemandAuthorizations;
-  export import OnDemandAuthorizationCreateResponse = API.OnDemandAuthorizationCreateResponse;
+  export {
+    OnDemandAuthorizations as OnDemandAuthorizations,
+    type OnDemandAuthorizationCreateResponse as OnDemandAuthorizationCreateResponse,
+  };
 
-  export import MassPayments = API.MassPayments;
-  export import MassPaymentRetrieveResponse = API.MassPaymentRetrieveResponse;
-  export import MassPaymentUpdateResponse = API.MassPaymentUpdateResponse;
-  export import MassPaymentCreateParams = API.MassPaymentCreateParams;
-  export import MassPaymentUpdateParams = API.MassPaymentUpdateParams;
+  export {
+    MassPayments as MassPayments,
+    type MassPaymentRetrieveResponse as MassPaymentRetrieveResponse,
+    type MassPaymentUpdateResponse as MassPaymentUpdateResponse,
+    type MassPaymentCreateParams as MassPaymentCreateParams,
+    type MassPaymentUpdateParams as MassPaymentUpdateParams,
+  };
 
-  export import Labels = API.Labels;
-  export import LabelRetrieveResponse = API.LabelRetrieveResponse;
-  export import LabelRemoveResponse = API.LabelRemoveResponse;
+  export {
+    Labels as Labels,
+    type LabelRetrieveResponse as LabelRetrieveResponse,
+    type LabelRemoveResponse as LabelRemoveResponse,
+  };
 
-  export import LedgerEntries = API.LedgerEntries;
-  export import LedgerEntryRetrieveResponse = API.LedgerEntryRetrieveResponse;
+  export { LedgerEntries as LedgerEntries, type LedgerEntryRetrieveResponse as LedgerEntryRetrieveResponse };
 
-  export import LabelReallocations = API.LabelReallocations;
-  export import LabelReallocationRetrieveResponse = API.LabelReallocationRetrieveResponse;
-  export import LabelReallocationCreateParams = API.LabelReallocationCreateParams;
+  export {
+    LabelReallocations as LabelReallocations,
+    type LabelReallocationRetrieveResponse as LabelReallocationRetrieveResponse,
+    type LabelReallocationCreateParams as LabelReallocationCreateParams,
+  };
 
-  export import Events = API.Events;
-  export import EventRetrieveResponse = API.EventRetrieveResponse;
-  export import EventListResponse = API.EventListResponse;
-  export import EventListResponsesOffsetIntegerPagination = API.EventListResponsesOffsetIntegerPagination;
-  export import EventListParams = API.EventListParams;
+  export {
+    Events as Events,
+    type EventRetrieveResponse as EventRetrieveResponse,
+    type EventListResponse as EventListResponse,
+    EventListResponsesOffsetIntegerPagination as EventListResponsesOffsetIntegerPagination,
+    type EventListParams as EventListParams,
+  };
 
-  export import WebhookSubscriptions = API.WebhookSubscriptions;
-  export import WebhookSubscriptionRetrieveResponse = API.WebhookSubscriptionRetrieveResponse;
-  export import WebhookSubscriptionUpdateResponse = API.WebhookSubscriptionUpdateResponse;
-  export import WebhookSubscriptionListResponse = API.WebhookSubscriptionListResponse;
-  export import WebhookSubscriptionDeleteResponse = API.WebhookSubscriptionDeleteResponse;
-  export import WebhookSubscriptionCreateParams = API.WebhookSubscriptionCreateParams;
-  export import WebhookSubscriptionUpdateParams = API.WebhookSubscriptionUpdateParams;
+  export {
+    WebhookSubscriptions as WebhookSubscriptions,
+    type WebhookSubscriptionRetrieveResponse as WebhookSubscriptionRetrieveResponse,
+    type WebhookSubscriptionUpdateResponse as WebhookSubscriptionUpdateResponse,
+    type WebhookSubscriptionListResponse as WebhookSubscriptionListResponse,
+    type WebhookSubscriptionDeleteResponse as WebhookSubscriptionDeleteResponse,
+    type WebhookSubscriptionCreateParams as WebhookSubscriptionCreateParams,
+    type WebhookSubscriptionUpdateParams as WebhookSubscriptionUpdateParams,
+  };
 
-  export import Webhooks = API.Webhooks;
-  export import WebhookRetrieveResponse = API.WebhookRetrieveResponse;
+  export { Webhooks as Webhooks, type WebhookRetrieveResponse as WebhookRetrieveResponse };
 
-  export import ExchangePartners = API.ExchangePartners;
-  export import ExchangePartnerRetrieveResponse = API.ExchangePartnerRetrieveResponse;
+  export {
+    ExchangePartners as ExchangePartners,
+    type ExchangePartnerRetrieveResponse as ExchangePartnerRetrieveResponse,
+  };
 
-  export import Exchanges = API.Exchanges;
-  export import ExchangeCreateResponse = API.ExchangeCreateResponse;
-  export import ExchangeRetrieveResponse = API.ExchangeRetrieveResponse;
-  export import ExchangeListResponse = API.ExchangeListResponse;
-  export import ExchangeCreateParams = API.ExchangeCreateParams;
+  export {
+    Exchanges as Exchanges,
+    type ExchangeCreateResponse as ExchangeCreateResponse,
+    type ExchangeRetrieveResponse as ExchangeRetrieveResponse,
+    type ExchangeListResponse as ExchangeListResponse,
+    type ExchangeCreateParams as ExchangeCreateParams,
+  };
 
-  export import ExchangePartners = API.ExchangePartners;
-  export import HalLink = API.HalLink;
-  export import InternationalAddress = API.InternationalAddress;
-  export import Passport = API.Passport;
-  export import TransferAmount = API.TransferAmount;
+  export type ExchangePartners = API.ExchangePartners;
+  export type HalLink = API.HalLink;
+  export type InternationalAddress = API.InternationalAddress;
+  export type Passport = API.Passport;
+  export type TransferAmount = API.TransferAmount;
 }
 
 export default Dwolla;

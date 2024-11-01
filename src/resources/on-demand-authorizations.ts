@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as OnDemandAuthorizationsAPI from './on-demand-authorizations';
 
 export class OnDemandAuthorizations extends APIResource {
   /**
@@ -33,6 +32,6 @@ export namespace OnDemandAuthorizationCreateResponse {
   }
 }
 
-export namespace OnDemandAuthorizations {
-  export import OnDemandAuthorizationCreateResponse = OnDemandAuthorizationsAPI.OnDemandAuthorizationCreateResponse;
+export declare namespace OnDemandAuthorizations {
+  export { type OnDemandAuthorizationCreateResponse as OnDemandAuthorizationCreateResponse };
 }

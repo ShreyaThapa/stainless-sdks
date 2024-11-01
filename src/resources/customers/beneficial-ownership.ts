@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as BeneficialOwnershipAPI from './beneficial-ownership';
 import * as Shared from '../shared';
 
 export class BeneficialOwnership extends APIResource {
@@ -53,8 +52,10 @@ export interface BeneficialOwnershipCertifyParams {
   status: string;
 }
 
-export namespace BeneficialOwnership {
-  export import BeneficialOwnershipRetrieveResponse = BeneficialOwnershipAPI.BeneficialOwnershipRetrieveResponse;
-  export import BeneficialOwnershipCertifyResponse = BeneficialOwnershipAPI.BeneficialOwnershipCertifyResponse;
-  export import BeneficialOwnershipCertifyParams = BeneficialOwnershipAPI.BeneficialOwnershipCertifyParams;
+export declare namespace BeneficialOwnership {
+  export {
+    type BeneficialOwnershipRetrieveResponse as BeneficialOwnershipRetrieveResponse,
+    type BeneficialOwnershipCertifyResponse as BeneficialOwnershipCertifyResponse,
+    type BeneficialOwnershipCertifyParams as BeneficialOwnershipCertifyParams,
+  };
 }

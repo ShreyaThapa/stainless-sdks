@@ -2,10 +2,12 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as FundingSourcesAPI from './funding-sources';
 import * as ACHRoutingAPI from './ach-routing';
+import { ACHRouting, ACHRoutingRetrieveResponse } from './ach-routing';
 import * as BalanceAPI from './balance';
+import { Balance, BalanceRetrieveResponse } from './balance';
 import * as MicroDepositsAPI from './micro-deposits';
+import { MicroDepositInitiateParams, MicroDepositRetrieveResponse, MicroDeposits } from './micro-deposits';
 
 export class FundingSources extends APIResource {
   microDeposits: MicroDepositsAPI.MicroDeposits = new MicroDepositsAPI.MicroDeposits(this._client);
@@ -119,16 +121,25 @@ export namespace FundingSourceUpdateParams {
   }
 }
 
-export namespace FundingSources {
-  export import FundingSourceRetrieveResponse = FundingSourcesAPI.FundingSourceRetrieveResponse;
-  export import FundingSourceUpdateResponse = FundingSourcesAPI.FundingSourceUpdateResponse;
-  export import FundingSourceCreateParams = FundingSourcesAPI.FundingSourceCreateParams;
-  export import FundingSourceUpdateParams = FundingSourcesAPI.FundingSourceUpdateParams;
-  export import MicroDeposits = MicroDepositsAPI.MicroDeposits;
-  export import MicroDepositRetrieveResponse = MicroDepositsAPI.MicroDepositRetrieveResponse;
-  export import MicroDepositInitiateParams = MicroDepositsAPI.MicroDepositInitiateParams;
-  export import Balance = BalanceAPI.Balance;
-  export import BalanceRetrieveResponse = BalanceAPI.BalanceRetrieveResponse;
-  export import ACHRouting = ACHRoutingAPI.ACHRouting;
-  export import ACHRoutingRetrieveResponse = ACHRoutingAPI.ACHRoutingRetrieveResponse;
+FundingSources.MicroDeposits = MicroDeposits;
+FundingSources.Balance = Balance;
+FundingSources.ACHRouting = ACHRouting;
+
+export declare namespace FundingSources {
+  export {
+    type FundingSourceRetrieveResponse as FundingSourceRetrieveResponse,
+    type FundingSourceUpdateResponse as FundingSourceUpdateResponse,
+    type FundingSourceCreateParams as FundingSourceCreateParams,
+    type FundingSourceUpdateParams as FundingSourceUpdateParams,
+  };
+
+  export {
+    MicroDeposits as MicroDeposits,
+    type MicroDepositRetrieveResponse as MicroDepositRetrieveResponse,
+    type MicroDepositInitiateParams as MicroDepositInitiateParams,
+  };
+
+  export { Balance as Balance, type BalanceRetrieveResponse as BalanceRetrieveResponse };
+
+  export { ACHRouting as ACHRouting, type ACHRoutingRetrieveResponse as ACHRoutingRetrieveResponse };
 }

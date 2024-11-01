@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as BusinessClassificationsAPI from './business-classifications';
 import * as Shared from './shared';
 
 export class BusinessClassifications extends APIResource {
@@ -109,7 +108,9 @@ export namespace BusinessClassificationListResponse {
   }
 }
 
-export namespace BusinessClassifications {
-  export import BusinessClassificationRetrieveResponse = BusinessClassificationsAPI.BusinessClassificationRetrieveResponse;
-  export import BusinessClassificationListResponse = BusinessClassificationsAPI.BusinessClassificationListResponse;
+export declare namespace BusinessClassifications {
+  export {
+    type BusinessClassificationRetrieveResponse as BusinessClassificationRetrieveResponse,
+    type BusinessClassificationListResponse as BusinessClassificationListResponse,
+  };
 }

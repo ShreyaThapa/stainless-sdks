@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as DocumentsAPI from './documents';
 import * as Shared from './shared';
 
 export class Documents extends APIResource {
@@ -44,6 +43,6 @@ export namespace DocumentRetrieveResponse {
   }
 }
 
-export namespace Documents {
-  export import DocumentRetrieveResponse = DocumentsAPI.DocumentRetrieveResponse;
+export declare namespace Documents {
+  export { type DocumentRetrieveResponse as DocumentRetrieveResponse };
 }

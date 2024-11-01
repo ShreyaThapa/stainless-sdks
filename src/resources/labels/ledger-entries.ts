@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as LedgerEntriesAPI from './ledger-entries';
 import * as Shared from '../shared';
 import { OffsetStringPagination, type OffsetStringPaginationParams } from '../../pagination';
 
@@ -97,9 +96,13 @@ export namespace LedgerEntryCreateParams {
 
 export interface LedgerEntryListParams extends OffsetStringPaginationParams {}
 
-export namespace LedgerEntries {
-  export import LedgerEntryListResponse = LedgerEntriesAPI.LedgerEntryListResponse;
-  export import LedgerEntryListResponsesOffsetStringPagination = LedgerEntriesAPI.LedgerEntryListResponsesOffsetStringPagination;
-  export import LedgerEntryCreateParams = LedgerEntriesAPI.LedgerEntryCreateParams;
-  export import LedgerEntryListParams = LedgerEntriesAPI.LedgerEntryListParams;
+LedgerEntries.LedgerEntryListResponsesOffsetStringPagination = LedgerEntryListResponsesOffsetStringPagination;
+
+export declare namespace LedgerEntries {
+  export {
+    type LedgerEntryListResponse as LedgerEntryListResponse,
+    LedgerEntryListResponsesOffsetStringPagination as LedgerEntryListResponsesOffsetStringPagination,
+    type LedgerEntryCreateParams as LedgerEntryCreateParams,
+    type LedgerEntryListParams as LedgerEntryListParams,
+  };
 }

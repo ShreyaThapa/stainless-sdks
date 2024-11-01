@@ -2,8 +2,8 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as WebhooksAPI from './webhooks';
 import * as RetriesAPI from './retries';
+import { Retries, RetryListResponse } from './retries';
 
 export class Webhooks extends APIResource {
   retries: RetriesAPI.Retries = new RetriesAPI.Retries(this._client);
@@ -118,8 +118,10 @@ export namespace WebhookRetrieveResponse {
   }
 }
 
-export namespace Webhooks {
-  export import WebhookRetrieveResponse = WebhooksAPI.WebhookRetrieveResponse;
-  export import Retries = RetriesAPI.Retries;
-  export import RetryListResponse = RetriesAPI.RetryListResponse;
+Webhooks.Retries = Retries;
+
+export declare namespace Webhooks {
+  export { type WebhookRetrieveResponse as WebhookRetrieveResponse };
+
+  export { Retries as Retries, type RetryListResponse as RetryListResponse };
 }
