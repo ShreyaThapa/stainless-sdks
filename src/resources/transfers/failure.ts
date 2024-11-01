@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as FailureAPI from './failure';
 import * as Shared from '../shared';
 
 export class Failure extends APIResource {
@@ -24,6 +23,6 @@ export interface FailureRetrieveResponse {
   explanation?: string;
 }
 
-export namespace Failure {
-  export import FailureRetrieveResponse = FailureAPI.FailureRetrieveResponse;
+export declare namespace Failure {
+  export { type FailureRetrieveResponse as FailureRetrieveResponse };
 }

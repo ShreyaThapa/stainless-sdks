@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as LabelReallocationsAPI from './label-reallocations';
 
 export class LabelReallocations extends APIResource {
   /**
@@ -96,7 +95,9 @@ export namespace LabelReallocationCreateParams {
   }
 }
 
-export namespace LabelReallocations {
-  export import LabelReallocationRetrieveResponse = LabelReallocationsAPI.LabelReallocationRetrieveResponse;
-  export import LabelReallocationCreateParams = LabelReallocationsAPI.LabelReallocationCreateParams;
+export declare namespace LabelReallocations {
+  export {
+    type LabelReallocationRetrieveResponse as LabelReallocationRetrieveResponse,
+    type LabelReallocationCreateParams as LabelReallocationCreateParams,
+  };
 }

@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as IavTokenAPI from './iav-token';
 
 export class IavToken extends APIResource {
   /**
@@ -31,6 +30,6 @@ export namespace IavTokenCreateResponse {
   }
 }
 
-export namespace IavToken {
-  export import IavTokenCreateResponse = IavTokenAPI.IavTokenCreateResponse;
+export declare namespace IavToken {
+  export { type IavTokenCreateResponse as IavTokenCreateResponse };
 }

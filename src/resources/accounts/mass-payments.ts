@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as MassPaymentsAPI from './mass-payments';
 import * as Shared from '../shared';
 import { OffsetIntegerPagination, type OffsetIntegerPaginationParams } from '../../pagination';
 
@@ -79,8 +78,13 @@ export interface MassPaymentListParams extends OffsetIntegerPaginationParams {
   correlationId?: string;
 }
 
-export namespace MassPayments {
-  export import MassPaymentListResponse = MassPaymentsAPI.MassPaymentListResponse;
-  export import MassPaymentListResponsesOffsetIntegerPagination = MassPaymentsAPI.MassPaymentListResponsesOffsetIntegerPagination;
-  export import MassPaymentListParams = MassPaymentsAPI.MassPaymentListParams;
+MassPayments.MassPaymentListResponsesOffsetIntegerPagination =
+  MassPaymentListResponsesOffsetIntegerPagination;
+
+export declare namespace MassPayments {
+  export {
+    type MassPaymentListResponse as MassPaymentListResponse,
+    MassPaymentListResponsesOffsetIntegerPagination as MassPaymentListResponsesOffsetIntegerPagination,
+    type MassPaymentListParams as MassPaymentListParams,
+  };
 }

@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as FundingSourcesAPI from './funding-sources';
 
 export class FundingSources extends APIResource {
   /**
@@ -129,7 +128,9 @@ export namespace FundingSourceCreateParams {
   }
 }
 
-export namespace FundingSources {
-  export import FundingSourceListResponse = FundingSourcesAPI.FundingSourceListResponse;
-  export import FundingSourceCreateParams = FundingSourcesAPI.FundingSourceCreateParams;
+export declare namespace FundingSources {
+  export {
+    type FundingSourceListResponse as FundingSourceListResponse,
+    type FundingSourceCreateParams as FundingSourceCreateParams,
+  };
 }

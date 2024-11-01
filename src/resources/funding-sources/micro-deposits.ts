@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as MicroDepositsAPI from './micro-deposits';
 import * as Shared from '../shared';
 
 export class MicroDeposits extends APIResource {
@@ -75,7 +74,9 @@ export namespace MicroDepositInitiateParams {
   }
 }
 
-export namespace MicroDeposits {
-  export import MicroDepositRetrieveResponse = MicroDepositsAPI.MicroDepositRetrieveResponse;
-  export import MicroDepositInitiateParams = MicroDepositsAPI.MicroDepositInitiateParams;
+export declare namespace MicroDeposits {
+  export {
+    type MicroDepositRetrieveResponse as MicroDepositRetrieveResponse,
+    type MicroDepositInitiateParams as MicroDepositInitiateParams,
+  };
 }

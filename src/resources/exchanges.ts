@@ -3,7 +3,6 @@
 import { APIResource } from '../resource';
 import { isRequestOptions } from '../core';
 import * as Core from '../core';
-import * as ExchangesAPI from './exchanges';
 
 export class Exchanges extends APIResource {
   /**
@@ -154,9 +153,11 @@ export namespace ExchangeCreateParams {
   }
 }
 
-export namespace Exchanges {
-  export import ExchangeCreateResponse = ExchangesAPI.ExchangeCreateResponse;
-  export import ExchangeRetrieveResponse = ExchangesAPI.ExchangeRetrieveResponse;
-  export import ExchangeListResponse = ExchangesAPI.ExchangeListResponse;
-  export import ExchangeCreateParams = ExchangesAPI.ExchangeCreateParams;
+export declare namespace Exchanges {
+  export {
+    type ExchangeCreateResponse as ExchangeCreateResponse,
+    type ExchangeRetrieveResponse as ExchangeRetrieveResponse,
+    type ExchangeListResponse as ExchangeListResponse,
+    type ExchangeCreateParams as ExchangeCreateParams,
+  };
 }

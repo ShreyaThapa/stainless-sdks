@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as KbaAPI from './kba';
 
 export class Kba extends APIResource {
   /**
@@ -101,8 +100,10 @@ export namespace KbaVerifyParams {
   }
 }
 
-export namespace Kba {
-  export import KbaRetrieveQuestionsResponse = KbaAPI.KbaRetrieveQuestionsResponse;
-  export import KbaVerifyResponse = KbaAPI.KbaVerifyResponse;
-  export import KbaVerifyParams = KbaAPI.KbaVerifyParams;
+export declare namespace Kba {
+  export {
+    type KbaRetrieveQuestionsResponse as KbaRetrieveQuestionsResponse,
+    type KbaVerifyResponse as KbaVerifyResponse,
+    type KbaVerifyParams as KbaVerifyParams,
+  };
 }

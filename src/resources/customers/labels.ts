@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as LabelsAPI from './labels';
 import { OffsetStringPagination, type OffsetStringPaginationParams } from '../../pagination';
 
 export class Labels extends APIResource {
@@ -95,9 +94,13 @@ export namespace LabelCreateParams {
 
 export interface LabelListParams extends OffsetStringPaginationParams {}
 
-export namespace Labels {
-  export import LabelListResponse = LabelsAPI.LabelListResponse;
-  export import LabelListResponsesOffsetStringPagination = LabelsAPI.LabelListResponsesOffsetStringPagination;
-  export import LabelCreateParams = LabelsAPI.LabelCreateParams;
-  export import LabelListParams = LabelsAPI.LabelListParams;
+Labels.LabelListResponsesOffsetStringPagination = LabelListResponsesOffsetStringPagination;
+
+export declare namespace Labels {
+  export {
+    type LabelListResponse as LabelListResponse,
+    LabelListResponsesOffsetStringPagination as LabelListResponsesOffsetStringPagination,
+    type LabelCreateParams as LabelCreateParams,
+    type LabelListParams as LabelListParams,
+  };
 }
