@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as DocumentsAPI from './documents';
 import * as Shared from '../shared';
 
 export class Documents extends APIResource {
@@ -76,7 +75,9 @@ export interface DocumentCreateParams {
   file?: Core.Uploadable;
 }
 
-export namespace Documents {
-  export import DocumentListResponse = DocumentsAPI.DocumentListResponse;
-  export import DocumentCreateParams = DocumentsAPI.DocumentCreateParams;
+export declare namespace Documents {
+  export {
+    type DocumentListResponse as DocumentListResponse,
+    type DocumentCreateParams as DocumentCreateParams,
+  };
 }

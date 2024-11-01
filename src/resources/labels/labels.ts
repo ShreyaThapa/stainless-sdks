@@ -2,8 +2,14 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as LabelsAPI from './labels';
 import * as LedgerEntriesAPI from './ledger-entries';
+import {
+  LedgerEntries,
+  LedgerEntryCreateParams,
+  LedgerEntryListParams,
+  LedgerEntryListResponse,
+  LedgerEntryListResponsesOffsetStringPagination,
+} from './ledger-entries';
 
 export class Labels extends APIResource {
   ledgerEntries: LedgerEntriesAPI.LedgerEntries = new LedgerEntriesAPI.LedgerEntries(this._client);
@@ -59,12 +65,20 @@ export namespace LabelRemoveResponse {
   }
 }
 
-export namespace Labels {
-  export import LabelRetrieveResponse = LabelsAPI.LabelRetrieveResponse;
-  export import LabelRemoveResponse = LabelsAPI.LabelRemoveResponse;
-  export import LedgerEntries = LedgerEntriesAPI.LedgerEntries;
-  export import LedgerEntryListResponse = LedgerEntriesAPI.LedgerEntryListResponse;
-  export import LedgerEntryListResponsesOffsetStringPagination = LedgerEntriesAPI.LedgerEntryListResponsesOffsetStringPagination;
-  export import LedgerEntryCreateParams = LedgerEntriesAPI.LedgerEntryCreateParams;
-  export import LedgerEntryListParams = LedgerEntriesAPI.LedgerEntryListParams;
+Labels.LedgerEntries = LedgerEntries;
+Labels.LedgerEntryListResponsesOffsetStringPagination = LedgerEntryListResponsesOffsetStringPagination;
+
+export declare namespace Labels {
+  export {
+    type LabelRetrieveResponse as LabelRetrieveResponse,
+    type LabelRemoveResponse as LabelRemoveResponse,
+  };
+
+  export {
+    LedgerEntries as LedgerEntries,
+    type LedgerEntryListResponse as LedgerEntryListResponse,
+    LedgerEntryListResponsesOffsetStringPagination as LedgerEntryListResponsesOffsetStringPagination,
+    type LedgerEntryCreateParams as LedgerEntryCreateParams,
+    type LedgerEntryListParams as LedgerEntryListParams,
+  };
 }

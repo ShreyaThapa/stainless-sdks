@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as TokensAPI from './tokens';
 
 export class Tokens extends APIResource {
   /**
@@ -30,7 +29,9 @@ export interface TokenGenerateParams {
   grant_type: string;
 }
 
-export namespace Tokens {
-  export import TokenGenerateResponse = TokensAPI.TokenGenerateResponse;
-  export import TokenGenerateParams = TokensAPI.TokenGenerateParams;
+export declare namespace Tokens {
+  export {
+    type TokenGenerateResponse as TokenGenerateResponse,
+    type TokenGenerateParams as TokenGenerateParams,
+  };
 }

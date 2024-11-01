@@ -2,10 +2,11 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as TransfersAPI from './transfers';
 import * as Shared from '../shared';
 import * as FailureAPI from './failure';
+import { Failure, FailureRetrieveResponse } from './failure';
 import * as FeesAPI from './fees';
+import { FeeListResponse, Fees } from './fees';
 
 export class Transfers extends APIResource {
   fees: FeesAPI.Fees = new FeesAPI.Fees(this._client);
@@ -239,13 +240,18 @@ export namespace TransferInitiateParams {
   }
 }
 
-export namespace Transfers {
-  export import TransferRetrieveResponse = TransfersAPI.TransferRetrieveResponse;
-  export import TransferCancelResponse = TransfersAPI.TransferCancelResponse;
-  export import TransferCancelParams = TransfersAPI.TransferCancelParams;
-  export import TransferInitiateParams = TransfersAPI.TransferInitiateParams;
-  export import Fees = FeesAPI.Fees;
-  export import FeeListResponse = FeesAPI.FeeListResponse;
-  export import Failure = FailureAPI.Failure;
-  export import FailureRetrieveResponse = FailureAPI.FailureRetrieveResponse;
+Transfers.Fees = Fees;
+Transfers.Failure = Failure;
+
+export declare namespace Transfers {
+  export {
+    type TransferRetrieveResponse as TransferRetrieveResponse,
+    type TransferCancelResponse as TransferCancelResponse,
+    type TransferCancelParams as TransferCancelParams,
+    type TransferInitiateParams as TransferInitiateParams,
+  };
+
+  export { Fees as Fees, type FeeListResponse as FeeListResponse };
+
+  export { Failure as Failure, type FailureRetrieveResponse as FailureRetrieveResponse };
 }

@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as ACHRoutingAPI from './ach-routing';
 import * as Shared from '../shared';
 
 export class ACHRouting extends APIResource {
@@ -22,6 +21,6 @@ export interface ACHRoutingRetrieveResponse {
   routingNumber?: string;
 }
 
-export namespace ACHRouting {
-  export import ACHRoutingRetrieveResponse = ACHRoutingAPI.ACHRoutingRetrieveResponse;
+export declare namespace ACHRouting {
+  export { type ACHRoutingRetrieveResponse as ACHRoutingRetrieveResponse };
 }

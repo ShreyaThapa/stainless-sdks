@@ -6,16 +6,52 @@ import * as Core from '../../core';
 import * as CustomersAPI from './customers';
 import * as Shared from '../shared';
 import * as BeneficialOwnersAPI from './beneficial-owners';
+import {
+  BeneficialOwnerCreateParams,
+  BeneficialOwnerListResponse,
+  BeneficialOwners,
+} from './beneficial-owners';
 import * as BeneficialOwnershipAPI from './beneficial-ownership';
+import {
+  BeneficialOwnership,
+  BeneficialOwnershipCertifyParams,
+  BeneficialOwnershipCertifyResponse,
+  BeneficialOwnershipRetrieveResponse,
+} from './beneficial-ownership';
 import * as DocumentsAPI from './documents';
+import { DocumentCreateParams, DocumentListResponse, Documents } from './documents';
 import * as ExchangesAPI from './exchanges';
+import { ExchangeCreateParams, ExchangeListResponse, Exchanges } from './exchanges';
 import * as FundingSourcesAPI from './funding-sources';
+import { FundingSourceCreateParams, FundingSourceListResponse, FundingSources } from './funding-sources';
 import * as FundingSourcesTokenAPI from './funding-sources-token';
+import { FundingSourcesToken, FundingSourcesTokenCreateResponse } from './funding-sources-token';
 import * as IavTokenAPI from './iav-token';
+import { IavToken, IavTokenCreateResponse } from './iav-token';
 import * as KbaAPI from './kba';
+import { Kba } from './kba';
 import * as LabelsAPI from './labels';
+import {
+  LabelCreateParams,
+  LabelListParams,
+  LabelListResponse,
+  LabelListResponsesOffsetStringPagination,
+  Labels,
+} from './labels';
 import * as MassPaymentsAPI from './mass-payments';
+import {
+  MassPaymentListParams,
+  MassPaymentListResponse,
+  MassPaymentListResponsesOffsetStringPagination,
+  MassPayments,
+} from './mass-payments';
 import * as TransfersAPI from './transfers';
+import {
+  TransferListParams,
+  TransferListResponse,
+  TransferListResponsesOffsetStringPagination,
+  Transfers,
+} from './transfers';
 import { OffsetStringPagination, type OffsetStringPaginationParams } from '../../pagination';
 
 export class Customers extends APIResource {
@@ -879,52 +915,98 @@ export interface CustomerListParams extends OffsetStringPaginationParams {
   status?: string;
 }
 
-export namespace Customers {
-  export import Controller = CustomersAPI.Controller;
-  export import UnverifiedBusinessCustomer = CustomersAPI.UnverifiedBusinessCustomer;
-  export import UnverifiedCustomer = CustomersAPI.UnverifiedCustomer;
-  export import VerifiedBusinessCustomer = CustomersAPI.VerifiedBusinessCustomer;
-  export import VerifiedPersonalCustomer = CustomersAPI.VerifiedPersonalCustomer;
-  export import VerifiedSolePropCustomer = CustomersAPI.VerifiedSolePropCustomer;
-  export import CustomerRetrieveResponse = CustomersAPI.CustomerRetrieveResponse;
-  export import CustomerUpdateResponse = CustomersAPI.CustomerUpdateResponse;
-  export import CustomerListResponse = CustomersAPI.CustomerListResponse;
-  export import CustomerListResponsesOffsetStringPagination = CustomersAPI.CustomerListResponsesOffsetStringPagination;
-  export import CustomerCreateParams = CustomersAPI.CustomerCreateParams;
-  export import CustomerUpdateParams = CustomersAPI.CustomerUpdateParams;
-  export import CustomerListParams = CustomersAPI.CustomerListParams;
-  export import BeneficialOwners = BeneficialOwnersAPI.BeneficialOwners;
-  export import BeneficialOwnerListResponse = BeneficialOwnersAPI.BeneficialOwnerListResponse;
-  export import BeneficialOwnerCreateParams = BeneficialOwnersAPI.BeneficialOwnerCreateParams;
-  export import BeneficialOwnership = BeneficialOwnershipAPI.BeneficialOwnership;
-  export import BeneficialOwnershipRetrieveResponse = BeneficialOwnershipAPI.BeneficialOwnershipRetrieveResponse;
-  export import BeneficialOwnershipCertifyResponse = BeneficialOwnershipAPI.BeneficialOwnershipCertifyResponse;
-  export import BeneficialOwnershipCertifyParams = BeneficialOwnershipAPI.BeneficialOwnershipCertifyParams;
-  export import Documents = DocumentsAPI.Documents;
-  export import DocumentListResponse = DocumentsAPI.DocumentListResponse;
-  export import DocumentCreateParams = DocumentsAPI.DocumentCreateParams;
-  export import Kba = KbaAPI.Kba;
-  export import FundingSources = FundingSourcesAPI.FundingSources;
-  export import FundingSourceListResponse = FundingSourcesAPI.FundingSourceListResponse;
-  export import FundingSourceCreateParams = FundingSourcesAPI.FundingSourceCreateParams;
-  export import FundingSourcesToken = FundingSourcesTokenAPI.FundingSourcesToken;
-  export import FundingSourcesTokenCreateResponse = FundingSourcesTokenAPI.FundingSourcesTokenCreateResponse;
-  export import IavToken = IavTokenAPI.IavToken;
-  export import IavTokenCreateResponse = IavTokenAPI.IavTokenCreateResponse;
-  export import Transfers = TransfersAPI.Transfers;
-  export import TransferListResponse = TransfersAPI.TransferListResponse;
-  export import TransferListResponsesOffsetStringPagination = TransfersAPI.TransferListResponsesOffsetStringPagination;
-  export import TransferListParams = TransfersAPI.TransferListParams;
-  export import MassPayments = MassPaymentsAPI.MassPayments;
-  export import MassPaymentListResponse = MassPaymentsAPI.MassPaymentListResponse;
-  export import MassPaymentListResponsesOffsetStringPagination = MassPaymentsAPI.MassPaymentListResponsesOffsetStringPagination;
-  export import MassPaymentListParams = MassPaymentsAPI.MassPaymentListParams;
-  export import Labels = LabelsAPI.Labels;
-  export import LabelListResponse = LabelsAPI.LabelListResponse;
-  export import LabelListResponsesOffsetStringPagination = LabelsAPI.LabelListResponsesOffsetStringPagination;
-  export import LabelCreateParams = LabelsAPI.LabelCreateParams;
-  export import LabelListParams = LabelsAPI.LabelListParams;
-  export import Exchanges = ExchangesAPI.Exchanges;
-  export import ExchangeListResponse = ExchangesAPI.ExchangeListResponse;
-  export import ExchangeCreateParams = ExchangesAPI.ExchangeCreateParams;
+Customers.CustomerListResponsesOffsetStringPagination = CustomerListResponsesOffsetStringPagination;
+Customers.BeneficialOwners = BeneficialOwners;
+Customers.BeneficialOwnership = BeneficialOwnership;
+Customers.Documents = Documents;
+Customers.Kba = Kba;
+Customers.FundingSources = FundingSources;
+Customers.FundingSourcesToken = FundingSourcesToken;
+Customers.IavToken = IavToken;
+Customers.Transfers = Transfers;
+Customers.TransferListResponsesOffsetStringPagination = TransferListResponsesOffsetStringPagination;
+Customers.MassPayments = MassPayments;
+Customers.MassPaymentListResponsesOffsetStringPagination = MassPaymentListResponsesOffsetStringPagination;
+Customers.Labels = Labels;
+Customers.LabelListResponsesOffsetStringPagination = LabelListResponsesOffsetStringPagination;
+Customers.Exchanges = Exchanges;
+
+export declare namespace Customers {
+  export {
+    type Controller as Controller,
+    type UnverifiedBusinessCustomer as UnverifiedBusinessCustomer,
+    type UnverifiedCustomer as UnverifiedCustomer,
+    type VerifiedBusinessCustomer as VerifiedBusinessCustomer,
+    type VerifiedPersonalCustomer as VerifiedPersonalCustomer,
+    type VerifiedSolePropCustomer as VerifiedSolePropCustomer,
+    type CustomerRetrieveResponse as CustomerRetrieveResponse,
+    type CustomerUpdateResponse as CustomerUpdateResponse,
+    type CustomerListResponse as CustomerListResponse,
+    CustomerListResponsesOffsetStringPagination as CustomerListResponsesOffsetStringPagination,
+    type CustomerCreateParams as CustomerCreateParams,
+    type CustomerUpdateParams as CustomerUpdateParams,
+    type CustomerListParams as CustomerListParams,
+  };
+
+  export {
+    BeneficialOwners as BeneficialOwners,
+    type BeneficialOwnerListResponse as BeneficialOwnerListResponse,
+    type BeneficialOwnerCreateParams as BeneficialOwnerCreateParams,
+  };
+
+  export {
+    BeneficialOwnership as BeneficialOwnership,
+    type BeneficialOwnershipRetrieveResponse as BeneficialOwnershipRetrieveResponse,
+    type BeneficialOwnershipCertifyResponse as BeneficialOwnershipCertifyResponse,
+    type BeneficialOwnershipCertifyParams as BeneficialOwnershipCertifyParams,
+  };
+
+  export {
+    Documents as Documents,
+    type DocumentListResponse as DocumentListResponse,
+    type DocumentCreateParams as DocumentCreateParams,
+  };
+
+  export { Kba as Kba };
+
+  export {
+    FundingSources as FundingSources,
+    type FundingSourceListResponse as FundingSourceListResponse,
+    type FundingSourceCreateParams as FundingSourceCreateParams,
+  };
+
+  export {
+    FundingSourcesToken as FundingSourcesToken,
+    type FundingSourcesTokenCreateResponse as FundingSourcesTokenCreateResponse,
+  };
+
+  export { IavToken as IavToken, type IavTokenCreateResponse as IavTokenCreateResponse };
+
+  export {
+    Transfers as Transfers,
+    type TransferListResponse as TransferListResponse,
+    TransferListResponsesOffsetStringPagination as TransferListResponsesOffsetStringPagination,
+    type TransferListParams as TransferListParams,
+  };
+
+  export {
+    MassPayments as MassPayments,
+    type MassPaymentListResponse as MassPaymentListResponse,
+    MassPaymentListResponsesOffsetStringPagination as MassPaymentListResponsesOffsetStringPagination,
+    type MassPaymentListParams as MassPaymentListParams,
+  };
+
+  export {
+    Labels as Labels,
+    type LabelListResponse as LabelListResponse,
+    LabelListResponsesOffsetStringPagination as LabelListResponsesOffsetStringPagination,
+    type LabelCreateParams as LabelCreateParams,
+    type LabelListParams as LabelListParams,
+  };
+
+  export {
+    Exchanges as Exchanges,
+    type ExchangeListResponse as ExchangeListResponse,
+    type ExchangeCreateParams as ExchangeCreateParams,
+  };
 }

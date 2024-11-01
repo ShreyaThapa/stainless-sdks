@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as FundingSourcesTokenAPI from './funding-sources-token';
 
 export class FundingSourcesToken extends APIResource {
   /**
@@ -31,6 +30,6 @@ export namespace FundingSourcesTokenCreateResponse {
   }
 }
 
-export namespace FundingSourcesToken {
-  export import FundingSourcesTokenCreateResponse = FundingSourcesTokenAPI.FundingSourcesTokenCreateResponse;
+export declare namespace FundingSourcesToken {
+  export { type FundingSourcesTokenCreateResponse as FundingSourcesTokenCreateResponse };
 }

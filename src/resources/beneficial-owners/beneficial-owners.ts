@@ -2,9 +2,9 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as BeneficialOwnersAPI from './beneficial-owners';
 import * as Shared from '../shared';
 import * as DocumentsAPI from './documents';
+import { DocumentCreateParams, DocumentListResponse, Documents } from './documents';
 
 export class BeneficialOwners extends APIResource {
   documents: DocumentsAPI.Documents = new DocumentsAPI.Documents(this._client);
@@ -105,12 +105,19 @@ export namespace BeneficialOwnerUpdateParams {
   }
 }
 
-export namespace BeneficialOwners {
-  export import BeneficialOwnerRetrieveResponse = BeneficialOwnersAPI.BeneficialOwnerRetrieveResponse;
-  export import BeneficialOwnerUpdateResponse = BeneficialOwnersAPI.BeneficialOwnerUpdateResponse;
-  export import BeneficialOwnerDeleteResponse = BeneficialOwnersAPI.BeneficialOwnerDeleteResponse;
-  export import BeneficialOwnerUpdateParams = BeneficialOwnersAPI.BeneficialOwnerUpdateParams;
-  export import Documents = DocumentsAPI.Documents;
-  export import DocumentListResponse = DocumentsAPI.DocumentListResponse;
-  export import DocumentCreateParams = DocumentsAPI.DocumentCreateParams;
+BeneficialOwners.Documents = Documents;
+
+export declare namespace BeneficialOwners {
+  export {
+    type BeneficialOwnerRetrieveResponse as BeneficialOwnerRetrieveResponse,
+    type BeneficialOwnerUpdateResponse as BeneficialOwnerUpdateResponse,
+    type BeneficialOwnerDeleteResponse as BeneficialOwnerDeleteResponse,
+    type BeneficialOwnerUpdateParams as BeneficialOwnerUpdateParams,
+  };
+
+  export {
+    Documents as Documents,
+    type DocumentListResponse as DocumentListResponse,
+    type DocumentCreateParams as DocumentCreateParams,
+  };
 }

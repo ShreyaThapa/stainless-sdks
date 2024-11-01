@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as LedgerEntriesAPI from './ledger-entries';
 
 export class LedgerEntries extends APIResource {
   /**
@@ -31,6 +30,6 @@ export namespace LedgerEntryRetrieveResponse {
   }
 }
 
-export namespace LedgerEntries {
-  export import LedgerEntryRetrieveResponse = LedgerEntriesAPI.LedgerEntryRetrieveResponse;
+export declare namespace LedgerEntries {
+  export { type LedgerEntryRetrieveResponse as LedgerEntryRetrieveResponse };
 }
