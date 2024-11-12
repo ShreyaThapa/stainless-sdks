@@ -108,7 +108,6 @@ const environments = {
   sandbox: 'https://api-sandbox.dwolla.com',
 };
 type Environment = keyof typeof environments;
-
 export interface ClientOptions {
   /**
    * Token for Bearer Authentication
@@ -350,25 +349,6 @@ export class Dwolla extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export {
-  DwollaError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} from './error';
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
 Dwolla.Tokens = Tokens;
 Dwolla.Root = Root;
 Dwolla.Accounts = Accounts;
@@ -391,7 +371,6 @@ Dwolla.WebhookSubscriptions = WebhookSubscriptions;
 Dwolla.Webhooks = Webhooks;
 Dwolla.ExchangePartners = ExchangePartners;
 Dwolla.Exchanges = Exchanges;
-
 export declare namespace Dwolla {
   export type RequestOptions = Core.RequestOptions;
 
@@ -539,5 +518,22 @@ export declare namespace Dwolla {
   export type Passport = API.Passport;
   export type TransferAmount = API.TransferAmount;
 }
+
+export { toFile, fileFromPath } from 'dwolla-stainless-node/uploads';
+export {
+  DwollaError,
+  APIError,
+  APIConnectionError,
+  APIConnectionTimeoutError,
+  APIUserAbortError,
+  NotFoundError,
+  ConflictError,
+  RateLimitError,
+  BadRequestError,
+  AuthenticationError,
+  InternalServerError,
+  PermissionDeniedError,
+  UnprocessableEntityError,
+} from 'dwolla-stainless-node/error';
 
 export default Dwolla;
