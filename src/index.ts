@@ -519,7 +519,7 @@ export declare namespace Dwolla {
   export type TransferAmount = API.TransferAmount;
 }
 
-export { toFile, fileFromPath } from 'dwolla-stainless-node/uploads';
+export { toFile, fileFromPath } from './uploads';
 export {
   DwollaError,
   APIError,
@@ -534,6 +534,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from 'dwolla-stainless-node/error';
+} from './error';
 
 export default Dwolla;
