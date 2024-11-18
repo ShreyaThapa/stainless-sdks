@@ -34,7 +34,7 @@ describe('resource fundingSources', () => {
       name: 'name',
       routingNumber: 'routingNumber',
       _links: { exchange: { href: 'href' } },
-      channels: ['string', 'string', 'string'],
+      channels: ['string'],
     });
   });
 
