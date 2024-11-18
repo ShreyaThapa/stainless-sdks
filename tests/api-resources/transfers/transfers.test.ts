@@ -63,14 +63,12 @@ describe('resource transfers', () => {
       _links: { destination: { href: 'href' }, source: { href: 'href' } },
       amount: { currency: 'USD', value: '5.00' },
       achDetails: {
-        destination: { addenda: { values: ['string', 'string', 'string'] } },
-        source: { addenda: { values: ['string', 'string', 'string'] } },
+        destination: { addenda: { values: ['string'] } },
+        source: { addenda: { values: ['string'] } },
       },
       clearing: { destination: 'destination', source: 'source' },
       correlationId: 'correlationId',
       fees: [
-        { _links: { 'charge-to': { href: 'href' } }, amount: { amount: 'amount', currency: 'currency' } },
-        { _links: { 'charge-to': { href: 'href' } }, amount: { amount: 'amount', currency: 'currency' } },
         { _links: { 'charge-to': { href: 'href' } }, amount: { amount: 'amount', currency: 'currency' } },
       ],
       metadata: {},

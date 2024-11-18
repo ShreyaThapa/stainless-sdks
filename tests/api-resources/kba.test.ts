@@ -30,7 +30,7 @@ describe('resource kba', () => {
   });
 
   test('verify: only required params', async () => {
-    const responsePromise = client.kba.verify('id', { answers: [{}, {}, {}] });
+    const responsePromise = client.kba.verify('id', { answers: [{}] });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -42,11 +42,7 @@ describe('resource kba', () => {
 
   test('verify: required and optional params', async () => {
     const response = await client.kba.verify('id', {
-      answers: [
-        { answerId: 'answerId', questionId: 'questionId' },
-        { answerId: 'answerId', questionId: 'questionId' },
-        { answerId: 'answerId', questionId: 'questionId' },
-      ],
+      answers: [{ answerId: 'answerId', questionId: 'questionId' }],
     });
   });
 });

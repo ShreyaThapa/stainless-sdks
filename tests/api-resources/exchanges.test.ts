@@ -48,16 +48,6 @@ describe('resource exchanges', () => {
                 accountId: 'accountId',
                 product: 'moneyTransferDetails',
               },
-              {
-                accessPeriod: { endTime: '2022-08-16T06:06:20Z', startTime: '2022-07-06', type: 'timeframe' },
-                accountId: 'accountId',
-                product: 'moneyTransferDetails',
-              },
-              {
-                accessPeriod: { endTime: '2022-08-16T06:06:20Z', startTime: '2022-07-06', type: 'timeframe' },
-                accountId: 'accountId',
-                product: 'moneyTransferDetails',
-              },
             ],
             profile: 3,
             receiptId: 'cr_4N47ou7SlppuIxq0ZUtACh10vYcloY',
