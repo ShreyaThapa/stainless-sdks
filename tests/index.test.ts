@@ -254,7 +254,7 @@ describe('instantiate client', () => {
     expect(client.password).toBe('My Password');
   });
 
-  test('with overriden environment variable arguments', () => {
+  test('with overridden environment variable arguments', () => {
     // set options via env var
     process.env['BEARER_TOKEN'] = 'another My Bearer Token';
     process.env['BASIC_AUTH_USERNAME'] = 'another My Username';
