@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as EventsAPI from './events';
 import * as Shared from './shared';
 import { OffsetIntegerPagination, type OffsetIntegerPaginationParams } from '../pagination';
 
@@ -71,9 +70,13 @@ export namespace EventListResponse {
 
 export interface EventListParams extends OffsetIntegerPaginationParams {}
 
-export namespace Events {
-  export import EventRetrieveResponse = EventsAPI.EventRetrieveResponse;
-  export import EventListResponse = EventsAPI.EventListResponse;
-  export import EventListResponsesOffsetIntegerPagination = EventsAPI.EventListResponsesOffsetIntegerPagination;
-  export import EventListParams = EventsAPI.EventListParams;
+Events.EventListResponsesOffsetIntegerPagination = EventListResponsesOffsetIntegerPagination;
+
+export declare namespace Events {
+  export {
+    type EventRetrieveResponse as EventRetrieveResponse,
+    type EventListResponse as EventListResponse,
+    EventListResponsesOffsetIntegerPagination as EventListResponsesOffsetIntegerPagination,
+    type EventListParams as EventListParams,
+  };
 }

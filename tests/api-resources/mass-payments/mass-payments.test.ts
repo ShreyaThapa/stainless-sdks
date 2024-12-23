@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Dwolla from 'dwolla';
+import Dwolla from 'dwolla-stainless-node';
 import { Response } from 'node-fetch';
 
 const client = new Dwolla({
@@ -12,7 +12,7 @@ const client = new Dwolla({
 
 describe('resource massPayments', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.massPayments.create({ _links: {}, items: [{}, {}, {}] });
+    const responsePromise = client.massPayments.create({ _links: {}, items: [{}] });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -34,45 +34,7 @@ describe('resource massPayments', () => {
               href: 'https://api.dwolla.com/funding-sources/9c7f8d57-cd45-4e7a-bf7a-914dbd6131db',
             },
           },
-          achDetails: {
-            destination: {
-              addenda: { values: ['XYZ987_AddendaValue', 'XYZ987_AddendaValue', 'XYZ987_AddendaValue'] },
-            },
-          },
-          amount: { currency: 'USD', value: '5.00' },
-          clearing: { destination: 'next-available' },
-          correlationId: 'ad6ca82d-59f7-45f0-a8d2-94c2cd4e8841',
-          metadata: {},
-          processingChannel: { destination: 'real-time-payments' },
-        },
-        {
-          _links: {
-            destination: {
-              href: 'https://api.dwolla.com/funding-sources/9c7f8d57-cd45-4e7a-bf7a-914dbd6131db',
-            },
-          },
-          achDetails: {
-            destination: {
-              addenda: { values: ['XYZ987_AddendaValue', 'XYZ987_AddendaValue', 'XYZ987_AddendaValue'] },
-            },
-          },
-          amount: { currency: 'USD', value: '5.00' },
-          clearing: { destination: 'next-available' },
-          correlationId: 'ad6ca82d-59f7-45f0-a8d2-94c2cd4e8841',
-          metadata: {},
-          processingChannel: { destination: 'real-time-payments' },
-        },
-        {
-          _links: {
-            destination: {
-              href: 'https://api.dwolla.com/funding-sources/9c7f8d57-cd45-4e7a-bf7a-914dbd6131db',
-            },
-          },
-          achDetails: {
-            destination: {
-              addenda: { values: ['XYZ987_AddendaValue', 'XYZ987_AddendaValue', 'XYZ987_AddendaValue'] },
-            },
-          },
+          achDetails: { destination: { addenda: { values: ['XYZ987_AddendaValue'] } } },
           amount: { currency: 'USD', value: '5.00' },
           clearing: { destination: 'next-available' },
           correlationId: 'ad6ca82d-59f7-45f0-a8d2-94c2cd4e8841',
@@ -80,11 +42,7 @@ describe('resource massPayments', () => {
           processingChannel: { destination: 'real-time-payments' },
         },
       ],
-      achDetails: {
-        source: {
-          addenda: { values: ['ZYX987_AddendaValue', 'ZYX987_AddendaValue', 'ZYX987_AddendaValue'] },
-        },
-      },
+      achDetails: { source: { addenda: { values: ['ZYX987_AddendaValue'] } } },
       clearing: { source: 'next-available' },
       correlationId: 'ad6ca82d-59f7-45f0-a8d2-94c2cd4e8841',
       metadata: {},

@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as RootAPI from './root';
 import * as Shared from './shared';
 
 export class Root extends APIResource {
@@ -18,6 +17,6 @@ export interface RootListResponse {
   _links?: Record<string, Shared.HalLink>;
 }
 
-export namespace Root {
-  export import RootListResponse = RootAPI.RootListResponse;
+export declare namespace Root {
+  export { type RootListResponse as RootListResponse };
 }

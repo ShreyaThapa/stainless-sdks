@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as FeesAPI from './fees';
 import * as Shared from '../shared';
 
 export class Fees extends APIResource {
@@ -42,6 +41,6 @@ export namespace FeeListResponse {
   }
 }
 
-export namespace Fees {
-  export import FeeListResponse = FeesAPI.FeeListResponse;
+export declare namespace Fees {
+  export { type FeeListResponse as FeeListResponse };
 }

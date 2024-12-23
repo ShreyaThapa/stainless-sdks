@@ -1,5 +1,5 @@
-import { createResponseHeaders } from 'dwolla/core';
-import { Headers } from 'dwolla/_shims/index';
+import { createResponseHeaders } from 'dwolla-stainless-node/core';
+import { Headers } from 'dwolla-stainless-node/_shims/index';
 
 describe('response parsing', () => {
   // TODO: test unicode characters

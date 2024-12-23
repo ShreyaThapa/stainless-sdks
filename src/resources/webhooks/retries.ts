@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as RetriesAPI from './retries';
 
 export class Retries extends APIResource {
   /**
@@ -65,6 +64,6 @@ export namespace RetryListResponse {
   }
 }
 
-export namespace Retries {
-  export import RetryListResponse = RetriesAPI.RetryListResponse;
+export declare namespace Retries {
+  export { type RetryListResponse as RetryListResponse };
 }

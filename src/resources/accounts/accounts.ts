@@ -2,11 +2,23 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as AccountsAPI from './accounts';
 import * as Shared from '../shared';
 import * as FundingSourcesAPI from './funding-sources';
+import { FundingSourceListParams, FundingSourceListResponse, FundingSources } from './funding-sources';
 import * as MassPaymentsAPI from './mass-payments';
+import {
+  MassPaymentListParams,
+  MassPaymentListResponse,
+  MassPaymentListResponsesOffsetIntegerPagination,
+  MassPayments,
+} from './mass-payments';
 import * as TransfersAPI from './transfers';
+import {
+  TransferListParams,
+  TransferListResponse,
+  TransferListResponsesOffsetStringPagination,
+  Transfers,
+} from './transfers';
 
 export class Accounts extends APIResource {
   fundingSources: FundingSourcesAPI.FundingSources = new FundingSourcesAPI.FundingSources(this._client);
@@ -63,17 +75,32 @@ export namespace AccountRetrieveResponse {
   }
 }
 
-export namespace Accounts {
-  export import AccountRetrieveResponse = AccountsAPI.AccountRetrieveResponse;
-  export import FundingSources = FundingSourcesAPI.FundingSources;
-  export import FundingSourceListResponse = FundingSourcesAPI.FundingSourceListResponse;
-  export import FundingSourceListParams = FundingSourcesAPI.FundingSourceListParams;
-  export import Transfers = TransfersAPI.Transfers;
-  export import TransferListResponse = TransfersAPI.TransferListResponse;
-  export import TransferListResponsesOffsetStringPagination = TransfersAPI.TransferListResponsesOffsetStringPagination;
-  export import TransferListParams = TransfersAPI.TransferListParams;
-  export import MassPayments = MassPaymentsAPI.MassPayments;
-  export import MassPaymentListResponse = MassPaymentsAPI.MassPaymentListResponse;
-  export import MassPaymentListResponsesOffsetIntegerPagination = MassPaymentsAPI.MassPaymentListResponsesOffsetIntegerPagination;
-  export import MassPaymentListParams = MassPaymentsAPI.MassPaymentListParams;
+Accounts.FundingSources = FundingSources;
+Accounts.Transfers = Transfers;
+Accounts.TransferListResponsesOffsetStringPagination = TransferListResponsesOffsetStringPagination;
+Accounts.MassPayments = MassPayments;
+Accounts.MassPaymentListResponsesOffsetIntegerPagination = MassPaymentListResponsesOffsetIntegerPagination;
+
+export declare namespace Accounts {
+  export { type AccountRetrieveResponse as AccountRetrieveResponse };
+
+  export {
+    FundingSources as FundingSources,
+    type FundingSourceListResponse as FundingSourceListResponse,
+    type FundingSourceListParams as FundingSourceListParams,
+  };
+
+  export {
+    Transfers as Transfers,
+    type TransferListResponse as TransferListResponse,
+    TransferListResponsesOffsetStringPagination as TransferListResponsesOffsetStringPagination,
+    type TransferListParams as TransferListParams,
+  };
+
+  export {
+    MassPayments as MassPayments,
+    type MassPaymentListResponse as MassPaymentListResponse,
+    MassPaymentListResponsesOffsetIntegerPagination as MassPaymentListResponsesOffsetIntegerPagination,
+    type MassPaymentListParams as MassPaymentListParams,
+  };
 }

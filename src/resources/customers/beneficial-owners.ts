@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as BeneficialOwnersAPI from './beneficial-owners';
 import * as Shared from '../shared';
 
 export class BeneficialOwners extends APIResource {
@@ -96,7 +95,9 @@ export namespace BeneficialOwnerCreateParams {
   }
 }
 
-export namespace BeneficialOwners {
-  export import BeneficialOwnerListResponse = BeneficialOwnersAPI.BeneficialOwnerListResponse;
-  export import BeneficialOwnerCreateParams = BeneficialOwnersAPI.BeneficialOwnerCreateParams;
+export declare namespace BeneficialOwners {
+  export {
+    type BeneficialOwnerListResponse as BeneficialOwnerListResponse,
+    type BeneficialOwnerCreateParams as BeneficialOwnerCreateParams,
+  };
 }

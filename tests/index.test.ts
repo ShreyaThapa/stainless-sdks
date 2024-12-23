@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Dwolla from 'dwolla';
-import { APIUserAbortError } from 'dwolla';
-import { Headers } from 'dwolla/core';
+import Dwolla from 'dwolla-stainless-node';
+import { APIUserAbortError } from 'dwolla-stainless-node';
+import { Headers } from 'dwolla-stainless-node/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
 
 describe('instantiate client', () => {
@@ -134,6 +134,25 @@ describe('instantiate client', () => {
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
+  test('normalized method', async () => {
+    let capturedRequest: RequestInit | undefined;
+    const testFetch = async (url: RequestInfo, init: RequestInit = {}): Promise<Response> => {
+      capturedRequest = init;
+      return new Response(JSON.stringify({}), { headers: { 'Content-Type': 'application/json' } });
+    };
+
+    const client = new Dwolla({
+      baseURL: 'http://localhost:5000/',
+      bearerToken: 'My Bearer Token',
+      username: 'My Username',
+      password: 'My Password',
+      fetch: testFetch,
+    });
+
+    await client.patch('/foo');
+    expect(capturedRequest?.method).toEqual('PATCH');
+  });
+
   describe('baseUrl', () => {
     test('trailing slash', () => {
       const client = new Dwolla({
@@ -254,7 +273,7 @@ describe('instantiate client', () => {
     expect(client.password).toBe('My Password');
   });
 
-  test('with overriden environment variable arguments', () => {
+  test('with overridden environment variable arguments', () => {
     // set options via env var
     process.env['BEARER_TOKEN'] = 'another My Bearer Token';
     process.env['BASIC_AUTH_USERNAME'] = 'another My Username';
@@ -396,6 +415,41 @@ describe('retries', () => {
         path: '/foo',
         method: 'get',
         headers: { 'X-Stainless-Retry-Count': null },
+      }),
+    ).toEqual({ a: 1 });
+
+    expect(capturedRequest!.headers as Headers).not.toHaveProperty('x-stainless-retry-count');
+  });
+
+  test('omit retry count header by default', async () => {
+    let count = 0;
+    let capturedRequest: RequestInit | undefined;
+    const testFetch = async (url: RequestInfo, init: RequestInit = {}): Promise<Response> => {
+      count++;
+      if (count <= 2) {
+        return new Response(undefined, {
+          status: 429,
+          headers: {
+            'Retry-After': '0.1',
+          },
+        });
+      }
+      capturedRequest = init;
+      return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
+    };
+    const client = new Dwolla({
+      bearerToken: 'My Bearer Token',
+      username: 'My Username',
+      password: 'My Password',
+      fetch: testFetch,
+      maxRetries: 4,
+      defaultHeaders: { 'X-Stainless-Retry-Count': null },
+    });
+
+    expect(
+      await client.request({
+        path: '/foo',
+        method: 'get',
       }),
     ).toEqual({ a: 1 });
 

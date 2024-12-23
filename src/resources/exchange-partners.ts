@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as ExchangePartnersAPI from './exchange-partners';
 import * as Shared from './shared';
 
 export class ExchangePartners extends APIResource {
@@ -33,6 +32,6 @@ export interface ExchangePartnerRetrieveResponse {
   status?: string;
 }
 
-export namespace ExchangePartners {
-  export import ExchangePartnerRetrieveResponse = ExchangePartnersAPI.ExchangePartnerRetrieveResponse;
+export declare namespace ExchangePartners {
+  export { type ExchangePartnerRetrieveResponse as ExchangePartnerRetrieveResponse };
 }

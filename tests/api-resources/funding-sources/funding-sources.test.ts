@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Dwolla from 'dwolla';
+import Dwolla from 'dwolla-stainless-node';
 import { Response } from 'node-fetch';
 
 const client = new Dwolla({
@@ -34,7 +34,7 @@ describe('resource fundingSources', () => {
       name: 'name',
       routingNumber: 'routingNumber',
       _links: { exchange: { href: 'href' } },
-      channels: ['string', 'string', 'string'],
+      channels: ['string'],
     });
   });
 

@@ -2,9 +2,15 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as MassPaymentsAPI from './mass-payments';
 import * as Shared from '../shared';
 import * as ItemsAPI from './items';
+import {
+  ItemListParams,
+  ItemListResponse,
+  ItemListResponsesOffsetStringPagination,
+  ItemRetrieveResponse,
+  Items,
+} from './items';
 
 export class MassPayments extends APIResource {
   items: ItemsAPI.Items = new ItemsAPI.Items(this._client);
@@ -179,14 +185,22 @@ export interface MassPaymentUpdateParams {
   status: string;
 }
 
-export namespace MassPayments {
-  export import MassPaymentRetrieveResponse = MassPaymentsAPI.MassPaymentRetrieveResponse;
-  export import MassPaymentUpdateResponse = MassPaymentsAPI.MassPaymentUpdateResponse;
-  export import MassPaymentCreateParams = MassPaymentsAPI.MassPaymentCreateParams;
-  export import MassPaymentUpdateParams = MassPaymentsAPI.MassPaymentUpdateParams;
-  export import Items = ItemsAPI.Items;
-  export import ItemRetrieveResponse = ItemsAPI.ItemRetrieveResponse;
-  export import ItemListResponse = ItemsAPI.ItemListResponse;
-  export import ItemListResponsesOffsetStringPagination = ItemsAPI.ItemListResponsesOffsetStringPagination;
-  export import ItemListParams = ItemsAPI.ItemListParams;
+MassPayments.Items = Items;
+MassPayments.ItemListResponsesOffsetStringPagination = ItemListResponsesOffsetStringPagination;
+
+export declare namespace MassPayments {
+  export {
+    type MassPaymentRetrieveResponse as MassPaymentRetrieveResponse,
+    type MassPaymentUpdateResponse as MassPaymentUpdateResponse,
+    type MassPaymentCreateParams as MassPaymentCreateParams,
+    type MassPaymentUpdateParams as MassPaymentUpdateParams,
+  };
+
+  export {
+    Items as Items,
+    type ItemRetrieveResponse as ItemRetrieveResponse,
+    type ItemListResponse as ItemListResponse,
+    ItemListResponsesOffsetStringPagination as ItemListResponsesOffsetStringPagination,
+    type ItemListParams as ItemListParams,
+  };
 }

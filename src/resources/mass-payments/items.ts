@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as ItemsAPI from './items';
 import { OffsetStringPagination, type OffsetStringPaginationParams } from '../../pagination';
 
 export class Items extends APIResource {
@@ -204,9 +203,13 @@ export interface ItemListParams extends OffsetStringPaginationParams {
   status?: string;
 }
 
-export namespace Items {
-  export import ItemRetrieveResponse = ItemsAPI.ItemRetrieveResponse;
-  export import ItemListResponse = ItemsAPI.ItemListResponse;
-  export import ItemListResponsesOffsetStringPagination = ItemsAPI.ItemListResponsesOffsetStringPagination;
-  export import ItemListParams = ItemsAPI.ItemListParams;
+Items.ItemListResponsesOffsetStringPagination = ItemListResponsesOffsetStringPagination;
+
+export declare namespace Items {
+  export {
+    type ItemRetrieveResponse as ItemRetrieveResponse,
+    type ItemListResponse as ItemListResponse,
+    ItemListResponsesOffsetStringPagination as ItemListResponsesOffsetStringPagination,
+    type ItemListParams as ItemListParams,
+  };
 }
